@@ -20,6 +20,6 @@ INDIR=jonson
 OUTDIR=jonson2
 FREQ=44100
 
-for f in `ls $INDIR` ; do    
+for f in `ls $INDIR` ; do
     ecasound -f:16,1,$FREQ -i resample-hq,auto,$INDIR/$f -o $OUTDIR/$f
 done

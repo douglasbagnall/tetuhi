@@ -18,10 +18,9 @@
  */
 #include <Python.h>
 #include "structmember.h"
-#include "dbdebug.h"
-
+#include "../lib/dbdebug.h"
+#include "../lib/pyserf_helpers.c"
 #include "Imaging.h"
-#include "pyserf_helpers.c"
 
 #include "imagescan.h"
 

@@ -31,7 +31,7 @@ cd $DIR
 CAPTURE_NAME='capt0000.jpg'
 
 
-#rm $CAPTURE_NAME 
+#rm $CAPTURE_NAME
 gphoto2 --quiet --capture-image -f /store_00010001 -p $CAPTURE_NAME --force-overwrite
 
 mv $CAPTURE_NAME $BASE_NAME

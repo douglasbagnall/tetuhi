@@ -102,7 +102,7 @@ get_test_net(){
 
 
 static inline int
-show_opinions(nn_Network_t *net, weight_t *inputs, int len, 
+show_opinions(nn_Network_t *net, weight_t *inputs, int len,
 	      weight_t *targets, weight_t threshold){
     int i, j;
     int insize = net->input->insize;
@@ -115,18 +115,18 @@ show_opinions(nn_Network_t *net, weight_t *inputs, int len,
 	printf("[");
 	for (j = 0; j < insize; j++){
 	    printf("%0.4f, ", inputs[j]);
-	}	
-	printf("] -> [");	
+	}
+	printf("] -> [");
 	for (j= 0; j < outsize; j++){
 	    printf("%f, ", opinion[j]);
 	    err += FABS(opinion[j] - targets[j]);
-	} 
+	}
 	int ok = (err / outsize < threshold);
 	pass = pass && ok;
-	printf("] %0.3f  %s \n", 
+	printf("] %0.3f  %s \n",
 	       err / outsize,
 	       ok ? "*": ""
-	       );	
+	       );
 	targets += outsize;
 	inputs += insize;
     }
@@ -139,7 +139,7 @@ show_opinions(nn_Network_t *net, weight_t *inputs, int len,
 
 /* opinion speed test */
 
-void 
+void
 test_opinion_speed(){
     int i;
     int N = 1000000;
@@ -153,12 +153,12 @@ test_opinion_speed(){
     double t = clock();
 
     for (i = 0; i < N; i++){
-	__builtin_prefetch(inputs + (256 / sizeof(weight_t)), 0, 0);	
-	__builtin_prefetch(inputs + (512 / sizeof(weight_t)), 0, 0);	
+	__builtin_prefetch(inputs + (256 / sizeof(weight_t)), 0, 0);
+	__builtin_prefetch(inputs + (512 / sizeof(weight_t)), 0, 0);
 	ticker += *nn_opinion(net, inputs);
 	inputs += 60;
     }
-    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, N); 	    
+    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, N);
     //nn_print_weights(net);
     //debug_network(net);
     nn_delete_network(net);
@@ -174,7 +174,7 @@ test_backprop(){
     int len = TEST_LENGTH;
 
     int count = 6000;
-    double target_diff = 0.00001;    
+    double target_diff = 0.00001;
     int print_every = 0;
     int j;
     int cycles = 20;
@@ -185,17 +185,17 @@ test_backprop(){
     for (j = 0; j < cycles; j++){
 	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
 
-	diff = nn_train_set(net, inputs, targets, 
-			    len, count, TEST_LEARN_RATE, TEST_MOMENTUM, 
+	diff = nn_train_set(net, inputs, targets,
+			    len, count, TEST_LEARN_RATE, TEST_MOMENTUM,
 			    target_diff, print_every);
 
 	diff_sum += diff *diff;
-	printf("diff was %.5f, RMS weights were %.6f\n", diff, 
+	printf("diff was %.5f, RMS weights were %.6f\n", diff,
 	       sqrt(nn_mean_weights_squared(net)));
 
-    }    
+    }
 
-    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles); 
+    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles);
     printf("RMS difference: %.8f\n", sqrt(diff_sum/cycles));
 
     show_opinions(net, inputs, len, targets, TEST_ACCEPTABILITY);
@@ -217,8 +217,8 @@ print_vectors_of_length(nn_Network_t *net, int n){
 	}
 	weight_t *opinion = nn_opinion(net, inputs);
 	char *up = (prev < *opinion) ? "^" : "";
-	prev = *opinion;	
-	printf(" --> %.9f %s\n",  opinion[0], up);	       
+	prev = *opinion;
+	printf(" --> %.9f %s\n",  opinion[0], up);
 
     }
 }
@@ -239,14 +239,14 @@ test_best_of_set(){
     unsigned int misorders = 0, error = 0;
 
     for (j = 0; j < cycles; j++){
-	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);    
+	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
 	diff = nn_learn_best_of_sets(net, inputs, SET_N, sets, count);
 	//debug("diff was %u, RMS weights were %f\n", diff, sqrt(nn_mean_weights_squared(net)));
 	weight_t prev = 1e100;
 	int score = 0;
 	for (i = 0; i < 8; i++){
-	    test[0] = (i & 4) >> 2;  
-	    test[1] = (i & 2) >> 1;  
+	    test[0] = (i & 4) >> 2;
+	    test[1] = (i & 2) >> 1;
 	    test[2] = (i & 1);
 	    weight_t *opinion = nn_opinion(net, test);
 	    //debug("opinion: %p: %f\n", opinion, *opinion);
@@ -254,12 +254,12 @@ test_best_of_set(){
 	    prev = *opinion;
 	}
 	//if(score)
-	    //printf("%d ordering errors\n", score);	
+	    //printf("%d ordering errors\n", score);
 	misorders += score;
 	error += diff;
     }
 
-    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles); 	    
+    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles);
     printf("average %.3f misorders per cycle\n", (double)(misorders)/cycles);
     printf("average %.3f error per cycle\n", (double)(error)/cycles);
     //nn_print_weights(net);
@@ -284,7 +284,7 @@ test_best_of_set_genetic(){
     unsigned int misorders = 0, error = 0;
 
     for (j = 0; j < cycles; j++){
-	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);    
+	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
 	//print_vectors_of_length(net, SET_N);
 	//nn_print_weights(net);
 	diff = nn_learn_best_of_sets_genetic(net, inputs, SET_N, sets, count, population);
@@ -294,8 +294,8 @@ test_best_of_set_genetic(){
 	weight_t prev = 1e100;
 	int score = 0;
 	for (i = 0; i < 8; i++){
-	    test[0] = (i & 4) >> 2;  
-	    test[1] = (i & 2) >> 1;  
+	    test[0] = (i & 4) >> 2;
+	    test[1] = (i & 2) >> 1;
 	    test[2] = (i & 1);
 	    weight_t *opinion = nn_opinion(net, test);
 	    //debug("opinion: %p: %f\n", opinion, *opinion);
@@ -303,12 +303,12 @@ test_best_of_set_genetic(){
 	    prev = *opinion;
 	}
 	//if(score)
-	    //printf("%d ordering errors\n", score);	
+	    //printf("%d ordering errors\n", score);
 	misorders += score;
 	error += diff;
     }
 
-    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles); 	    
+    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles);
     printf("average %.3f misorders per cycle\n", (double)(misorders)/cycles);
     printf("average %.3f error per cycle\n", (double)(error)/cycles);
     //nn_print_weights(net);
@@ -328,7 +328,7 @@ int test_anneal(){
 
     int count = 40000;
 
-    double target_diff = 0.00001;    
+    double target_diff = 0.00001;
     int print_every = 0;
     //print_every = 20000;
     int j;
@@ -341,17 +341,17 @@ int test_anneal(){
     double min_temp = 0.0001;
 
     for (j = 0; j < cycles; j++){
-	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);    
-	diff = nn_anneal_set(net, inputs, targets, 
+	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
+	diff = nn_anneal_set(net, inputs, targets,
 			     len, count, target_diff,
 			     print_every, temperature, sustain, min_temp);
-	//printf("diff was %.5f, RMS weights were %.6f\n", diff, 
+	//printf("diff was %.5f, RMS weights were %.6f\n", diff,
 	//       sqrt(nn_mean_weights_squared(net)));
 	diff_sum += diff *diff;
     }
-    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles); 	    
+    printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles);
     printf("RMS difference: %.8f\n", sqrt(diff_sum/cycles));
-    
+
     show_opinions(net, inputs, len, targets, TEST_ACCEPTABILITY);
 
     nn_print_weights(net);
@@ -400,10 +400,9 @@ int main(){
     nn_Network_t *net = test_backprop();
     test_save(net);
     test_duplicate(net);
-    test_anneal();    
-#endif    
-    test_best_of_set();    
-    test_best_of_set_genetic();    
+    test_anneal();
+#endif
+    test_best_of_set();
+    test_best_of_set_genetic();
     return 0;
 }
-

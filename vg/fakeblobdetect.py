@@ -103,7 +103,7 @@ class BlobFinder:
         return bg, blobs
 
     def __init__(self, *args, **kwargs):
-        
+
         self.entropy = [ random.randrange(2**30) for x in range(64) ]
 
 

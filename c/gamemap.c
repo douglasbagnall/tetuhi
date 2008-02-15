@@ -225,7 +225,7 @@ tt_add_element(tt_gamemap_t* gm, void* bitmap, int bit, int width,
     }
 #if 0
     debug("width: orig %d, true %d, used: %d, height %d,"
-	  " imsize %d, memsize %d, total alloc'd %d\n", width, 
+	  " imsize %d, memsize %d, total alloc'd %d\n", width,
 	  e->true_width, e->width, e->height, imsize, memsize, mem_wanted);
 #endif
     e->image[0] = e->image_mem + IMAGE_OFFSET;
@@ -259,7 +259,7 @@ tt_add_element(tt_gamemap_t* gm, void* bitmap, int bit, int width,
     memcpy(e->imagemask[3] + 3, e->imagemask[0], imsize);
 
     //debug("element %p internal size is (%d, %d)\n", &e, e->width, e->height);
-#if SAVE_MANY_PGMS 
+#if SAVE_MANY_PGMS
 
     int i, j;
     char *filename;

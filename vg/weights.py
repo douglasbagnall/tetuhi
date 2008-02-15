@@ -50,7 +50,7 @@ weight_sets = {
     'ignore':     (null_weights, null_weights),
     'follow':     (null_weights, outer_weights),
     'flock':      ([-1.0 * x for x in inner_weights], outer_weights),
-    
+
     'chase-near': (inner_weights, null_weights),
     'chase':      (inner_weights, outer_weights),
     'flee':       ([-x for x in inner_weights], [-x for x in outer_weights]),
@@ -123,6 +123,3 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
     name = '-'.join(str(x) for x in bit_pattern)
     #net.save_weights('/tmp/%s.weights' % name)
     #net.dump_weights('/tmp/%s.dump' % name)
-
-
-

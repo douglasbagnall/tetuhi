@@ -27,14 +27,14 @@ for opts in \
     " -DLINESCAN=0 -DLOWRES=0 -DFAST_SWEEP=1                " \
     " -DLINESCAN=0 -DLOWRES=0 -DFAST_SWEEP=0                " \
 ; do
-    
+
     make clean
-    #CPPFLAGS2=$opts  make -e 
+    #CPPFLAGS2=$opts  make -e
     echo  CPPFLAGS2=$opts  make -e python-install
     CPPFLAGS2=$opts make -e python-install
     #python test.py -c
     python test.py -s |grep -v '/tmp/test.prof' | grep -v 'Ordered by' | grep -v 'List reduced'  >> /tmp/test-results.txt
-    
+
 done
 
 cd -

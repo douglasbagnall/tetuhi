@@ -32,9 +32,8 @@ def id_generator(start=1, wrap=2000000000, prefix='', suffix='', pattern ='%s%s%
             yield pattern % (prefix, next_id, suffix)
             next_id += 1
 
-
-def make_data_dir(name):
-    d = os.path.join(config.DATA_ROOT, name)
+def make_dir(*args):
+    d = os.path.join(*args)
     if not os.path.exists(d):
         os.makedirs(d)
     return d
@@ -119,8 +118,8 @@ def process_in_fork(function, display, processes, timeout):
         print "got (late) pid %s, status %s" % (pid, status)
         if not status:
             results.append(pid)
-        
-        
+
+
     if children:
         print "getting violent with children %s" % children
         for pid in children: #kill slowcoaches, if any

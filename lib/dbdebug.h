@@ -33,10 +33,10 @@
 #if VERBOSE
 #define vdebug(format, ...) fprintf (stderr, (format),## __VA_ARGS__)
 #else
-#define vdebug(format, ...) 
+#define vdebug(format, ...)
 #endif
 #else
-#define vdebug(format, ...) 
+#define vdebug(format, ...)
 #endif
 
 #endif

@@ -51,7 +51,7 @@ except ImportError:
 from vg import config
 
 class Schema:
-    def __init__(self, fn):        
+    def __init__(self, fn):
         f = open(fn)
         self.data = yaml.load(f, Loader=Loader)
         f.close()
@@ -77,7 +77,7 @@ def yaml_load(filename, reload=RELOAD):
             print e
             data = []
             data_map = {}
-            
+
     if schema is None:
         schema = Schema(config.SCHEMA_FILE)
 
@@ -158,8 +158,8 @@ def randomise():
                            }
                  }
             data.append(s)
-            
-            used += 16                              
+
+            used += 16
             i += 1
     yaml_save(config.SOUND_YAML)
 
@@ -171,4 +171,3 @@ def randomise():
 
 randomise()
 #run()
-

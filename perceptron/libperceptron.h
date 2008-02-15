@@ -108,7 +108,7 @@ typedef struct nn_Interlayer_s{
 
 typedef struct nn_Network_s{
     nn_Layer_t *input;
-    nn_Layer_t *output; 
+    nn_Layer_t *output;
     nn_Layer_t layers[NN_MAX_LAYERS + 1];
     nn_Interlayer_t interlayers[NN_MAX_LAYERS];
     unsigned int depth;
@@ -117,7 +117,7 @@ typedef struct nn_Network_s{
     weight_t *momentums;
     weight_t *deltas;
     size_t *weight_lut;
-    unsigned int weight_lut_size;    
+    unsigned int weight_lut_size;
     size_t weight_alloc_size;
     size_t node_alloc_size;
     size_t total_alloc_bytes;
@@ -156,7 +156,7 @@ typedef struct nn_Network_pool_s{
 
 //nn_ prefix for symmetry
 #define nn_tanh TANH
- 
+
 static inline weight_t nn_detanh(weight_t x){
     return (1.001 - x * x);
 }
@@ -219,9 +219,9 @@ void debug_network(nn_Network_t *);
 
 
 /* table of factors by which to multiply while mutating */
-/*for no particular reason, 
-   [ 1.0 + tan(tan((x+0.5) * 0.0054)) for x in range(1, 129) ] #and inverses, so it multiplies out to 1.0  
-*/ 
+/*for no particular reason,
+   [ 1.0 + tan(tan((x+0.5) * 0.0054)) for x in range(1, 129) ] #and inverses, so it multiplies out to 1.0
+*/
 #define MUTATE_LUT_MUL  2.09764391, 2.07778557, 2.05848347, 2.03971047, 2.02144119, \
                         2.00365184, 1.98632012, 1.96942508, 1.95294706, 1.93686755, \
                         1.92116911, 1.90583533, 1.89085071, 1.87620062, 1.86187124, \

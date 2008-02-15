@@ -114,7 +114,7 @@ def find_conflicts(types):
     if conflicts:
         print "found conflicts %s" % conflicts
     return conflicts
-        
+
 
 def add_rules(player, others):
     """each passed in team gets appended with a set of rules"""
@@ -143,7 +143,7 @@ def mutate_rules(teams, direction):
     #XXX also, make bullet and guided bullet exclusive? somehow.
     used = [x.rules for x in teams]
     non_players = [x for x in NON_PLAYER_TYPES if x not in used]
-    
+
     #XXX probably round the wrong way:
     #better to pick a replacement, and look for the victim --
     # then walls are more likely to stay still
@@ -166,17 +166,15 @@ def mutate_rules(teams, direction):
             #this could be quite wasteful
             print "ignoring rule change %s -> %s" %(victim.rules, rules)
             continue
-        
+
         gain = (rules.sympathy - victim.rules.sympathy) * direction
         if  gain > 0:
             victim.apply_rules(rules)
             break
-    
+
 
 
 def apply_rules(teams, rule_names):
     """the teams get given the named rule sets"""
     for t, name in zip(teams, rule_names):
         t.apply_rules(TYPE_MAP[name])
-    
-

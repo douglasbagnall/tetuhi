@@ -21,8 +21,8 @@
 import ossaudiodev, wave, random
 import os, pickle, shutil
 
-SRC_DIR = '/home/douglas/sounds/tetuhi/' 
-DEST_DIR = '/home/douglas/sounds/tetuhi/categorised' 
+SRC_DIR = '/home/douglas/sounds/tetuhi/'
+DEST_DIR = '/home/douglas/sounds/tetuhi/categorised'
 
 SUB_DIRS = ('faster', 'lower', 'mono', 'reversed', 'slower')
 
@@ -34,7 +34,7 @@ categories2 = dict((v, k) for k, v in categories.items())
 
 
 
-sizes = ((10000, 'short'), (25000, 'medium'), (50000, 'longish'), (100000, 'long'), (99999999,'huge')) 
+sizes = ((10000, 'short'), (25000, 'medium'), (50000, 'longish'), (100000, 'long'), (99999999,'huge'))
 
 
 i = 0
@@ -46,11 +46,8 @@ for fn, c in waves.items():
         for s, size_name in sizes:
             if size < s:
                 break
-            
+
         p2 = os.path.join(DEST_DIR, c2, '%s-%s-%s.wav' %(i, d, size_name))
         shutil.copy(p, p2)
 
     i += 1
-
-    
-

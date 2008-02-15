@@ -25,66 +25,66 @@
 #define INDEX_ERROR(format, ...) PyErr_Format(PyExc_IndexError, (format), ## __VA_ARGS__);
 
 
-static inline int * 
+static inline int *
 int_vector_from_list(int *vector, PyObject *list, int len){
-    unsigned int j;    
+    unsigned int j;
     PyObject *item;
     if (PySequence_Size(list) != len){
 	INDEX_ERROR("vector wrong size %d != %d\n", PySequence_Size(list), len);
 	return NULL;
     }
-    for (j = 0; j < len; j++){	    
+    for (j = 0; j < len; j++){
 	if (! (item = PySequence_GetItem(list, j))){
 	    INDEX_ERROR("could not find %dth item!? ( of %d)\n", j, len);
 	    return NULL;
 	}
 	vector[j] = (int)PyInt_AsLong(item);
-	Py_DECREF(item);	
+	Py_DECREF(item);
     }
     return vector;
 }
 
-static inline double * 
+static inline double *
 double_vector_from_list(double *vector, PyObject *list, int len){
-    unsigned int j;    
+    unsigned int j;
     PyObject *item;
     if (PySequence_Size(list) != len){
 	INDEX_ERROR("vector wrong size %d != %d\n", PySequence_Size(list), len);
 	return NULL;
     }
-    for (j = 0; j < len; j++){	    
+    for (j = 0; j < len; j++){
 	if (! (item = PySequence_GetItem(list, j))){
 	    INDEX_ERROR("could not find %dth item!? ( of %d)\n", j, len);
 	    return NULL;
 	}
 	vector[j] = (double)PyFloat_AsDouble(item);
-	Py_DECREF(item);	
+	Py_DECREF(item);
     }
     return vector;
 }
 
 static inline float *
 float32_vector_from_list(float *vector, PyObject *list, int len){
-    unsigned int j;    
+    unsigned int j;
     PyObject *item;
     if (PySequence_Size(list) != len){
 	INDEX_ERROR("vector wrong size %d != %d\n", PySequence_Size(list), len);
 	return NULL;
     }
-    for (j = 0; j < len; j++){	    
+    for (j = 0; j < len; j++){
 	if (! (item = PySequence_GetItem(list, j))){
 	    INDEX_ERROR("could not find %dth item!? ( of %d)\n", j, len);
 	    return NULL;
 	}
 	vector[j] = (float)PyFloat_AsDouble(item);
-	Py_DECREF(item);	
+	Py_DECREF(item);
     }
     return vector;
 }
 
 
 
-static inline PyObject * 
+static inline PyObject *
 new_list_from_int_vector(int *a, int len){
     PyObject * list = PyList_New(len);
     int i;
@@ -94,7 +94,7 @@ new_list_from_int_vector(int *a, int len){
     return list;
 }
 
-static inline PyObject * 
+static inline PyObject *
 new_list_from_uint8_vector(uint8_t *a, int len){
     PyObject * list = PyList_New(len);
     int i;
@@ -104,7 +104,7 @@ new_list_from_uint8_vector(uint8_t *a, int len){
     return list;
 }
 
-static inline PyObject * 
+static inline PyObject *
 new_list_from_double_vector(double *a, int len){
     PyObject *list = PyList_New(len);
     int i;
@@ -114,7 +114,7 @@ new_list_from_double_vector(double *a, int len){
     return list;
 }
 
-static inline PyObject * 
+static inline PyObject *
 new_list_from_float32_vector(float *a, int len){
     PyObject *list = PyList_New(len);
     int i;
@@ -123,4 +123,3 @@ new_list_from_float32_vector(float *a, int len){
     }
     return list;
 }
-

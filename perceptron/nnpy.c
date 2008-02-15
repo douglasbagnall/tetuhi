@@ -593,7 +593,7 @@ Network_set_single_weight(PyObject *self, PyObject *args)
         return NULL;
     //nn_set_single_weight returns -1 on failure, 0 on success
     if (nn_set_single_weight(((Network_object *)self)->net, interlayer, input, output, value))
-	return PyErr_Format(PyExc_RuntimeError, "couldn't set weight il: %d in:%d out:%d to %d.%d\n", 
+	return PyErr_Format(PyExc_RuntimeError, "couldn't set weight il: %d in:%d out:%d to %d.%d\n",
 			    interlayer, input, output, (int)value, (int)(1000 * (value - trunc(value))));
     return Py_BuildValue("");
 }

@@ -16,4 +16,4 @@
 # You should have received a copy of the GNU General Public License
 # along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
 
-grep "$1" *.py vg/*.py c/*.[ch] img-c/*.[ch] 
+grep "$1" tetuhi vg/*.py c/*.[ch] img-c/*.[ch] 

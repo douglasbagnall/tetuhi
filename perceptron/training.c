@@ -327,7 +327,7 @@ nn_mutate(nn_Network_t *net,
 	  weight_t ** location,
 	  weight_t *value){
     static weight_t add_lut[256] = {MUTATE_LUT_ADD};
-    static weight_t mul_lut[256] = {MUTATE_LUT_MUL};   
+    static weight_t mul_lut[256] = {MUTATE_LUT_MUL};
     int wo = gsl_rng_uniform_int(net->rng, net->weight_lut_size);
     int rnd = gsl_rng_get(net->rng);
     int mo = (rnd >> 8) & 255;//individual bits are supposed to be good.
@@ -679,9 +679,9 @@ nn_random_mutations(nn_Network_t *net, int n){
     weight_t value;
     if(!net->weight_lut && nn_alloc_weight_lut(net) < 0){
 	debug("allocating weight_lut failed!\n");
-	return; //XXX no message 
+	return; //XXX no message
     }
-    for (i = 0;  i < n; i++){       
+    for (i = 0;  i < n; i++){
 	nn_mutate(net, &location, &value);
     }
 }
@@ -732,9 +732,9 @@ nn_learn_generic_genetic (nn_Network_t *net,
 	for (j = 0; j < population; j++){
 	    p = pool[j].net;
 	    nn_mutate(p, &location, &value);
-	    new_state = evaluator(p);		
+	    new_state = evaluator(p);
 	    if (new_state <= pool[j].state ||
-		gsl_rng_uniform(net->rng) * new_state < max(pool[j].state, new_state / 2) 
+		gsl_rng_uniform(net->rng) * new_state < max(pool[j].state, new_state / 2)
 		){
 		pool[j].state = new_state;
 		if (pool[j].state <= 0){

@@ -25,12 +25,12 @@
 /*************** gettin an opinion: **********************
    nn_opinion successively calls calculate interlayer
  **/
-    
-static inline void 
+
+static inline void
 nn_calculate_interlayer(nn_Interlayer_t *il){
-    /*ask for answer from input nodes, multiply by weights, and hand to 
+    /*ask for answer from input nodes, multiply by weights, and hand to
      * output nodes. returns nothing.
-     * 
+     *
      *   ______in,x,cols____
      *  |
      * out,y,rows
@@ -54,12 +54,12 @@ nn_calculate_interlayer(nn_Interlayer_t *il){
 
 
 
-/* calculate output given a set of inputs. 
+/* calculate output given a set of inputs.
 */
 
 static inline weight_t *
 inline_opinion(nn_Network_t *net, weight_t *inputs){
-    int i; 
+    int i;
     weight_t *orig_input_values = net->layers->values;
     net->input->values = inputs;
     for (i = 0; i < (net->depth - 1); i++){
@@ -67,4 +67,4 @@ inline_opinion(nn_Network_t *net, weight_t *inputs){
     }
     net->input->values = orig_input_values;
     return net->output->values;
-} 
+}

@@ -33,7 +33,7 @@ except ImportError:
 
 
 class Schema:
-    def __init__(self, fn):        
+    def __init__(self, fn):
         f = open(fn)
         self.data = yaml.load(f, Loader=Loader)
         f.close()
@@ -58,7 +58,7 @@ def yaml_load(filename, reload=RELOAD):
             print e
             data = []
             data_map = {}
-            
+
     if schema is None:
         schema = Schema(config.SCHEMA_FILE)
     return data
@@ -66,7 +66,7 @@ def yaml_load(filename, reload=RELOAD):
 def yaml_clear():
     global data, data_map, schema
     data = []
-    data_map = {}            
+    data_map = {}
     if schema is None:
         schema = Schema(config.SCHEMA_FILE)
     return data
@@ -76,6 +76,3 @@ def yaml_save(filename):
     f = open(filename, 'w')
     yaml.dump(data, f, Dumper=Dumper)
     f.close()
-
-
-

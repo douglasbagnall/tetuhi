@@ -23,7 +23,7 @@ team sets can have
  [enemy, food, enemy-bullet, player-bullet, moving-enviroment, static-environment, magic?, ally?, enemy2?]
  (~40k or 362k)
 
-9!/(8!) + 9!/2(7!) + 9!/6(6!) + 9!/24(5!) + 9!/5!(4!) + + 9!/6!(3!) 
+9!/(8!) + 9!/2(7!) + 9!/6(6!) + 9!/24(5!) + 9!/5!(4!) + + 9!/6!(3!)
 
 but some combinations are perhaps impossible/implausible
 order is fixed.

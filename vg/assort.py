@@ -78,7 +78,7 @@ class BlobVector(list):
         self.relative_min_distance = self.min_distance / total_mean
 
         s = self.blob
-        #adjustment based on size. 
+        #adjustment based on size.
         ratio = float(s.convex_perimeter) / config.IDEAL_SPRITE_SIZE
         adj = 1 + abs(log(ratio * 3, 3) - 1) ** 4
         #print "blob of size %s has ratio %1.4s -> adj %1.4s." % (s.convex_perimeter, ratio, adj),
@@ -86,7 +86,7 @@ class BlobVector(list):
         #based on obviousness (3 ways of calculating, cumulative)
         for ob, limit in ((s.obviousness, 36.0),
                           (s.obviousness_best, 255.0),
-                          (s.obviousness_sum, 1000.0)): 
+                          (s.obviousness_sum, 1000.0)):
             if ob < limit:
                 adj *= limit / (0.5 + ob)
 
@@ -111,7 +111,7 @@ class BlobVector(list):
             print "edge is too close!"
             adj *= 5000
             self.monster_rating *= 0.7
-            
+
         # adjust for difference from others
         adj /= (self.relative_distance * self.relative_min_distance ** 1.5)
         #adj /= (self.relative_distance + 4 * self.relative_min_distance)
@@ -275,7 +275,7 @@ class TeamFinder:
 
 #------------------------------------------------------------
 
-        
+
 class Arrangement:
     def __init__(self, vplayer, vteams, error):
         #start the teams off with player at bit 1, biggest at bit 2 (enemy)
@@ -285,4 +285,3 @@ class Arrangement:
         self.vectors.extend(reversed([y[1] for y in sorted((len(x), x) for x in vteams)]))
         self.error = error
         #print "made arrangement with player of size %s, error %s" %(vplayer.blob.convex_perimeter, error)
-

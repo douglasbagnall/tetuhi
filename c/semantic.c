@@ -21,7 +21,7 @@
 #include <string.h>
 
 #include "libgamemap.h"
-#include "pyserf_helpers.c"
+#include "../lib/pyserf_helpers.c"
 
 /* headers. */
 
@@ -56,7 +56,7 @@ Gamemap___new__ (PyTypeObject *type, PyObject *args, PyObject *keywds)
     if (! self){
 	PyErr_Format(PyExc_MemoryError, "failed to create object");
 	return NULL;
-    }    
+    }
     self->clumpiness = 0;
     self->n_bits = 0;
     while (block_size > 1){
@@ -91,9 +91,9 @@ Gamemap___del__ (PyObject *self)
     "Find the things enclosed by the convex hull surrounding a\n"\
     "set of points. The points need to be in a flattened sequence\n" \
     "(ie: [x1,y1, x2,y2, ...]).\n"\
-    "The returned integer is a bit map of the things present\n" 
+    "The returned integer is a bit map of the things present\n"
 
-static PyObject * 
+static PyObject *
 Gamemap_region_contents(Gamemap_object *self, PyObject *args)
 {
     PyObject *py_points;
@@ -225,7 +225,7 @@ Gamemap_add_element (Gamemap_object *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "iiis#", &width, &height, &bit, &bitmap, &length))
         return NULL;
     if (length != width * height){
-	return PyErr_Format(PyExc_ValueError, "width %d, height %d doesn't match string length %d\n", 
+	return PyErr_Format(PyExc_ValueError, "width %d, height %d doesn't match string length %d\n",
 			    width, height, length);
     }
 
@@ -365,11 +365,11 @@ static PyObject *
 Gamemap_get_size(Gamemap_object *self, void* context)
 {
     tt_gamemap_t *gm = self->map;
-    return Py_BuildValue("(ii)", gm->width << self->clumpiness, 
+    return Py_BuildValue("(ii)", gm->width << self->clumpiness,
 			 gm->height << self->clumpiness);
 }
 
-/*clumpiness */ 
+/*clumpiness */
 static PyObject *
 Gamemap_get_clumpiness(Gamemap_object *self, void* context)
 {

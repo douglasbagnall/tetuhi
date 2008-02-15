@@ -112,7 +112,7 @@ blob_fast_median9(int32_t** in32, int32_t** out32, int width32, int height){
 
     //top and bottom rows
     for (x = 4; x < width - 4; x++){
-	if ((x & 3) != 3){	   
+	if ((x & 3) != 3){
 	    MEDIAN(x, 0,  0,1,1,1);
 	    MEDIAN(x, height - 1,  1,0,1,1);
 	}

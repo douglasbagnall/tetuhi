@@ -41,7 +41,7 @@
 #define SAVE_MANY_PGMS DEBUG_IMG
 
 
-#include "dbdebug.h"
+#include "../lib/dbdebug.h"
 
 #define MAX_ELEMENTS 4096
 
@@ -57,7 +57,7 @@ typedef struct tt_element_s{
     int width;
     int true_width; /*for detecting edge of stage */
     int height;
-    bitmap_t *image_mem;     
+    bitmap_t *image_mem;
     bitmap_t *image[4];
     bitmap_t *imagemask[4];
     int bit;
@@ -101,15 +101,15 @@ void tt_prescan_clear(tt_gamemap_t* gm);
 void tt_print_options(void);
 bitmap_t tt_search_region(tt_gamemap_t* gm, tt_point_t points[], int n_points);
 
-void tt_scan_zones(tt_gamemap_t* gm, bitmap_t *finds, int rect[4], 
+void tt_scan_zones(tt_gamemap_t* gm, bitmap_t *finds, int rect[4],
 		   int zones[], unsigned int n_zones, int orientation, int verbose);
 
 bitmap_t tt_touching_figure(tt_gamemap_t* gm, int shape, int x, int y);
 
 
 #define BITMAP_OF_BITS  0
-#define BITMAP_OF_BYTES 1 
-#define BITMAP_OF_INTS  2 
+#define BITMAP_OF_BYTES 1
+#define BITMAP_OF_INTS  2
 
 
 #define BITMAP_EDGE_BIT 0

@@ -22,8 +22,8 @@ INDIR=$1
 
 cd $INDIR
 
-for f in `ls ` ; do    
-    echo $f 
+for f in `ls ` ; do
+    echo $f
     sox $f  $f-slower.wav speed 0.6667
     sox $f  $f-faster.wav speed 1.3333
     sox $f  $f-lower.wav key -500 40

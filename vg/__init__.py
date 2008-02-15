@@ -17,3 +17,5 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 """
+#this file does nothing other than, by virtue of its name, it makes
+#the contents of this directory into a python package.

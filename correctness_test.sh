@@ -31,7 +31,7 @@ for opts in \
     " -DLINESCAN=0 -DLOWRES=0 -DPRESCAN=0 -DFAST_SWEEP=1                                " \
     " -DLINESCAN=0 -DLOWRES=0 -DPRESCAN=0 -DFAST_SWEEP=0                                " \
 ; do
-    
+
     make clean
     CPPFLAGS2=$opts make -e python-install
     python test.py -c

@@ -23,9 +23,9 @@ SLOWER=slower
 REVERSED=reversed
 FREQ=44100
 
-for f in `ls $INDIR` ; do    
+for f in `ls $INDIR` ; do
     g=$f.wav
-    echo $f 
+    echo $f
     sox $INDIR/$f -r $FREQ -2 -c 1 $OUTDIR/$g
     sox $OUTDIR/$g  $SLOWER/$g speed 0.6667
     sox $OUTDIR/$g  $LOWER/$g key -500 40

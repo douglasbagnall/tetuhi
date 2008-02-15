@@ -94,7 +94,7 @@ sortpoints(tt_point_t pairs[], tt_point_t lefts[], tt_point_t rights[],
     /* search for the outermost angled points. if two are the same angle, pick
        the later (lower) one.
 
-       XXX this algorithm is closely duplicated in find__outermost_angle in ../img-c/img.c 
+       XXX this algorithm is closely duplicated in find__outermost_angle in ../img-c/img.c
     */
     while(lp < points_n){
 	int dx = pairs[lp].x - lefts[lo].x;
@@ -303,7 +303,7 @@ square_lowres_scan(tt_gamemap_t *gm, int top, int left, int bottom, int right, b
     for (row = top; row <= bottom; row++){
 	slowscan(map + width * row, &found, (uint32_t)left, (uint32_t)right);
 	if (found == expected){
-	    break;	
+	    break;
 	}
     }
     //debug("expected %2x, found %2x\n", expected, found);
@@ -535,14 +535,14 @@ scan(tt_gamemap_t *gm, tt_point_t lefts[], tt_point_t rights[], int lsize, int r
 	    if (found == expected){
 		break;
 	    }
-	}	
+	}
     }
-#if 0    
+#if 0
     /*XXX probably due to dirtiness outside the visible gamemap area ?*/
     if (found & ~ expected){
 	debug("found %2x (%2x more than expected %2x)\n", found, found & ~ expected, expected);
     }
-#endif	
+#endif
 #if DEBUG_POINTS
     debug("real scan found %x (down from %x) in points:\n", found, expected);
     debug_points(lefts, lsize);

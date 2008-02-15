@@ -22,7 +22,6 @@ import pygame, os, random
 
 from vg import config, utils, weights
 from vg.misc import GameOver
-#from vg.nonsense import NameFactory
 from vg.rules import TYPE_MAP
 from vg import magic
 
@@ -48,7 +47,7 @@ class ImageInfo:
 
         self.silhouette = silhouette
         silhouette.load()
-        
+
         self.offset = actor.game.map.add_element(silhouette.size[0],
                                                  silhouette.size[1],
                                                  actor.team.bit,
@@ -129,20 +128,20 @@ class Actor(pygame.sprite.Sprite):
         self.x, self.y = pos
         im = self.images[orientation]
         self.image = im.picture
-        
+
         hw = im.width // 2
         hh = im.height // 2
-        if self.x < 0: 
+        if self.x < 0:
             self.x = hw
         elif self.x >= config.WORKING_SIZE[0]:
             self.x = config.WORKING_SIZE[0] - hw
-        if self.y < hh: 
+        if self.y < hh:
             self.y = hh
         elif self.y >= config.WORKING_SIZE[1]:
             self.y = config.WORKING_SIZE[1] - hh
         if pos != (self.x, self.y):
             print "pos %s shifted to %s, %s in reset"
-            
+
 
         self.rect = self.image.get_rect()
         self.rect.centerx = self.x
@@ -199,7 +198,7 @@ class Actor(pygame.sprite.Sprite):
             n = self.team.inputs_per_type
             b = config.PLAYER_BIT * n
             inputs[b : b + n] = [0] * n
-        
+
         direction, self.feedback, self.best, self.firing = self.team.navigate(inputs)
 
         if direction == 'stop':
@@ -249,7 +248,7 @@ class Actor(pygame.sprite.Sprite):
         hit = self.game.map.touching_figure(self.bitmap, self.left + dx, self.top + dy)
         #if self.team.net is None or self.team.bit == 1:
         #    print "%s has hit %s. self.orientation %s, direction %s, dx %s, dy %s" %(self, hit, self.orientation, direction, dx, dy)
-            
+
         if hit & self.team.die_bits:
             print "bit %s hit mask %s at %s. die bits are %s" % (self.team.bit, hit, (self.left + dx, self.top + dy), self.team.die_bits)
             if not hit & self.team.block_bits:
@@ -283,7 +282,7 @@ class Actor(pygame.sprite.Sprite):
 
         self.hit = hit # for chatter
         self.game.map.set_figure(self.bitmap, self.left, self.top)
-            
+
 
     def chatter(self):
         return self.team.chatter(self)
@@ -323,7 +322,7 @@ class Actor(pygame.sprite.Sprite):
         i = self.dying_image
         self.image = i.picture
         self.rect = (self.x - (i.width >> 1), self.y - (i.height >> 1), i.width, i.height)
-        
+
     def die(self):
         self.state = DYING
         self.game.addscore(self.team.score)
@@ -332,12 +331,12 @@ class Actor(pygame.sprite.Sprite):
     def die2(self):
         #make sure it is gone
         self.state = DEAD
-        print "sprite %s is DEAD" % self        
+        print "sprite %s is DEAD" % self
         self.oldrect = (0,0,0,0)
         self.game.map.clear_figure(self.bitmap, self.left, self.top)
         if self.team.bit == config.PLAYER_BIT:
             self.game.end()
-        
+
         #self.visible = False
 
     def resuscitate(self, player):
@@ -347,7 +346,7 @@ class Actor(pygame.sprite.Sprite):
         if self.width > config.WORKING_SIZE[0] // 2 or self.height > config.WORKING_SIZE[1] // 2:
             #leave too big ones out of it.
             return False
-        
+
         x = random.randrange(config.WORKING_SIZE[0] - self.width)
         y = random.randrange(config.WORKING_SIZE[1] - self.height)
         hit = self.game.map.touching_figure(self.bitmap, x, y)
@@ -358,7 +357,7 @@ class Actor(pygame.sprite.Sprite):
         y += self.height // 2
         #XXX not quite the right calculation
         if (abs(x - player.x) - abs(y - player.y) +
-            (player.width + self.width + player.height + self.height) // 2 <            
+            (player.width + self.width + player.height + self.height) // 2 <
             config.MIN_RESUSCITATE_DISTANCE):
             return False
         self.dying_animation()
@@ -486,7 +485,6 @@ if config.SOUND:
 
 class Team:
     #from type rules
-    #new_team_name = NameFactory(3, ['config/animal_names.txt']).name
     excited_threshold = 0.9
     _mind_lut = {
         'complex'  :(16, config.ACTOR_ZONES),
@@ -497,11 +495,11 @@ class Team:
         }
 
     falling = False
-    
+
     def chatter(self, sprite):
         #XXX don't repeat if another in the team is saying the same
         #XXX shift this out into
-        if config.SOUND:        
+        if config.SOUND:
             excited = sprite.best > self.excited_threshold
             if excited: #do something trickier?
                 #excitement comes in waves? (each team out of sync)
@@ -630,7 +628,7 @@ class Team:
                 self.block_bits &= ~(2 ** i)
             if x in dies:
                 self.die_bits |= 2 ** i
-                self.block_bits &= ~(2 ** i) #can't  be blocked by your killers                
+                self.block_bits &= ~(2 ** i) #can't  be blocked by your killers
             if x in fires:
                 print x, i, self.game.teams
                 print "type %s is firing %s (team %s)" %(self, x, self.game.teams[i - 1])
@@ -640,7 +638,7 @@ class Team:
                     f.team.start_playing = False
                 self.fires = True
                 self.firing_threshold = 0.66
-                
+
         if self.inputs_per_type:
             self.grow_mind()
         else:
@@ -651,11 +649,11 @@ class Team:
         if self.rules.magic:
             self.magic_effect = random.choice(magic.effects)
         self.score = self.rules.score
-        
+
 
     def do_magic(self):
         self.game.apply_magic(self.magic_effect)
-        
+
 
     def pick_sounds(self, exclude):
         """attempt to pick a sound set that is in a different category
@@ -680,7 +678,7 @@ class Team:
 
 
     def intro(self):
-        if len(self.sprites) == 1:            
+        if len(self.sprites) == 1:
             s = self.rules.intro_single
         else:
             s = self.rules.intro_plural
@@ -704,7 +702,7 @@ class Team:
         if self.fires:
             fire = answer[len(self.directions)] > self.firing_threshold
             self.firing_threshold += (fire * 0.01 - 0.005)
-            #print answer[len(self.directions)] 
+            #print answer[len(self.directions)]
         else:
             fire = False
         return direction, feedback, best, fire
@@ -727,9 +725,9 @@ class Team:
                 s.inexorable_force = (config.BULLET_SPEED * dx, config.BULLET_SPEED * dy)
                 if self.falling:
                     s.inexorable_force = (s.inexorable_force[0],
-                                          s.inexorable_force[1] + 1) 
+                                          s.inexorable_force[1] + 1)
                 print "fired a missile"
                 sprite.fired = True #chatter
                 return
-            
+
         print "didn't fire, nothing to shoot with"

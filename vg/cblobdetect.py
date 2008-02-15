@@ -46,7 +46,7 @@ class Blob:
         self.bgcolours = picture.usedcolours
         self.obviousness_best = first.obviousness_best
         self.obviousness_sum = first.obviousness_sum
-        #self.obviousness_global = 
+        #self.obviousness_global =
         og = first.obviousness_global * first.volume
         for e in self.elements[1:]:
             left = min(e.pos[0], left)
@@ -61,9 +61,9 @@ class Blob:
             self.obviousness_best = max(self.obviousness_best, e.obviousness_best)
             self.obviousness_sum += e.obviousness_sum
             og += e.obviousness_global * e.volume
-            
+
         self.obviousness_global = og / self.volume
-            
+
         self.pos = (left, top, right, bottom)
         self.width = right - left
         self.height = bottom - top
@@ -72,8 +72,8 @@ class Blob:
     def viable(self):
         """true if it is big  enough to survive."""
         return (self.width > 1 and self.height > 1 and
-                self.obviousness_best > config.MIN_OBVIOUSNESS_BLOB and 
-                self.obviousness_sum > config.MIN_OBVIOUSNESS_BLOB_SUM and 
+                self.obviousness_best > config.MIN_OBVIOUSNESS_BLOB and
+                self.obviousness_sum > config.MIN_OBVIOUSNESS_BLOB_SUM and
                 self.obviousness_global > config.MIN_OBVIOUSNESS_BLOB_GLOBAL)
 
 
@@ -106,8 +106,8 @@ class Blob:
 
         self.tiny = self.convex_perimeter <= config.TINY_SPRITE_SIZE
         self.huge = self.convex_perimeter > config.HUGE_SPRITE_SIZE
-        self.aspect = float(self.height) / self.width 
-        
+        self.aspect = float(self.height) / self.width
+
         q1, q2, q3, q4 = imagescan.symmetry(spix)
         self.leftheavy = (q1 - q2 + q3 - q4)
         self.topheavy = (q1 - q3 + q2 - q4)
@@ -117,7 +117,7 @@ class Blob:
         sim = Image.new('L', self.im.size)
         self.solidity = imagescan.solidity(pix, sim.load())
         if config.PROLIFIC_SAVES:
-            sim.save('/tmp/solidity-%d-%d-%d-%d.png' % self.pos)            
+            sim.save('/tmp/solidity-%d-%d-%d-%d.png' % self.pos)
             #save convexity image
             dbim.save('/tmp/convex-%d-%d-%d-%d.png' % self.pos)
 
@@ -155,7 +155,7 @@ class Blob:
         w, h = self.width, self.height
         if self.crowded and scale is None:
             scale = 0.8
-        
+
         if scale is not None:
             w = int (w * scale)
             h = int (h * scale)
@@ -165,7 +165,7 @@ class Blob:
             plain = [picture, silhouette]
             diag = [x.resize((w * 39 // 40, h  * 39 // 40)) for x in plain]
             return [plain, diag] * 4
-                        
+
         elif team_style == 'mirror':
             right = [picture, silhouette]
             if w < 5 or h < 5:
@@ -188,26 +188,26 @@ class Blob:
             return [up, centre, right, centre, down, centre, left, centre]
 
 
-        else: #'directional'            
+        else: #'directional'
             ims = [(picture.rotate(x, expand=True), silhouette.rotate(x, expand=True))
                    for x in angles]
             #for p, s in ims:
             #    print p.size, s.size
             return ims
 
-    def dying_image(self):        
+    def dying_image(self):
         im = Image.new('RGBA', self.im.size, (0,0,0,0))
         pix = self.im.im.pixel_access()
         #print im, self.im, im.load(), self.im.load()
         imagescan.scramble(im.load(), pix)
         #second image, further scrambled
-        #im2 = Image.new('RGBA', self.im.size, (0,0,0,0))        
+        #im2 = Image.new('RGBA', self.im.size, (0,0,0,0))
         #imagescan.scramble(im2.load(), im.load())
-        if config.PROLIFIC_SAVES:        
-            im.save('/tmp/dying-%d-%d-%d-%d.png' % self.pos)            
-            #im2.save('/tmp/dying2-%d-%d-%d-%d.png' % self.pos)            
+        if config.PROLIFIC_SAVES:
+            im.save('/tmp/dying-%d-%d-%d-%d.png' % self.pos)
+            #im2.save('/tmp/dying2-%d-%d-%d-%d.png' % self.pos)
 
-        
+
         return im
 
 
@@ -259,8 +259,8 @@ class Element:
     def too_big(self):
         v1 = self.volume > self.im.size[0] * self.im.size[1] / 3
         v2 = self.volume > self.im.size[0] * self.im.size[1] / 4
-        e = self.mask.size[0] == self.im.size[0] and self.mask.size[1] == self.im.size[1] 
-        return v1 or (e and v2) 
+        e = self.mask.size[0] == self.im.size[0] and self.mask.size[1] == self.im.size[1]
+        return v1 or (e and v2)
 
     def viable(self):
         #true if the element is of a size that could survive as a blob by itself
@@ -377,7 +377,7 @@ def crosslink_elements(elements):
                     #config.TINY_VOLUME is quite a big bigger than config.TINY_SPRITE_SIZE
                     c *= 2
                     #print "tiny: connected is now %s" % c
-                    
+
                 d = e1.colour_distance(e2)
                 #print d
                 if d > 15:
@@ -424,7 +424,7 @@ class BlobFinder:
 
         orig = Image.open(filename)
         shrunk = stretch(orig, config.WORKING_SIZE)
-        median = fast_median(shrunk)        
+        median = fast_median(shrunk)
         if config.USE_CHROMA_KEY:
             median = avoid_chromakey(median)
 
@@ -480,7 +480,7 @@ class BlobFinder:
             if len(blobs) >= min_blobs:
                 break
 
-                
+
         #there are enough blobs -- but are there too many?
         # for this hardish maximum, go right down to a low threshold of connection.
         print "threshold is %d, blobs are %d, max_blobs %d, thrshold min %d" % \
@@ -539,7 +539,7 @@ class BlobFinder:
         except IndexError, e:
             print e
             raise ParseError("Sorry, I can't find the game here.")
-        
+
         self.usedcolours.append(colour)
         print "clearing background colour %s" % (colour,)
 

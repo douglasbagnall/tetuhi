@@ -47,11 +47,11 @@ class GameMaker:
         can be found, a SriteError might be raised."""
         g = Game(self.background, self.sprites, self.window, entropy=self.entropy)
         g.grow_rules_in_fork()
-        g.finalise_rules() 
+        g.finalise_rules()
         g.finalise_display() #sets up sprites and ties sound to the window.
         return g
 
-    def evolve_game(self, fork=True):        
+    def evolve_game(self, fork=True):
         #entropy gets rotated, so each game evolves differently. (unless config.PROCESSES is large (160 or so))
         entropy = self.entropy[:]
         games = []
@@ -60,7 +60,7 @@ class GameMaker:
             g = Game(self.background, self.sprites, entropy=entropy)
             g.grow_rules_in_fork()
             games.append(g)
-                        
+
         running = {}
         #run each game's evolution in its own process
         for game in games:

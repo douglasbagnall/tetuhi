@@ -21,11 +21,11 @@
 import ossaudiodev, wave, random
 import os, pickle
 
-SRC_DIR = '.' 
+SRC_DIR = '.'
 OUT_FILE = '/tmp/sound_categories'
 
 class Player:
-    def __init__(self):    
+    def __init__(self):
         out = ossaudiodev.open('w')
         out.channels(1)
         out.setfmt(ossaudiodev.AFMT_S16_LE)
@@ -54,12 +54,12 @@ class Classifier:
         keys = self.categories.keys()
         keys.sort()
         index = ['%4s: %20s' %(x, self.categories[x]) for x in keys]
-        if len(index) < 4:            
+        if len(index) < 4:
             self.prompt += '\n'.join(index)
         else:
             self.prompt += '\n'.join(("%s %s" % x for x in zip(index, index[len(index)/2])))
-            
-        
+
+
 
     def _categorise(self, fn):
         print self.prompt
@@ -67,7 +67,7 @@ class Classifier:
         while a == '':
             player.play(os.path.join(self.directory, fn))
             a = raw_input('> ').strip()
-        
+
         if a in self.categories:
             self.store[fn] = self.categories[a]
         else:
@@ -77,7 +77,7 @@ class Classifier:
                 self.categories[a] = b
                 self.store[fn] = b
                 self.regenerate_prompt()
-            
+
     def categorise(self):
         for fn in self.files:
             self._categorise(fn)
@@ -92,4 +92,3 @@ if __name__ == '__main__':
     player = Player()
     c = Classifier(player, SRC_DIR)
     c.categorise()
-    

@@ -16,6 +16,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include <Python.h>
+
 #define GAPPY_SPRITES 1
 #define BUCKET_BITS 6
 #define BUCKETS (1 << BUCKET_BITS)
@@ -106,4 +108,3 @@ static inline void debug_image(ImagingObject *im)
     debug("pixelsize: '%d'\n", im->image->pixelsize);
     debug("linesize:  '%d'\n", im->image->linesize);
 }
-

@@ -46,18 +46,18 @@ class Attractor:
         try:
             while True:
                 for text in (config.INSTRUCTIONS_CYCLE,
-                             config.CREDITS_CYCLE):                    
+                             config.CREDITS_CYCLE):
                     self.text_cycle(text)
                     self.replay(12)
-                    
+
         except AttractEscape:
             #take the photo here? or in the outer loop?
             return self.take_photo()
-        
+
 
     def take_photo(self):
         """Trigger the camera in a background process, and wait for the picture to arrive"""
-
+        utils.make_dir(config.PHOTO_DIRECTORY)
         filename = os.path.join(config.PHOTO_DIRECTORY, time.strftime("%Y-%m-%d_%H-%M-%S/original.jpg"))
         def photograph():
             os.system(config.CAMERA_SCRIPT + ' ' + filename)
@@ -70,9 +70,9 @@ class Attractor:
         utils.process_in_fork(photograph, display, 1, config.CAMERA_TIMEOUT)
         #XXX need error checking
         return filename
-                
 
-        
+
+
     def remember_game(self, game):
         """save the game so it can be used for attractive replays"""
         self.last_game = game
@@ -86,7 +86,7 @@ class Attractor:
 
         self.window.text_cycle(filename, fire_handler=fire_handler)
 
-            
+
     def replay(self, duration):
         if self.last_game:
             self.last_game.play(replay=duration)
@@ -98,5 +98,3 @@ class Attractor:
         self.window.unwrite()
         self.window.notice(str(exception))
         self.window.alert_pause(5)
-
-                

@@ -156,6 +156,7 @@ class Game:
 
     def grow_rules_in_fork(self):
         """make rules, in background processes"""
+        utils.make_dir(config.DATA_ROOT)
 
         def grow():
             best = self._grow_rules()
@@ -380,7 +381,7 @@ class Game:
     def pickle_essentials(self, dirname=None):
         if dirname is None:
             dirname = self.identity
-        d = utils.make_data_dir(dirname)
+        d = make_dir(config.DATA_ROOT, dirname)
 
         fn = os.path.join(d, "game.pickle")
         utils.pickle([self.score], fn)
@@ -391,7 +392,7 @@ class Game:
     def unpickle_essentials(self, dirname=None):
         if dirname is None:
             dirname = self.identity
-            d = utils.make_data_dir(dirname)
+            d = make_dir(config.DATA_ROOT, dirname)
 
         fn = os.path.join(d, "game.pickle")
         data = utils.unpickle(fn)

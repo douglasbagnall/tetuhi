@@ -21,7 +21,7 @@ DIR=~/tetuhi/audio
 
 for d in `ls $DIR`; do
     cd $DIR/$d
-    for f in `ls *.wav`; do	
+    for f in `ls *.wav`; do
 	gain=$(sox $f -n stat -v  2>&1)
 	calc=$(perl -e '$g = pop; print (($g > 25) ? (25.0+$g)/50 : (($g <6.0) ? (6+$g)/12.0 :1.0))' $gain)
 	echo gain for $f is $gain. calc is $calc
@@ -29,4 +29,3 @@ for d in `ls $DIR`; do
 	mv $f-2.wav $f
     done
 done
-

@@ -106,7 +106,7 @@ def gravity_effect(game):
     def start():
         if game.player_team.falling:
             #don't want to increas gravity beyond 1
-            return 
+            return
         for s in game.sprites:
             s.inexorable_force = (s.inexorable_force[0], s.inexorable_force[1] + 1)
         for t in game.teams:
@@ -118,7 +118,7 @@ def gravity_effect(game):
             s.inexorable_force = (s.inexorable_force[0], s.inexorable_force[1] - 1)
         for t in game.teams:
             t.falling = False
-            
+
     return Effect("gravity", start, finish, TIMEOUT, "everything is falling!")
 
 
@@ -131,7 +131,7 @@ def fast_player_effect(game):
     def start():
         team.steps = [(x * 3 // 2, y * 3 // 2, i) for x, y, i in team.steps]
 
-    def finish(): 
+    def finish():
         game.score_redraw = True
         team.steps = team.original_steps
 

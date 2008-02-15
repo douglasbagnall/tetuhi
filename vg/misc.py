@@ -50,4 +50,3 @@ class GameStop(Exception):
 class CycleJump(Exception):
     def __init__(self, jump):
         self.jump = jump
-

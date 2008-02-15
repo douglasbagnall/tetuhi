@@ -492,7 +492,7 @@ class Window:
         text = x.get('text')
         delay = x.get('delay', 3)
         directory = kwargs.pop('directory', '')
-        if im:            
+        if im:
             try:
                 if directory:
                     im = os.path.join(directory, im)
