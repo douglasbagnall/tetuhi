@@ -159,6 +159,10 @@ if __name__ == '__main__':
         except ImportError:
             print "running without Psyco!"
 
+    utils.make_dir(config.LOG_ROOT)
+    utils.make_dir(config.DATA_ROOT)
+    utils.make_dir(config.PHOTO_DIRECTORY)
+
 
     #NOW stuff actually happens
     window = Window(config.WINDOW_SIZE, capture=options.capture)

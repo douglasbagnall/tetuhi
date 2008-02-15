@@ -57,7 +57,7 @@ class Attractor:
 
     def take_photo(self):
         """Trigger the camera in a background process, and wait for the picture to arrive"""
-        utils.make_dir(config.PHOTO_DIRECTORY)
+        #utils.make_dir(config.PHOTO_DIRECTORY)
         filename = os.path.join(config.PHOTO_DIRECTORY, time.strftime("%Y-%m-%d_%H-%M-%S/original.jpg"))
         def photograph():
             os.system(config.CAMERA_SCRIPT + ' ' + filename)

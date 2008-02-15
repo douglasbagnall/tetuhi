@@ -84,6 +84,7 @@ PROCESS_TIMEOUT = 30
 CAMERA_TIMEOUT = 15
 
 DATA_ROOT = './data'
+LOG_ROOT = './log'
 LOG_FORMAT = './log/%s.log'
 CHILD_LOG = './log/child.log'
 CONFIG_ROOT = './config'

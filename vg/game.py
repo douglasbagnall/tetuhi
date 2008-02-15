@@ -156,7 +156,7 @@ class Game:
 
     def grow_rules_in_fork(self):
         """make rules, in background processes"""
-        utils.make_dir(config.DATA_ROOT)
+        #utils.make_dir(config.DATA_ROOT)
 
         def grow():
             best = self._grow_rules()
