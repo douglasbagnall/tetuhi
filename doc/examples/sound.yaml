@@ -1,0 +1,2164 @@
+# Copyright (C) 2008 Douglas Bagnall
+#
+# This file is part of Te Tuhi Video Game System, or Te Tuhi for short.
+#
+# Te Tuhi is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# Te Tuhi is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
+
+# This is an example sound configuration file. The soundset that it
+# uses can be downloaded from
+# https://sourceforge.net/project/showfiles.php?group_id=217385
+# to use it you would go
+#
+# ./tetuhi -S path/to/this/file
+#
+# NB: this format is likely to change.
+
+
+- directory: d
+  name: d_3
+  sounds:
+    hit: [556-reversed-medium.wav, 425-lower-medium.wav, 401-mono-medium.wav,
+      653-lower-medium.wav, 79-faster-medium.wav, 556-lower-medium.wav, 170-reversed-medium.wav,
+      284-mono-medium.wav]
+    excited: [538-reversed-medium.wav, 79-lower-medium.wav, 721-reversed-medium.wav,
+      38-faster-medium.wav, 170-slower-medium.wav, 727-mono-medium.wav, 685-reversed-longish.wav,
+      758-lower-longish.wav]
+    fire: [538-mono-medium.wav]
+    blocked: [738-mono-medium.wav]
+    misc: [601-lower-longish.wav, 506-slower-longish.wav, 492-lower-longish.wav, 511-lower-longish.wav,
+      451-slower-longish.wav, 427-lower-longish.wav, 64-lower-longish.wav, 453-slower-longish.wav,
+      794-slower-longish.wav, 639-slower-longish.wav]
+    turning: [425-faster-medium.wav, 795-lower-medium.wav, 738-mono-medium.wav, 22-reversed-medium.wav,
+      65-reversed-medium.wav, 477-faster-medium.wav, 247-lower-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_0
+  sounds:
+    hit: [682-reversed-longish.wav, 546-faster-longish.wav, 366-slower-longish.wav,
+      201-lower-longish.wav, 261-reversed-longish.wav, 762-lower-longish.wav, 493-faster-medium.wav,
+      493-reversed-longish.wav]
+    excited: [573-reversed-longish.wav, 233-slower-longish.wav, 452-slower-longish.wav,
+      699-lower-longish.wav, 343-reversed-longish.wav, 141-reversed-longish.wav, 572-lower-longish.wav,
+      263-slower-longish.wav]
+    fire: [792-reversed-longish.wav]
+    blocked: [684-lower-medium.wav]
+    misc: [140-reversed-longish.wav, 351-faster-longish.wav, 182-mono-longish.wav,
+      275-slower-longish.wav, 178-slower-longish.wav, 122-faster-long.wav, 769-lower-long.wav,
+      767-slower-huge.wav, 662-faster-huge.wav, 285-slower-huge.wav]
+    turning: [611-faster-short.wav, 329-reversed-short.wav, 684-lower-medium.wav,
+      489-reversed-medium.wav, 390-faster-medium.wav, 396-faster-medium.wav, 412-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: c
+  name: c_2
+  sounds:
+    hit: [741-faster-medium.wav, 27-lower-medium.wav, 280-lower-longish.wav, 280-reversed-longish.wav,
+      163-slower-medium.wav, 360-mono-medium.wav, 718-faster-medium.wav, 732-slower-medium.wav]
+    excited: [424-faster-longish.wav, 361-mono-longish.wav, 558-mono-longish.wav,
+      258-lower-longish.wav, 424-lower-longish.wav, 370-reversed-longish.wav, 370-lower-longish.wav,
+      356-mono-long.wav]
+    fire: [95-slower-longish.wav]
+    blocked: [95-slower-longish.wav]
+    misc: [469-faster-long.wav, 50-mono-long.wav, 743-lower-long.wav, 214-slower-long.wav,
+      515-mono-long.wav, 697-mono-long.wav, 354-lower-long.wav, 210-lower-long.wav,
+      288-reversed-long.wav, 515-slower-huge.wav]
+    turning: [571-mono-short.wav, 181-reversed-medium.wav, 157-lower-medium.wav,
+      157-faster-short.wav, 365-faster-medium.wav, 503-mono-medium.wav, 610-lower-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: c
+  name: c_4
+  sounds:
+    hit: [426-mono-medium.wav, 779-faster-medium.wav, 733-lower-medium.wav, 95-faster-medium.wav,
+      426-lower-medium.wav, 779-mono-medium.wav, 695-slower-medium.wav, 426-reversed-medium.wav]
+    excited: [718-lower-longish.wav, 689-mono-longish.wav, 312-slower-longish.wav,
+      779-slower-longish.wav, 211-reversed-longish.wav, 214-lower-longish.wav, 361-lower-longish.wav,
+      483-mono-longish.wav]
+    fire: [418-lower-longish.wav]
+    blocked: [90-lower-short.wav]
+    misc: [356-reversed-long.wav, 697-lower-long.wav, 1-slower-long.wav, 756-mono-long.wav,
+      756-lower-long.wav, 536-slower-long.wav, 697-slower-huge.wav, 469-slower-huge.wav,
+      460-slower-huge.wav, 210-slower-huge.wav]
+    turning: [27-faster-medium.wav, 181-faster-short.wav, 732-reversed-medium.wav,
+      90-lower-short.wav, 164-reversed-medium.wav, 561-mono-medium.wav, 331-mono-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: q
+  name: q_0
+  sounds:
+    hit: [542-mono-long.wav, 626-mono-long.wav, 542-reversed-long.wav, 277-reversed-long.wav,
+      542-lower-long.wav, 485-reversed-long.wav, 277-mono-long.wav, 626-lower-long.wav]
+    excited: [710-mono-long.wav, 710-reversed-long.wav, 594-lower-long.wav, 594-reversed-long.wav,
+      574-slower-long.wav, 619-reversed-long.wav, 619-lower-long.wav, 127-mono-long.wav]
+    fire: [534-mono-long.wav]
+    blocked: [626-lower-long.wav]
+    misc: [537-mono-long.wav, 346-mono-huge.wav, 594-slower-huge.wav, 609-faster-huge.wav,
+      580-faster-huge.wav, 550-mono-huge.wav, 609-mono-huge.wav, 135-reversed-huge.wav,
+      135-lower-huge.wav, 580-slower-huge.wav]
+    turning: [776-lower-longish.wav, 292-reversed-medium.wav, 292-faster-short.wav,
+      277-faster-long.wav, 292-lower-medium.wav, 574-reversed-long.wav, 431-mono-long.wav]
+  suitability: [monster, ally, food]
+- directory: b
+  name: b_2
+  sounds:
+    hit: [318-lower-medium.wav, 666-faster-medium.wav, 630-lower-medium.wav, 774-reversed-medium.wav,
+      787-reversed-longish.wav, 726-faster-longish.wav, 3-faster-medium.wav, 408-mono-medium.wav]
+    excited: [723-mono-longish.wav, 493-mono-longish.wav, 97-mono-longish.wav, 527-reversed-longish.wav,
+      638-mono-longish.wav, 726-lower-longish.wav, 699-reversed-longish.wav, 409-reversed-longish.wav]
+    fire: [266-reversed-longish.wav]
+    blocked: [266-reversed-longish.wav]
+    misc: [220-mono-longish.wav, 57-lower-longish.wav, 742-faster-longish.wav, 527-slower-longish.wav,
+      562-lower-long.wav, 603-lower-long.wav, 578-lower-long.wav, 578-mono-long.wav,
+      46-slower-huge.wav, 302-mono-huge.wav]
+    turning: [382-reversed-medium.wav, 148-lower-medium.wav, 559-mono-short.wav,
+      539-slower-short.wav, 136-slower-medium.wav, 156-faster-short.wav, 714-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_3
+  sounds:
+    hit: [736-faster-medium.wav, 551-slower-medium.wav, 652-faster-medium.wav,
+      209-mono-medium.wav, 403-lower-medium.wav, 80-reversed-medium.wav, 233-mono-medium.wav,
+      582-reversed-medium.wav]
+    excited: [722-slower-medium.wav, 434-mono-longish.wav, 250-slower-longish.wav,
+      701-faster-longish.wav, 39-reversed-longish.wav, 178-lower-longish.wav, 590-slower-longish.wav,
+      750-slower-longish.wav]
+    fire: [294-slower-medium.wav]
+    blocked: [742-slower-long.wav]
+    misc: [691-slower-longish.wav, 747-reversed-longish.wav, 705-slower-long.wav,
+      764-mono-long.wav, 153-slower-long.wav, 562-slower-long.wav, 215-slower-long.wav,
+      459-slower-long.wav, 742-slower-long.wav, 447-slower-huge.wav]
+    turning: [523-reversed-short.wav, 467-mono-medium.wav, 410-reversed-medium.wav,
+      256-faster-medium.wav, 661-reversed-short.wav, 785-mono-medium.wav, 692-lower-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_4
+  sounds:
+    hit: [657-mono-medium.wav, 698-lower-medium.wav, 461-faster-medium.wav, 239-mono-medium.wav,
+      408-faster-medium.wav, 183-mono-medium.wav, 545-lower-medium.wav, 60-mono-medium.wav]
+    excited: [144-faster-medium.wav, 396-lower-medium.wav, 674-lower-medium.wav, 691-reversed-longish.wav,
+      183-slower-longish.wav, 642-slower-longish.wav, 407-slower-longish.wav, 474-lower-longish.wav]
+    fire: [706-lower-medium.wav]
+    blocked: [698-lower-medium.wav]
+    misc: [97-reversed-longish.wav, 573-lower-longish.wav, 98-mono-longish.wav, 328-reversed-longish.wav,
+      707-slower-long.wav, 656-mono-long.wav, 153-lower-long.wav, 482-faster-long.wav,
+      680-slower-huge.wav, 51-slower-huge.wav]
+    turning: [382-lower-medium.wav, 4-faster-medium.wav, 15-mono-medium.wav,
+      391-slower-short.wav, 584-mono-short.wav, 148-mono-medium.wav, 655-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_9
+  sounds:
+    hit: [509-faster-medium.wav, 519-slower-medium.wav, 698-faster-medium.wav,
+      86-faster-medium.wav, 207-mono-medium.wav, 640-mono-medium.wav, 759-faster-medium.wav,
+      655-reversed-medium.wav]
+    excited: [579-faster-longish.wav, 768-slower-longish.wav, 406-slower-longish.wav,
+      343-faster-longish.wav, 249-mono-longish.wav, 395-reversed-longish.wav, 110-lower-longish.wav,
+      412-slower-longish.wav]
+    fire: [412-reversed-medium.wav]
+    blocked: [509-faster-medium.wav]
+    misc: [228-reversed-longish.wav, 328-lower-longish.wav, 474-slower-longish.wav,
+      704-faster-longish.wav, 739-lower-longish.wav, 147-slower-longish.wav, 351-reversed-long.wav,
+      18-slower-long.wav, 106-mono-long.wav, 93-slower-huge.wav]
+    turning: [155-faster-short.wav, 661-mono-short.wav, 329-lower-short.wav,
+      560-lower-short.wav, 297-reversed-short.wav, 729-faster-short.wav, 378-reversed-short.wav]
+  suitability: [player, ally, food]
+- directory: i
+  name: i_0
+  sounds:
+    hit: [254-faster-medium.wav, 576-lower-short.wav, 190-reversed-medium.wav,
+      564-lower-short.wav, 576-mono-short.wav, 190-lower-medium.wav, 190-faster-medium.wav,
+      271-reversed-short.wav]
+    excited: [114-mono-medium.wav, 114-reversed-medium.wav, 227-reversed-medium.wav,
+      333-faster-medium.wav, 278-mono-longish.wav, 81-slower-longish.wav, 464-faster-longish.wav,
+      70-slower-longish.wav]
+    fire: [81-lower-medium.wav]
+    blocked: [271-reversed-short.wav]
+    misc: [344-faster-longish.wav, 344-lower-long.wav, 755-reversed-long.wav, 476-faster-long.wav,
+      417-lower-long.wav, 417-mono-long.wav, 192-slower-huge.wav, 563-slower-huge.wav,
+      645-mono-huge.wav, 645-reversed-huge.wav]
+    turning: [271-faster-short.wav, 468-reversed-short.wav, 471-slower-short.wav,
+      34-faster-short.wav, 88-faster-short.wav, 471-lower-short.wav, 468-mono-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_8
+  sounds:
+    hit: [462-reversed-medium.wav, 736-lower-longish.wav, 374-reversed-longish.wav,
+      762-faster-medium.wav, 674-faster-medium.wav, 481-faster-medium.wav, 383-reversed-medium.wav,
+      638-faster-longish.wav]
+    excited: [524-mono-longish.wav, 481-reversed-longish.wav, 527-mono-longish.wav,
+      484-mono-longish.wav, 774-slower-longish.wav, 385-slower-longish.wav, 234-faster-longish.wav,
+      398-mono-longish.wav]
+    fire: [263-mono-longish.wav]
+    blocked: [240-slower-short.wav]
+    misc: [261-slower-longish.wav, 140-lower-longish.wav, 773-mono-long.wav, 773-reversed-long.wav,
+      699-slower-long.wav, 153-reversed-long.wav, 57-slower-long.wav, 131-slower-long.wav,
+      635-reversed-long.wav, 106-slower-huge.wav]
+    turning: [523-faster-short.wav, 4-mono-medium.wav, 49-faster-medium.wav,
+      382-faster-medium.wav, 463-faster-medium.wav, 560-slower-medium.wav, 240-slower-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_6
+  sounds:
+    hit: [176-faster-medium.wav, 101-mono-medium.wav, 49-lower-medium.wav, 643-reversed-medium.wav,
+      605-reversed-medium.wav, 184-lower-medium.wav, 627-reversed-medium.wav, 372-faster-medium.wav]
+    excited: [298-lower-medium.wav, 396-mono-medium.wav, 323-lower-longish.wav, 461-mono-longish.wav,
+      83-faster-longish.wav, 266-lower-longish.wav, 650-reversed-longish.wav, 572-faster-longish.wav]
+    fire: [238-reversed-medium.wav]
+    blocked: [591-mono-short.wav]
+    misc: [146-lower-longish.wav, 362-faster-longish.wav, 180-mono-longish.wav, 648-reversed-longish.wav,
+      47-lower-longish.wav, 6-reversed-longish.wav, 357-mono-longish.wav, 709-mono-long.wav,
+      228-slower-long.wav, 767-faster-long.wav]
+    turning: [523-lower-short.wav, 729-lower-short.wav, 480-faster-short.wav,
+      591-mono-short.wav, 559-reversed-short.wav, 519-mono-short.wav, 137-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: s
+  name: s_6
+  sounds:
+    hit: [186-slower-medium.wav, 303-lower-medium.wav, 116-faster-medium.wav,
+      29-faster-longish.wav, 421-faster-medium.wav, 48-faster-medium.wav, 570-mono-longish.wav,
+      166-reversed-medium.wav]
+    excited: [196-slower-longish.wav, 303-slower-longish.wav, 289-lower-longish.wav,
+      29-reversed-longish.wav, 191-lower-longish.wav, 777-faster-longish.wav, 734-slower-longish.wav,
+      225-slower-longish.wav]
+    fire: [191-faster-longish.wav]
+    blocked: [67-faster-long.wav]
+    misc: [668-lower-long.wav, 668-mono-long.wav, 113-slower-long.wav, 581-mono-long.wav,
+      67-faster-long.wav, 472-mono-long.wav, 472-reversed-long.wav, 784-faster-huge.wav,
+      168-lower-huge.wav, 513-mono-huge.wav]
+    turning: [413-faster-short.wav, 265-reversed-short.wav, 607-faster-short.wav,
+      677-slower-medium.wav, 349-faster-medium.wav, 641-mono-medium.wav, 577-reversed-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_12
+  sounds:
+    hit: [735-lower-medium.wav, 395-faster-medium.wav, 7-mono-medium.wav, 207-slower-medium.wav,
+      735-reversed-medium.wav, 307-faster-medium.wav, 382-slower-medium.wav, 406-lower-medium.wav]
+    excited: [736-mono-longish.wav, 201-reversed-longish.wav, 623-slower-longish.wav,
+      638-lower-longish.wav, 766-lower-longish.wav, 167-faster-longish.wav, 428-mono-longish.wav,
+      562-faster-longish.wav]
+    fire: [374-mono-longish.wav]
+    blocked: [664-reversed-long.wav]
+    misc: [747-mono-longish.wav, 543-faster-longish.wav, 69-faster-long.wav, 567-mono-long.wav,
+      749-lower-long.wav, 5-faster-long.wav, 664-reversed-long.wav, 586-mono-long.wav,
+      371-faster-huge.wav, 152-slower-huge.wav]
+    turning: [137-reversed-medium.wav, 630-mono-medium.wav, 156-slower-medium.wav,
+      80-mono-medium.wav, 252-faster-medium.wav, 378-faster-short.wav, 137-lower-medium.wav]
+  suitability: [player, ally, food]
+- directory: s
+  name: s_5
+  sounds:
+    hit: [444-slower-medium.wav, 196-lower-medium.wav, 734-reversed-longish.wav,
+      570-reversed-longish.wav, 225-mono-longish.wav, 317-lower-medium.wav, 166-mono-medium.wav,
+      570-faster-medium.wav]
+    excited: [85-reversed-longish.wav, 341-slower-longish.wav, 606-mono-longish.wav,
+      279-slower-longish.wav, 289-slower-long.wav, 671-reversed-long.wav, 29-slower-long.wav,
+      198-mono-long.wav]
+    fire: [671-faster-longish.wav]
+    blocked: [472-slower-huge.wav]
+    misc: [777-mono-long.wav, 777-lower-long.wav, 597-mono-long.wav, 472-faster-long.wav,
+      191-slower-long.wav, 470-lower-long.wav, 472-slower-huge.wav, 168-faster-huge.wav,
+      513-reversed-huge.wav, 350-reversed-huge.wav]
+    turning: [641-reversed-medium.wav, 607-slower-medium.wav, 577-lower-medium.wav,
+      281-lower-short.wav, 413-mono-short.wav, 433-mono-medium.wav, 0-reversed-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: m
+  name: m_1
+  sounds:
+    hit: [246-reversed-medium.wav, 716-mono-medium.wav, 230-reversed-longish.wav,
+      61-faster-medium.wav, 68-mono-longish.wav, 553-slower-medium.wav, 583-slower-longish.wav,
+      321-mono-longish.wav]
+    excited: [593-slower-long.wav, 73-reversed-long.wav, 62-slower-long.wav, 255-reversed-long.wav,
+      103-faster-long.wav, 13-faster-long.wav, 529-reversed-long.wav, 373-reversed-long.wav]
+    fire: [319-slower-longish.wav]
+    blocked: [286-slower-huge.wav]
+    misc: [103-mono-long.wav, 13-reversed-long.wav, 231-faster-long.wav, 658-reversed-huge.wav,
+      796-faster-huge.wav, 272-slower-huge.wav, 286-slower-huge.wav, 753-reversed-huge.wav,
+      87-reversed-huge.wav, 793-slower-huge.wav]
+    turning: [557-mono-medium.wav, 380-reversed-medium.wav, 429-faster-short.wav,
+      45-reversed-short.wav, 429-lower-short.wav, 479-reversed-medium.wav, 120-faster-short.wav]
+  suitability: [environment]
+- directory: b
+  name: b_11
+  sounds:
+    hit: [403-reversed-medium.wav, 630-reversed-medium.wav, 652-reversed-medium.wav,
+      219-reversed-medium.wav, 187-faster-medium.wav, 770-lower-medium.wav, 19-lower-medium.wav,
+      524-faster-medium.wav]
+    excited: [674-reversed-medium.wav, 340-lower-medium.wav, 434-lower-longish.wav,
+      372-lower-longish.wav, 395-lower-longish.wav, 142-slower-longish.wav, 462-slower-longish.wav,
+      213-faster-longish.wav]
+    fire: [77-reversed-medium.wav]
+    blocked: [630-reversed-medium.wav]
+    misc: [102-mono-longish.wav, 510-mono-longish.wav, 39-slower-longish.wav, 348-faster-longish.wav,
+      276-faster-longish.wav, 203-slower-longish.wav, 459-lower-long.wav, 752-lower-long.wav,
+      603-slower-long.wav, 132-slower-huge.wav]
+    turning: [2-slower-medium.wav, 791-faster-short.wav, 155-mono-short.wav,
+      724-reversed-medium.wav, 174-reversed-short.wav, 467-reversed-medium.wav, 391-mono-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_37
+  sounds:
+    hit: [698-mono-medium.wav, 314-lower-medium.wav, 3-mono-longish.wav, 318-mono-medium.wav,
+      19-mono-medium.wav, 124-reversed-medium.wav, 110-faster-medium.wav, 330-reversed-medium.wav]
+    excited: [481-lower-longish.wav, 260-reversed-longish.wav, 726-mono-longish.wav,
+      47-reversed-longish.wav, 736-slower-longish.wav, 654-slower-longish.wav, 514-slower-longish.wav,
+      748-reversed-long.wav]
+    fire: [723-lower-longish.wav]
+    blocked: [330-reversed-medium.wav]
+    misc: [206-lower-long.wav, 295-faster-long.wav, 414-mono-long.wav, 194-mono-long.wav,
+      216-slower-long.wav, 107-lower-long.wav, 499-faster-long.wav, 679-slower-long.wav,
+      69-reversed-long.wav, 586-reversed-long.wav]
+    turning: [519-reversed-short.wav, 785-faster-short.wav, 239-faster-medium.wav,
+      430-mono-short.wav, 15-faster-medium.wav, 480-mono-short.wav, 53-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: d
+  name: d_6
+  sounds:
+    hit: [197-mono-medium.wav, 197-lower-medium.wav, 401-reversed-medium.wav,
+      795-slower-medium.wav, 738-slower-medium.wav, 79-mono-medium.wav, 646-mono-medium.wav,
+      477-reversed-medium.wav]
+    excited: [653-slower-medium.wav, 772-slower-medium.wav, 197-slower-longish.wav,
+      336-lower-longish.wav, 526-mono-longish.wav, 526-lower-longish.wav, 694-mono-longish.wav,
+      427-reversed-longish.wav]
+    fire: [782-reversed-medium.wav]
+    blocked: [772-slower-medium.wav]
+    misc: [794-reversed-longish.wav, 262-lower-longish.wav, 402-lower-longish.wav,
+      64-reversed-longish.wav, 685-slower-longish.wav, 616-slower-longish.wav, 427-slower-longish.wav,
+      262-slower-longish.wav, 118-lower-longish.wav, 118-slower-long.wav]
+    turning: [795-mono-medium.wav, 556-faster-medium.wav, 795-faster-short.wav,
+      189-faster-medium.wav, 121-faster-medium.wav, 795-reversed-medium.wav, 653-faster-medium.wav]
+  suitability: [monster, player]
+- directory: f
+  name: f_0
+  sounds:
+    hit: [393-reversed-long.wav, 208-mono-long.wav, 771-lower-long.wav, 565-reversed-long.wav,
+      315-mono-long.wav, 377-faster-long.wav, 393-lower-long.wav, 264-faster-long.wav]
+    excited: [339-faster-huge.wav, 393-slower-huge.wav, 512-mono-huge.wav, 512-reversed-huge.wav,
+      315-slower-huge.wav, 478-faster-huge.wav, 237-slower-huge.wav, 218-lower-huge.wav]
+    fire: [33-lower-long.wav]
+    blocked: [339-slower-huge.wav]
+    misc: [311-reversed-huge.wav, 264-slower-huge.wav, 440-reversed-huge.wav, 720-lower-huge.wav,
+      384-reversed-huge.wav, 384-lower-huge.wav, 339-slower-huge.wav, 436-slower-huge.wav,
+      440-slower-huge.wav, 478-slower-huge.wav]
+    turning: [208-faster-long.wav, 154-lower-long.wav, 549-mono-longish.wav, 549-lower-longish.wav,
+      745-faster-medium.wav, 521-faster-long.wav, 771-faster-long.wav]
+  suitability: [monster, environment, food]
+- directory: b
+  name: b_7
+  sounds:
+    hit: [545-mono-medium.wav, 731-mono-medium.wav, 364-reversed-medium.wav, 147-faster-medium.wav,
+      590-lower-medium.wav, 77-mono-medium.wav, 406-reversed-medium.wav, 183-faster-medium.wav]
+    excited: [675-lower-longish.wav, 691-mono-longish.wav, 249-reversed-longish.wav,
+      92-lower-longish.wav, 702-slower-longish.wav, 182-faster-longish.wav, 144-slower-longish.wav,
+      131-reversed-longish.wav]
+    fire: [663-slower-medium.wav]
+    blocked: [400-mono-long.wav]
+    misc: [400-mono-long.wav, 400-reversed-long.wav, 525-slower-long.wav, 215-lower-long.wav,
+      603-reversed-long.wav, 78-lower-long.wav, 107-reversed-long.wav, 488-reversed-long.wav,
+      152-mono-huge.wav, 662-lower-huge.wav]
+    turning: [519-lower-short.wav, 94-reversed-short.wav, 391-lower-short.wav,
+      684-faster-short.wav, 174-lower-short.wav, 41-lower-short.wav, 612-faster-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_20
+  sounds:
+    hit: [407-faster-medium.wav, 698-reversed-medium.wav, 509-slower-medium.wav,
+      522-faster-medium.wav, 623-mono-medium.wav, 582-lower-medium.wav, 308-lower-medium.wav,
+      759-reversed-medium.wav]
+    excited: [326-reversed-medium.wav, 614-lower-medium.wav, 690-lower-longish.wav,
+      461-reversed-longish.wav, 650-mono-longish.wav, 275-lower-longish.wav, 546-lower-longish.wav,
+      579-lower-longish.wav]
+    fire: [326-mono-medium.wav]
+    blocked: [690-lower-longish.wav]
+    misc: [723-slower-longish.wav, 234-mono-long.wav, 701-slower-long.wav, 579-slower-long.wav,
+      107-faster-long.wav, 510-slower-long.wav, 742-lower-long.wav, 352-lower-long.wav,
+      152-faster-huge.wav, 71-reversed-huge.wav]
+    turning: [94-slower-medium.wav, 714-lower-medium.wav, 248-lower-medium.wav,
+      591-slower-medium.wav, 714-mono-medium.wav, 207-reversed-medium.wav, 548-lower-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_1
+  sounds:
+    hit: [141-faster-longish.wav, 239-slower-longish.wav, 675-mono-longish.wav,
+      219-slower-longish.wav, 77-lower-medium.wav, 666-mono-medium.wav, 525-faster-longish.wav,
+      145-reversed-longish.wav]
+    excited: [705-reversed-longish.wav, 364-slower-longish.wav, 216-faster-longish.wav,
+      112-faster-longish.wav, 587-slower-longish.wav, 6-mono-longish.wav, 72-lower-long.wav,
+      648-slower-long.wav]
+    fire: [162-lower-longish.wav]
+    blocked: [313-lower-medium.wav]
+    misc: [562-mono-long.wav, 742-mono-long.wav, 414-slower-long.wav, 496-lower-long.wav,
+      400-slower-long.wav, 46-lower-huge.wav, 389-reversed-huge.wav, 635-slower-huge.wav,
+      82-slower-huge.wav, 708-reversed-huge.wav]
+    turning: [313-lower-medium.wav, 155-slower-medium.wav, 655-mono-medium.wav,
+      299-mono-short.wav, 119-reversed-medium.wav, 467-faster-short.wav, 690-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_18
+  sounds:
+    hit: [15-slower-medium.wav, 595-mono-medium.wav, 676-mono-medium.wav, 97-faster-medium.wav,
+      187-mono-longish.wav, 474-faster-medium.wav, 484-faster-medium.wav, 372-mono-longish.wav]
+    excited: [520-lower-longish.wav, 707-reversed-longish.wav, 228-mono-longish.wav,
+      764-faster-longish.wav, 575-faster-longish.wav, 525-mono-longish.wav, 392-mono-longish.wav,
+      696-reversed-longish.wav]
+    fire: [144-mono-longish.wav]
+    blocked: [285-faster-huge.wav]
+    misc: [481-slower-longish.wav, 739-reversed-longish.wav, 97-slower-longish.wav,
+      764-reversed-long.wav, 764-lower-long.wav, 749-faster-long.wav, 75-slower-long.wav,
+      664-mono-long.wav, 586-lower-long.wav, 285-faster-huge.wav]
+    turning: [94-faster-short.wav, 548-reversed-short.wav, 509-reversed-medium.wav,
+      463-reversed-medium.wav, 539-lower-short.wav, 136-reversed-short.wav, 19-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_31
+  sounds:
+    hit: [643-slower-medium.wav, 257-reversed-longish.wav, 613-slower-longish.wav,
+      590-faster-medium.wav, 582-mono-medium.wav, 20-faster-medium.wav, 217-lower-medium.wav,
+      415-slower-medium.wav]
+    excited: [19-slower-longish.wav, 592-lower-longish.wav, 274-mono-longish.wav,
+      524-lower-longish.wav, 627-slower-longish.wav, 147-mono-longish.wav, 514-lower-longish.wav,
+      569-lower-longish.wav]
+    fire: [555-reversed-longish.wav]
+    blocked: [514-lower-longish.wav]
+    misc: [228-lower-longish.wav, 47-mono-longish.wav, 206-faster-longish.wav, 459-faster-longish.wav,
+      568-reversed-long.wav, 343-slower-long.wav, 129-slower-long.wav, 348-lower-long.wav,
+      31-reversed-huge.wav, 578-slower-huge.wav]
+    turning: [605-faster-medium.wav, 722-lower-medium.wav, 430-lower-short.wav, 545-faster-medium.wav,
+      551-reversed-medium.wav, 161-reversed-medium.wav, 35-reversed-medium.wav]
+  suitability: [player, ally, food]
+- directory: i
+  name: i_1
+  sounds:
+    hit: [8-faster-medium.wav, 227-mono-medium.wav, 254-reversed-medium.wav, 498-faster-medium.wav,
+      254-lower-medium.wav, 165-reversed-medium.wav, 498-mono-medium.wav, 608-mono-medium.wav]
+    excited: [278-lower-longish.wav, 114-slower-longish.wav, 333-lower-longish.wav,
+      8-slower-longish.wav, 278-slower-longish.wav, 333-slower-longish.wav, 464-mono-longish.wav,
+      464-reversed-longish.wav]
+    fire: [608-slower-longish.wav]
+    blocked: [465-lower-long.wav]
+    misc: [464-lower-longish.wav, 755-lower-long.wav, 465-mono-long.wav, 465-lower-long.wav,
+      450-reversed-long.wav, 755-slower-long.wav, 192-reversed-long.wav, 476-slower-huge.wav,
+      432-mono-huge.wav, 432-lower-huge.wav]
+    turning: [353-mono-short.wav, 34-slower-short.wav, 471-mono-short.wav, 468-faster-short.wav,
+      405-slower-short.wav, 405-faster-short.wav, 405-lower-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_15
+  sounds:
+    hit: [89-lower-medium.wav, 43-faster-medium.wav, 643-mono-medium.wav, 691-faster-medium.wav,
+      184-reversed-medium.wav, 89-mono-medium.wav, 270-slower-medium.wav, 15-reversed-medium.wav]
+    excited: [43-mono-longish.wav, 301-slower-longish.wav, 650-lower-longish.wav,
+      474-reversed-longish.wav, 274-lower-longish.wav, 20-reversed-longish.wav, 675-slower-longish.wav,
+      788-lower-longish.wav]
+    fire: [217-reversed-medium.wav]
+    blocked: [650-lower-longish.wav]
+    misc: [205-slower-long.wav, 348-mono-long.wav, 348-reversed-long.wav, 98-slower-long.wav,
+      140-slower-long.wav, 752-reversed-long.wav, 488-faster-long.wav, 767-mono-huge.wav,
+      122-slower-huge.wav, 71-slower-huge.wav]
+    turning: [591-faster-short.wav, 560-faster-short.wav, 636-reversed-medium.wav,
+      611-lower-short.wav, 119-faster-medium.wav, 661-faster-short.wav, 480-lower-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_25
+  sounds:
+    hit: [145-faster-medium.wav, 763-reversed-medium.wav, 463-lower-medium.wav,
+      502-lower-medium.wav, 209-reversed-medium.wav, 323-faster-medium.wav, 522-reversed-medium.wav,
+      301-mono-medium.wav]
+    excited: [20-mono-longish.wav, 326-slower-longish.wav, 659-slower-longish.wav,
+      778-lower-longish.wav, 778-mono-longish.wav, 374-slower-longish.wav, 787-slower-longish.wav,
+      76-reversed-long.wav]
+    fire: [92-mono-longish.wav]
+    blocked: [299-slower-medium.wav]
+    misc: [752-faster-long.wav, 18-mono-long.wav, 72-reversed-long.wav, 543-lower-long.wav,
+      93-faster-long.wav, 664-lower-long.wav, 5-reversed-huge.wav, 752-slower-huge.wav,
+      172-mono-huge.wav, 371-mono-huge.wav]
+    turning: [248-slower-medium.wav, 155-lower-short.wav, 539-mono-short.wav, 299-slower-medium.wav,
+      548-mono-short.wav, 438-faster-medium.wav, 240-faster-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_28
+  sounds:
+    hit: [768-lower-medium.wav, 308-mono-medium.wav, 383-faster-medium.wav, 657-lower-medium.wav,
+      666-reversed-medium.wav, 627-faster-medium.wav, 294-mono-medium.wav, 623-reversed-medium.wav]
+    excited: [203-faster-medium.wav, 257-slower-longish.wav, 572-reversed-longish.wav,
+      638-slower-longish.wav, 773-lower-long.wav, 112-lower-long.wav, 704-lower-long.wav,
+      276-lower-long.wav]
+    fire: [364-mono-medium.wav]
+    blocked: [203-faster-medium.wav]
+    misc: [757-lower-long.wav, 578-faster-long.wav, 362-slower-long.wav, 243-mono-long.wav,
+      567-lower-long.wav, 69-mono-long.wav, 172-lower-huge.wav, 389-lower-huge.wav,
+      482-slower-huge.wav, 662-reversed-huge.wav]
+    turning: [248-mono-medium.wav, 35-lower-medium.wav, 94-lower-short.wav, 52-mono-medium.wav,
+      391-reversed-short.wav, 657-faster-medium.wav, 410-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: i
+  name: i_2
+  sounds:
+    hit: [254-mono-medium.wav, 81-faster-medium.wav, 114-faster-medium.wav, 165-faster-medium.wav,
+      227-faster-medium.wav, 498-reversed-medium.wav, 165-mono-medium.wav, 498-lower-medium.wav]
+    excited: [278-reversed-longish.wav, 70-mono-longish.wav, 70-reversed-longish.wav,
+      70-lower-longish.wav, 755-faster-longish.wav, 296-faster-longish.wav, 344-mono-long.wav,
+      450-faster-long.wav]
+    fire: [227-lower-medium.wav]
+    blocked: [296-lower-long.wav]
+    misc: [417-faster-long.wav, 296-lower-long.wav, 563-faster-long.wav, 450-mono-long.wav,
+      450-lower-long.wav, 476-lower-long.wav, 192-mono-long.wav, 563-reversed-long.wav,
+      563-lower-long.wav, 450-slower-huge.wav]
+    turning: [332-reversed-short.wav, 405-reversed-short.wav, 332-mono-short.wav,
+      564-faster-short.wav, 34-reversed-short.wav, 88-lower-short.wav, 271-mono-short.wav,
+      ]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_13
+  sounds:
+    hit: [690-mono-longish.wav, 707-faster-longish.wav, 390-lower-medium.wav,
+      395-mono-longish.wav, 676-reversed-medium.wav, 39-lower-longish.wav, 726-reversed-longish.wav,
+      409-faster-longish.wav]
+    excited: [205-mono-longish.wav, 709-faster-longish.wav, 129-reversed-longish.wav,
+      372-slower-longish.wav, 525-reversed-longish.wav, 525-lower-longish.wav, 392-reversed-longish.wav,
+      357-lower-longish.wav]
+    fire: [390-slower-longish.wav]
+    blocked: [726-reversed-longish.wav]
+    misc: [362-lower-longish.wav, 215-faster-longish.wav, 194-lower-long.wav, 199-faster-long.wav,
+      696-slower-long.wav, 295-mono-long.wav, 126-lower-long.wav, 767-reversed-huge.wav,
+      71-faster-huge.wav, 132-lower-huge.wav]
+    turning: [313-mono-medium.wav, 297-faster-short.wav, 252-reversed-medium.wav,
+      124-lower-medium.wav, 415-mono-medium.wav, 297-slower-medium.wav, 642-mono-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: w
+  name: w_2
+  sounds:
+    hit: [195-lower-medium.wav, 628-slower-medium.wav, 320-faster-medium.wav,
+      495-reversed-medium.wav, 9-lower-medium.wav, 9-reversed-medium.wav, 193-lower-medium.wav,
+      160-faster-medium.wav]
+    excited: [171-slower-medium.wav, 104-faster-medium.wav, 267-mono-medium.wav, 687-reversed-medium.wav,
+      541-faster-medium.wav, 765-reversed-medium.wav, 423-reversed-medium.wav, 456-reversed-medium.wav]
+    fire: [449-lower-medium.wav]
+    blocked: [267-mono-medium.wav]
+    misc: [56-mono-medium.wav, 386-faster-medium.wav, 647-mono-medium.wav, 629-lower-medium.wav,
+      631-reversed-medium.wav, 133-lower-medium.wav, 541-mono-medium.wav, 28-mono-longish.wav,
+      700-lower-longish.wav, 775-reversed-longish.wav]
+    turning: [347-lower-short.wav, 552-mono-medium.wav, 495-faster-medium.wav, 683-faster-short.wav,
+      728-slower-short.wav, 490-lower-short.wav, 497-reversed-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: h
+  name: h_0
+  sounds:
+    hit: [761-lower-long.wav, 599-mono-longish.wav, 12-reversed-longish.wav, 530-mono-long.wav,
+      158-slower-longish.wav, 598-faster-longish.wav, 530-faster-longish.wav, 761-mono-long.wav]
+    excited: [376-mono-long.wav, 300-slower-long.wav, 599-slower-long.wav, 781-mono-long.wav,
+      781-reversed-long.wav, 134-mono-long.wav, 134-lower-long.wav, 269-slower-long.wav]
+    fire: [310-lower-long.wav]
+    blocked: [300-faster-longish.wav]
+    misc: [617-mono-long.wav, 672-faster-long.wav, 268-slower-long.wav, 99-faster-long.wav,
+      368-mono-long.wav, 368-reversed-long.wav, 672-mono-long.wav, 358-faster-long.wav,
+      442-reversed-huge.wav, 669-mono-huge.wav]
+    turning: [789-faster-short.wav, 789-lower-short.wav, 327-reversed-longish.wav,
+      244-faster-medium.wav, 789-reversed-short.wav, 300-faster-longish.wav, 269-faster-longish.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: f
+  name: f_2
+  sounds:
+    hit: [149-mono-long.wav, 565-mono-long.wav, 435-mono-long.wav, 565-lower-long.wav,
+      435-reversed-long.wav, 237-mono-long.wav, 149-reversed-long.wav, 237-reversed-long.wav]
+    excited: [311-faster-huge.wav, 436-faster-huge.wav, 440-faster-huge.wav, 771-slower-huge.wav,
+      720-faster-huge.wav, 339-mono-huge.wav, 339-lower-huge.wav, 218-mono-huge.wav]
+    fire: [218-faster-huge.wav]
+    blocked: [478-reversed-huge.wav]
+    misc: [311-lower-huge.wav, 436-reversed-huge.wav, 440-mono-huge.wav, 440-lower-huge.wav,
+      512-slower-huge.wav, 478-mono-huge.wav, 478-reversed-huge.wav, 478-lower-huge.wav,
+      218-slower-huge.wav, 384-slower-huge.wav]
+    turning: [745-slower-longish.wav, 521-lower-long.wav, 521-reversed-long.wav,
+      154-reversed-long.wav, 208-lower-long.wav, 393-faster-long.wav, 154-faster-longish.wav]
+  suitability: [monster, environment, food]
+- directory: w
+  name: w_5
+  sounds:
+    hit: [495-mono-medium.wav, 681-faster-medium.wav, 36-lower-medium.wav, 179-lower-medium.wav,
+      681-reversed-medium.wav, 665-mono-medium.wav, 320-lower-medium.wav, 130-mono-medium.wav]
+    excited: [495-slower-medium.wav, 585-faster-medium.wav, 700-faster-medium.wav,
+      744-faster-medium.wav, 625-mono-medium.wav, 625-reversed-medium.wav, 104-mono-medium.wav,
+      104-reversed-medium.wav]
+    fire: [647-reversed-medium.wav]
+    blocked: [625-reversed-medium.wav]
+    misc: [644-slower-longish.wav, 585-lower-longish.wav, 602-slower-longish.wav,
+      399-lower-longish.wav, 109-lower-longish.wav, 744-lower-longish.wav, 625-slower-longish.wav,
+      686-lower-longish.wav, 74-slower-longish.wav, 21-lower-longish.wav]
+    turning: [204-mono-medium.wav, 171-faster-short.wav, 628-reversed-short.wav, 552-faster-short.wav,
+      728-lower-short.wav, 703-lower-short.wav, 624-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_10
+  sounds:
+    hit: [735-mono-medium.wav, 161-slower-medium.wav, 502-mono-medium.wav, 233-lower-medium.wav,
+      642-reversed-medium.wav, 383-lower-medium.wav, 330-faster-medium.wav, 595-reversed-medium.wav]
+    excited: [397-mono-longish.wav, 263-reversed-longish.wav, 437-lower-longish.wav,
+      92-reversed-longish.wav, 514-reversed-longish.wav, 766-reversed-longish.wav,
+      298-slower-longish.wav, 397-slower-longish.wav]
+    fire: [176-reversed-longish.wav]
+    blocked: [769-mono-long.wav]
+    misc: [428-reversed-longish.wav, 573-slower-long.wav, 569-slower-long.wav, 704-mono-long.wav,
+      6-slower-long.wav, 635-faster-long.wav, 769-mono-long.wav, 126-mono-long.wav,
+      488-mono-long.wav, 708-slower-huge.wav]
+    turning: [684-mono-medium.wav, 175-lower-short.wav, 684-reversed-medium.wav,
+      175-faster-short.wav, 250-faster-medium.wav, 156-lower-short.wav, 663-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: f
+  name: f_1
+  sounds:
+    hit: [315-reversed-long.wav, 521-mono-long.wav, 33-faster-long.wav, 237-faster-long.wav,
+      149-faster-long.wav, 393-mono-long.wav, 273-faster-long.wav, 771-reversed-long.wav]
+    excited: [377-mono-long.wav, 377-lower-long.wav, 237-lower-long.wav, 33-mono-long.wav,
+      264-reversed-huge.wav, 208-slower-huge.wav, 512-lower-huge.wav, 565-slower-huge.wav]
+    fire: [512-faster-long.wav]
+    blocked: [745-lower-medium.wav]
+    misc: [377-slower-huge.wav, 339-reversed-huge.wav, 149-slower-huge.wav, 435-slower-huge.wav,
+      436-mono-huge.wav, 436-lower-huge.wav, 273-slower-huge.wav, 720-reversed-huge.wav,
+      311-slower-huge.wav, 720-slower-huge.wav]
+    turning: [549-reversed-longish.wav, 565-faster-long.wav, 549-faster-longish.wav,
+      208-reversed-long.wav, 745-lower-medium.wav, 745-reversed-medium.wav, 154-mono-long.wav,
+      ]
+  suitability: [monster, environment, ally, food]
+- directory: i
+  name: i_3
+  sounds:
+    hit: [332-slower-short.wav, 353-faster-short.wav, 271-lower-short.wav, 564-reversed-short.wav,
+      564-mono-short.wav, 88-slower-short.wav, 353-lower-short.wav, 576-reversed-short.wav]
+    excited: [608-reversed-medium.wav, 8-reversed-medium.wav, 190-slower-longish.wav,
+      254-slower-longish.wav, 227-slower-longish.wav, 755-mono-long.wav, 296-reversed-long.wav,
+      192-faster-long.wav]
+    fire: [190-mono-medium.wav]
+    blocked: [608-reversed-medium.wav]
+    misc: [464-slower-long.wav, 344-slower-long.wav, 476-reversed-long.wav, 417-reversed-long.wav,
+      192-lower-long.wav, 296-slower-long.wav, 417-slower-huge.wav, 645-faster-huge.wav,
+      645-lower-huge.wav, 432-slower-huge.wav]
+    turning: [88-reversed-short.wav, 34-mono-short.wav, 88-mono-short.wav, 332-faster-short.wav,
+      471-reversed-short.wav, 468-lower-short.wav, 34-lower-short.wav]
+  suitability: [monster, player, ally]
+- directory: d
+  name: d_2
+  sounds:
+    hit: [170-lower-medium.wav, 600-lower-medium.wav, 369-slower-medium.wav, 17-faster-medium.wav,
+      16-mono-medium.wav, 772-lower-medium.wav, 121-reversed-medium.wav, 121-lower-medium.wav]
+    excited: [138-slower-medium.wav, 65-slower-medium.wav, 425-slower-medium.wav,
+      453-lower-medium.wav, 64-faster-longish.wav, 616-mono-longish.wav, 758-mono-longish.wav,
+      758-reversed-longish.wav]
+    fire: [758-faster-medium.wav]
+    blocked: [44-reversed-long.wav]
+    misc: [336-reversed-longish.wav, 601-reversed-longish.wav, 511-mono-longish.wav,
+      782-slower-longish.wav, 200-lower-longish.wav, 139-slower-longish.wav, 694-slower-longish.wav,
+      64-slower-long.wav, 44-reversed-long.wav, 44-slower-long.wav]
+    turning: [247-faster-short.wav, 738-faster-short.wav, 401-faster-medium.wav,
+      247-mono-medium.wav, 369-faster-short.wav, 22-faster-medium.wav, 772-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: m
+  name: m_4
+  sounds:
+    hit: [54-faster-longish.wav, 479-slower-medium.wav, 604-mono-longish.wav,
+      531-reversed-medium.wav, 321-faster-medium.wav, 319-faster-medium.wav, 212-faster-medium.wav,
+      557-slower-medium.wav]
+    excited: [593-reversed-longish.wav, 62-lower-longish.wav, 61-slower-longish.wav,
+      604-slower-longish.wav, 473-slower-long.wav, 68-slower-long.wav, 529-faster-long.wav,
+      255-mono-long.wav]
+    fire: [593-mono-longish.wav]
+    blocked: [108-faster-medium.wav]
+    misc: [448-faster-long.wav, 286-mono-long.wav, 793-lower-long.wav, 373-slower-huge.wav,
+      103-slower-huge.wav, 14-lower-huge.wav, 673-slower-huge.wav, 231-slower-huge.wav,
+      753-slower-huge.wav, 458-slower-huge.wav]
+    turning: [177-faster-medium.wav, 232-reversed-medium.wav, 108-faster-medium.wav,
+      380-faster-short.wav, 108-reversed-medium.wav, 45-slower-medium.wav, 621-faster-medium.wav]
+  suitability: [environment]
+- directory: b
+  name: b_34
+  sounds:
+    hit: [201-faster-medium.wav, 53-slower-longish.wav, 298-mono-medium.wav, 202-mono-medium.wav,
+      298-reversed-medium.wav, 452-reversed-medium.wav, 318-reversed-medium.wav, 587-faster-medium.wav]
+    excited: [98-faster-longish.wav, 463-slower-longish.wav, 437-reversed-longish.wav,
+      66-mono-longish.wav, 792-mono-longish.wav, 328-faster-longish.wav, 205-reversed-longish.wav,
+      343-mono-longish.wav]
+    fire: [555-lower-longish.wav]
+    blocked: [452-reversed-medium.wav]
+    misc: [176-slower-longish.wav, 739-mono-longish.wav, 167-mono-longish.wav, 428-slower-long.wav,
+      351-lower-long.wav, 213-slower-long.wav, 295-reversed-long.wav, 72-slower-long.wav,
+      704-slower-long.wav, 243-slower-huge.wav]
+    turning: [111-mono-medium.wav, 221-lower-medium.wav, 250-lower-medium.wav, 297-mono-short.wav,
+      504-faster-short.wav, 770-reversed-medium.wav, 174-mono-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_40
+  sounds:
+    hit: [706-mono-medium.wav, 654-lower-longish.wav, 316-slower-medium.wav, 702-lower-medium.wav,
+      92-faster-medium.wav, 592-reversed-longish.wav, 238-lower-medium.wav, 119-slower-longish.wav]
+    excited: [707-mono-longish.wav, 131-faster-longish.wav, 83-reversed-longish.wav,
+      398-lower-longish.wav, 786-faster-longish.wav, 428-lower-longish.wav, 98-lower-longish.wav,
+      201-slower-longish.wav]
+    fire: [178-mono-longish.wav]
+    blocked: [252-mono-medium.wav]
+    misc: [307-slower-longish.wav, 182-reversed-longish.wav, 146-slower-longish.wav,
+      106-faster-long.wav, 295-lower-long.wav, 749-mono-long.wav, 152-lower-huge.wav,
+      132-faster-huge.wav, 172-slower-huge.wav, 389-slower-huge.wav]
+    turning: [221-reversed-medium.wav, 60-lower-medium.wav, 161-mono-medium.wav, 209-lower-medium.wav,
+      207-faster-medium.wav, 724-lower-medium.wav, 692-faster-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_45
+  sounds:
+    hit: [660-mono-medium.wav, 654-faster-medium.wav, 632-reversed-medium.wav,
+      314-reversed-medium.wav, 517-reversed-medium.wav, 53-lower-medium.wav, 663-lower-medium.wav,
+      763-faster-medium.wav]
+    excited: [313-slower-longish.wav, 546-reversed-longish.wav, 7-slower-longish.wav,
+      652-slower-longish.wav, 357-faster-longish.wav, 701-lower-longish.wav, 443-slower-longish.wav,
+      706-slower-longish.wav]
+    fire: [187-reversed-longish.wav]
+    blocked: [187-reversed-longish.wav]
+    misc: [145-slower-longish.wav, 362-reversed-longish.wav, 567-faster-long.wav,
+      414-reversed-long.wav, 680-lower-long.wav, 769-reversed-long.wav, 567-slower-huge.wav,
+      126-slower-huge.wav, 5-slower-huge.wav, 285-reversed-huge.wav]
+    turning: [504-reversed-medium.wav, 632-faster-medium.wav, 52-faster-short.wav,
+      248-reversed-medium.wav, 136-faster-short.wav, 41-slower-medium.wav, 89-reversed-medium.wav]
+  suitability: [player, ally, food]
+- directory: w
+  name: w_3
+  sounds:
+    hit: [449-mono-medium.wav, 416-faster-medium.wav, 423-faster-medium.wav, 665-lower-medium.wav,
+      195-reversed-medium.wav, 649-faster-medium.wav, 363-mono-medium.wav, 394-slower-medium.wav]
+    excited: [629-reversed-medium.wav, 293-slower-medium.wav, 624-slower-medium.wav,
+      55-lower-medium.wav, 631-lower-medium.wav, 532-mono-medium.wav, 133-mono-medium.wav,
+      151-slower-medium.wav]
+    fire: [629-mono-medium.wav]
+    blocked: [624-slower-medium.wav]
+    misc: [179-slower-medium.wav, 541-lower-medium.wav, 540-lower-longish.wav, 687-slower-longish.wav,
+      466-mono-longish.wav, 700-reversed-longish.wav, 324-mono-longish.wav, 56-slower-longish.wav,
+      629-slower-longish.wav, 775-lower-longish.wav]
+    turning: [347-faster-short.wav, 497-faster-short.wav, 394-reversed-medium.wav,
+      683-reversed-short.wav, 497-lower-short.wav, 487-reversed-short.wav, 449-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: s
+  name: s_2
+  sounds:
+    hit: [225-lower-longish.wav, 29-mono-longish.wav, 37-mono-medium.wav, 341-faster-medium.wav,
+      349-lower-medium.wav, 63-mono-longish.wav, 225-reversed-longish.wav, 196-mono-medium.wav]
+    excited: [597-lower-long.wav, 670-faster-long.wav, 711-reversed-long.wav, 581-reversed-long.wav,
+      670-lower-long.wav, 711-slower-long.wav, 67-mono-long.wav, 67-reversed-long.wav]
+    fire: [198-faster-longish.wav]
+    blocked: [67-mono-long.wav]
+    misc: [693-faster-huge.wav, 634-lower-huge.wav, 693-mono-huge.wav, 350-faster-huge.wav,
+      588-faster-huge.wav, 784-slower-huge.wav, 693-slower-huge.wav, 588-mono-huge.wav,
+      588-reversed-huge.wav, 622-slower-huge.wav]
+    turning: [607-lower-short.wav, 677-mono-short.wav, 186-reversed-medium.wav, 0-faster-medium.wav,
+      281-faster-short.wav, 439-lower-medium.wav, 444-mono-medium.wav]
+  suitability: [monster, ally, food]
+- directory: b
+  name: b_44
+  sounds:
+    hit: [759-mono-medium.wav, 770-slower-medium.wav, 364-lower-medium.wav, 446-slower-medium.wav,
+      305-faster-medium.wav, 406-mono-medium.wav, 706-faster-medium.wav, 66-faster-medium.wav]
+    excited: [249-lower-longish.wav, 307-reversed-longish.wav, 648-faster-longish.wav,
+      717-lower-longish.wav, 520-reversed-longish.wav, 6-faster-longish.wav, 282-slower-longish.wav,
+      409-lower-longish.wav]
+    fire: [736-reversed-longish.wav]
+    blocked: [42-lower-medium.wav]
+    misc: [569-reversed-longish.wav, 129-mono-longish.wav, 220-reversed-longish.wav,
+      72-faster-longish.wav, 786-lower-long.wav, 194-reversed-long.wav, 141-slower-long.wav,
+      78-mono-long.wav, 78-reversed-long.wav, 708-lower-huge.wav]
+    turning: [430-reversed-short.wav, 334-faster-short.wav, 516-lower-medium.wav,
+      240-mono-short.wav, 640-lower-medium.wav, 422-reversed-medium.wav, 42-lower-medium.wav]
+  suitability: [player, ally, food]
+- directory: w
+  name: w_0
+  sounds:
+    hit: [32-mono-medium.wav, 338-mono-medium.wav, 287-lower-medium.wav, 602-faster-medium.wav,
+      287-reversed-medium.wav, 287-faster-medium.wav, 32-lower-medium.wav, 338-reversed-medium.wav]
+    excited: [267-lower-medium.wav, 602-reversed-medium.wav, 56-reversed-medium.wav,
+      56-lower-medium.wav, 32-slower-medium.wav, 466-faster-medium.wav, 223-lower-medium.wav,
+      55-reversed-medium.wav]
+    fire: [267-reversed-medium.wav]
+    blocked: [130-lower-medium.wav]
+    misc: [324-faster-medium.wav, 665-slower-longish.wav, 74-reversed-longish.wav,
+      585-reversed-longish.wav, 28-lower-longish.wav, 456-slower-longish.wav, 324-reversed-longish.wav,
+      647-slower-longish.wav, 686-mono-longish.wav, 540-slower-longish.wav]
+    turning: [497-mono-short.wav, 445-reversed-short.wav, 445-mono-short.wav, 490-faster-short.wav,
+      130-lower-medium.wav, 683-slower-short.wav, 204-faster-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: c
+  name: c_1
+  sounds:
+    hit: [365-lower-medium.wav, 355-faster-medium.wav, 418-reversed-longish.wav,
+      558-faster-longish.wav, 689-faster-medium.wav, 790-mono-medium.wav, 741-reversed-medium.wav,
+      426-faster-medium.wav]
+    excited: [558-lower-longish.wav, 117-faster-longish.wav, 536-faster-longish.wav,
+      689-slower-longish.wav, 596-faster-long.wav, 123-mono-long.wav, 697-faster-long.wav,
+      719-reversed-long.wav]
+    fire: [651-reversed-longish.wav]
+    blocked: [345-lower-long.wav]
+    misc: [210-faster-long.wav, 536-mono-long.wav, 536-reversed-long.wav, 379-slower-long.wav,
+      345-lower-long.wav, 469-reversed-long.wav, 460-lower-long.wav, 173-reversed-long.wav,
+      756-reversed-long.wav, 288-slower-huge.wav]
+    turning: [732-faster-short.wav, 695-mono-medium.wav, 740-reversed-short.wav,
+      96-faster-medium.wav, 740-mono-short.wav, 157-reversed-medium.wav, 503-lower-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: s
+  name: s_4
+  sounds:
+    hit: [186-mono-medium.wav, 433-reversed-medium.wav, 577-faster-medium.wav,
+      125-reversed-medium.wav, 381-slower-short.wav, 125-lower-medium.wav, 265-slower-medium.wav,
+      242-lower-medium.wav]
+    excited: [37-lower-medium.wav, 439-slower-medium.wav, 225-faster-medium.wav, 166-lower-medium.wav,
+      570-lower-longish.wav, 421-lower-longish.wav, 325-lower-longish.wav, 113-reversed-longish.wav]
+    fire: [166-faster-medium.wav]
+    blocked: [421-lower-longish.wav]
+    misc: [191-mono-longish.wav, 606-reversed-longish.wav, 671-mono-long.wav, 597-reversed-long.wav,
+      670-mono-long.wav, 784-mono-huge.wav, 784-reversed-huge.wav, 693-reversed-huge.wav,
+      693-lower-huge.wav, 513-faster-huge.wav]
+    turning: [381-mono-short.wav, 381-lower-short.wav, 677-reversed-short.wav,
+      381-reversed-short.wav, 265-faster-short.wav, 607-reversed-short.wav, 677-lower-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: h
+  name: h_7
+  sounds:
+    hit: [617-faster-long.wav, 268-reversed-long.wav, 259-reversed-long.wav, 730-faster-longish.wav,
+      269-reversed-longish.wav, 91-faster-longish.wav, 222-mono-long.wav, 290-faster-long.wav]
+    excited: [310-reversed-long.wav, 359-reversed-long.wav, 544-lower-long.wav, 441-mono-long.wav,
+      598-slower-long.wav, 554-faster-long.wav, 309-lower-long.wav, 781-slower-long.wav]
+    fire: [411-slower-long.wav]
+    blocked: [337-mono-huge.wav]
+    misc: [725-slower-long.wav, 134-slower-huge.wav, 554-lower-huge.wav, 367-reversed-huge.wav,
+      291-slower-huge.wav, 507-lower-huge.wav, 507-reversed-huge.wav, 337-mono-huge.wav,
+      337-lower-huge.wav, 669-lower-huge.wav]
+    turning: [528-faster-medium.wav, 58-faster-longish.wav, 528-reversed-longish.wav,
+      128-faster-medium.wav, 518-mono-medium.wav, 678-reversed-medium.wav, 528-slower-longish.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_19
+  sounds:
+    hit: [407-mono-medium.wav, 723-faster-medium.wav, 698-slower-medium.wav, 659-faster-medium.wav,
+      407-reversed-medium.wav, 202-faster-medium.wav, 42-slower-medium.wav, 787-lower-longish.wav]
+    excited: [481-mono-longish.wav, 308-slower-longish.wav, 434-slower-longish.wav,
+      773-faster-longish.wav, 748-faster-longish.wav, 572-mono-longish.wav, 392-lower-longish.wav,
+      715-slower-longish.wav]
+    fire: [110-mono-longish.wav]
+    blocked: [110-mono-longish.wav]
+    misc: [352-faster-longish.wav, 234-reversed-long.wav, 786-reversed-long.wav, 83-slower-long.wav,
+      357-slower-long.wav, 769-slower-huge.wav, 82-reversed-huge.wav, 664-slower-huge.wav,
+      662-slower-huge.wav, 371-slower-huge.wav]
+    turning: [240-reversed-short.wav, 60-faster-medium.wav, 80-faster-medium.wav,
+      642-faster-medium.wav, 422-faster-short.wav, 446-lower-medium.wav, 729-reversed-short.wav,
+      ]
+  suitability: [player, ally, food]
+- directory: w
+  name: w_4
+  sounds:
+    hit: [495-lower-medium.wav, 171-lower-medium.wav, 687-faster-medium.wav, 267-faster-medium.wav,
+      193-mono-medium.wav, 179-reversed-medium.wav, 36-faster-medium.wav, 363-faster-medium.wav]
+    excited: [320-mono-medium.wav, 765-lower-medium.wav, 456-mono-medium.wav, 602-mono-medium.wav,
+      160-reversed-medium.wav, 133-reversed-medium.wav, 74-mono-longish.wav, 287-slower-longish.wav]
+    fire: [625-faster-medium.wav]
+    blocked: [540-reversed-longish.wav]
+    misc: [686-faster-longish.wav, 540-reversed-longish.wav, 466-reversed-longish.wav,
+      744-reversed-longish.wav, 104-slower-longish.wav, 541-slower-longish.wav, 775-mono-longish.wav,
+      399-slower-longish.wav, 21-reversed-longish.wav, 686-slower-long.wav]
+    turning: [683-mono-short.wav, 547-faster-medium.wav, 347-reversed-short.wav,
+      628-faster-short.wav, 394-mono-medium.wav, 703-slower-short.wav, 620-faster-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_27
+  sounds:
+    hit: [89-slower-medium.wav, 282-faster-medium.wav, 49-mono-medium.wav, 313-reversed-medium.wav,
+      100-slower-medium.wav, 7-faster-medium.wav, 183-reversed-medium.wav, 676-faster-medium.wav]
+    excited: [437-faster-medium.wav, 723-reversed-longish.wav, 30-slower-longish.wav,
+      144-lower-longish.wav, 788-faster-longish.wav, 517-slower-longish.wav, 314-slower-longish.wav,
+      305-slower-longish.wav]
+    fire: [84-mono-medium.wav]
+    blocked: [142-mono-medium.wav]
+    misc: [124-slower-longish.wav, 747-faster-longish.wav, 409-mono-longish.wav, 520-slower-longish.wav,
+      398-slower-long.wav, 496-faster-long.wav, 143-lower-long.wav, 276-slower-long.wav,
+      499-reversed-long.wav, 51-reversed-huge.wav]
+    turning: [2-mono-short.wav, 551-lower-medium.wav, 156-reversed-short.wav, 438-mono-medium.wav,
+      235-faster-medium.wav, 221-mono-medium.wav, 729-mono-short.wav]
+  suitability: [player, ally, food]
+- directory: c
+  name: c_5
+  sounds:
+    hit: [331-slower-medium.wav, 181-slower-medium.wav, 163-mono-medium.wav, 365-reversed-medium.wav,
+      571-slower-medium.wav, 718-reversed-longish.wav, 95-lower-medium.wav, 163-lower-medium.wav]
+    excited: [483-reversed-longish.wav, 718-slower-longish.wav, 379-mono-longish.wav,
+      1-mono-longish.wav, 23-lower-long.wav, 23-mono-long.wav, 211-slower-long.wav,
+      361-slower-long.wav]
+    fire: [743-faster-longish.wav]
+    blocked: [743-faster-longish.wav]
+    misc: [345-mono-long.wav, 345-reversed-long.wav, 596-mono-long.wav, 697-reversed-long.wav,
+      469-lower-long.wav, 356-slower-long.wav, 23-slower-long.wav, 50-slower-long.wav,
+      117-slower-long.wav, 354-slower-huge.wav]
+    turning: [90-reversed-short.wav, 387-reversed-medium.wav, 387-mono-medium.wav,
+      561-lower-medium.wav, 667-reversed-short.wav, 571-faster-short.wav, 610-faster-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_41
+  sounds:
+    hit: [235-lower-medium.wav, 623-lower-medium.wav, 406-faster-medium.wav, 592-faster-medium.wav,
+      763-lower-medium.wav, 627-lower-medium.wav, 650-faster-medium.wav, 233-faster-medium.wav]
+    excited: [706-reversed-medium.wav, 520-faster-medium.wav, 176-mono-longish.wav,
+      762-reversed-longish.wav, 260-mono-longish.wav, 715-lower-longish.wav, 739-faster-longish.wav,
+      707-lower-longish.wav]
+    fire: [238-mono-medium.wav]
+    blocked: [575-lower-long.wav]
+    misc: [566-slower-longish.wav, 524-slower-longish.wav, 213-lower-longish.wav,
+      66-slower-longish.wav, 575-lower-long.wav, 392-slower-long.wav, 243-lower-long.wav,
+      709-slower-long.wav, 122-reversed-long.wav, 31-lower-huge.wav]
+    turning: [334-lower-short.wav, 560-mono-short.wav, 584-lower-short.wav, 559-faster-short.wav,
+      504-mono-medium.wav, 52-reversed-medium.wav, 489-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: i
+  name: i_4
+  sounds:
+    hit: [70-faster-medium.wav, 333-mono-longish.wav, 278-faster-medium.wav, 498-slower-longish.wav,
+      165-slower-medium.wav, 333-reversed-longish.wav, 114-lower-medium.wav, 8-lower-medium.wav]
+    excited: [465-reversed-long.wav, 296-mono-long.wav, 476-mono-long.wav, 563-mono-long.wav,
+      465-slower-long.wav, 432-faster-huge.wav, 432-reversed-huge.wav, 645-slower-huge.wav]
+    fire: [344-reversed-long.wav]
+    blocked: [344-reversed-long.wav]
+    misc: [8-mono-medium.wav, 81-mono-medium.wav,
+    81-reversed-medium.wav, 165-lower-medium.wav,
+    405-mono-short.wav, 465-faster-longish.wav,
+    468-slower-short.wav, 576-faster-short.wav,
+    608-faster-medium.wav, 608-lower-medium.wav]
+    turning: [353-slower-medium.wav, 353-reversed-short.wav, 471-faster-short.wav,
+      271-slower-short.wav, 564-slower-medium.wav, 332-lower-short.wav, 576-slower-medium.wav]
+  suitability: [ally, food]
+- directory: c
+  name: c_8
+  sounds:
+    hit: [713-slower-medium.wav, 418-faster-medium.wav, 96-mono-medium.wav, 610-slower-medium.wav,
+      280-faster-medium.wav, 335-reversed-medium.wav, 312-faster-medium.wav, 387-slower-medium.wav]
+    excited: [211-faster-longish.wav, 718-mono-longish.wav, 355-reversed-longish.wav,
+      214-mono-longish.wav, 651-mono-longish.wav, 651-lower-longish.wav, 258-reversed-longish.wav,
+      173-faster-long.wav]
+    fire: [115-faster-longish.wav]
+    blocked: [335-reversed-medium.wav]
+    misc: [743-mono-long.wav, 651-slower-long.wav, 258-slower-long.wav, 342-mono-long.wav,
+      515-reversed-long.wav, 515-lower-long.wav, 288-mono-long.wav, 637-lower-long.wav,
+      637-mono-long.wav, 719-slower-long.wav]
+    turning: [695-lower-medium.wav, 27-reversed-medium.wav, 181-mono-medium.wav, 733-faster-short.wav,
+      695-reversed-medium.wav, 667-faster-short.wav, 740-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: c
+  name: c_7
+  sounds:
+    hit: [713-mono-medium.wav, 365-slower-medium.wav, 95-mono-medium.wav, 733-slower-medium.wav,
+      790-lower-medium.wav, 790-reversed-medium.wav, 164-slower-medium.wav, 503-slower-medium.wav]
+    excited: [483-lower-longish.wav, 558-reversed-longish.wav, 258-mono-longish.wav,
+      370-mono-longish.wav, 356-lower-long.wav, 460-faster-long.wav, 719-mono-long.wav,
+      50-reversed-long.wav]
+    fire: [258-faster-longish.wav]
+    blocked: [561-faster-short.wav]
+    misc: [536-lower-long.wav, 342-reversed-long.wav, 342-lower-long.wav, 424-slower-long.wav,
+      354-reversed-long.wav, 173-mono-long.wav, 342-slower-long.wav, 596-slower-huge.wav,
+      173-slower-huge.wav, 756-slower-huge.wav]
+    turning: [360-faster-medium.wav, 503-faster-short.wav, 163-reversed-medium.wav,
+      331-reversed-medium.wav, 561-faster-short.wav, 790-faster-medium.wav, 163-faster-short.wav,
+      ]
+  suitability: [monster, player, ally, food]
+- directory: h
+  name: h_3
+  sounds:
+    hit: [712-reversed-long.wav, 26-lower-long.wav, 322-faster-longish.wav, 530-reversed-long.wav,
+      359-faster-longish.wav, 501-reversed-longish.wav, 455-faster-longish.wav, 58-lower-longish.wav]
+    excited: [780-lower-long.wav, 322-lower-long.wav, 58-slower-long.wav, 730-mono-long.wav,
+      441-reversed-long.wav, 441-lower-long.wav, 761-slower-long.wav, 376-slower-long.wav]
+    fire: [615-reversed-long.wav]
+    blocked: [441-reversed-long.wav]
+    misc: [388-slower-long.wav, 368-lower-long.wav, 554-mono-huge.wav, 337-faster-huge.wav,
+      358-lower-huge.wav, 420-reversed-huge.wav, 669-faster-huge.wav, 442-lower-huge.wav,
+      507-slower-huge.wav, 494-reversed-huge.wav]
+    turning: [678-faster-medium.wav, 500-lower-longish.wav, 128-mono-longish.wav,
+      500-reversed-longish.wav, 10-faster-longish.wav, 518-reversed-medium.wav, 518-slower-longish.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: w
+  name: w_7
+  sounds:
+    hit: [456-faster-medium.wav, 487-slower-medium.wav, 624-reversed-medium.wav,
+      552-reversed-medium.wav, 665-faster-medium.wav, 644-faster-medium.wav, 179-faster-medium.wav,
+      338-faster-short.wav]
+    excited: [644-lower-medium.wav, 133-faster-medium.wav, 416-mono-medium.wav, 423-lower-medium.wav,
+      540-faster-medium.wav, 160-mono-medium.wav, 109-faster-medium.wav, 625-lower-medium.wav]
+    fire: [620-slower-medium.wav]
+    blocked: [644-faster-medium.wav]
+    misc: [681-slower-medium.wav, 649-mono-longish.wav, 649-reversed-longish.wav,
+      320-slower-longish.wav, 36-slower-longish.wav, 700-mono-longish.wav, 109-reversed-longish.wav,
+      55-slower-longish.wav, 109-slower-longish.wav, 744-slower-longish.wav]
+    turning: [728-faster-short.wav, 445-lower-short.wav, 130-faster-short.wav, 497-slower-short.wav,
+      487-mono-short.wav, 445-faster-short.wav, 193-faster-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: m
+  name: m_3
+  sounds:
+    hit: [105-slower-longish.wav, 604-lower-longish.wav, 454-lower-longish.wav,
+      593-faster-longish.wav, 283-faster-longish.wav, 224-mono-longish.wav, 169-slower-medium.wav,
+      61-reversed-longish.wav]
+    excited: [283-mono-longish.wav, 59-faster-longish.wav, 737-slower-longish.wav,
+      59-mono-long.wav, 751-faster-long.wav, 448-mono-long.wav, 751-lower-long.wav,
+      535-reversed-long.wav]
+    fire: [246-slower-longish.wav]
+    blocked: [61-reversed-longish.wav]
+    misc: [658-lower-huge.wav, 458-faster-huge.wav, 673-reversed-huge.wav, 404-reversed-huge.wav,
+      458-reversed-huge.wav, 458-lower-huge.wav, 236-lower-huge.wav, 796-slower-huge.wav,
+      754-faster-huge.wav, 754-slower-huge.wav]
+    turning: [105-faster-medium.wav, 557-reversed-medium.wav, 457-lower-medium.wav,
+      716-lower-medium.wav, 177-mono-medium.wav, 232-faster-medium.wav, 553-reversed-medium.wav]
+  suitability: [environment]
+- directory: d
+  name: d_4
+  sounds:
+    hit: [556-slower-medium.wav, 772-reversed-medium.wav, 772-mono-medium.wav,
+      782-mono-medium.wav, 22-slower-medium.wav, 189-slower-medium.wav, 646-lower-medium.wav,
+      782-faster-medium.wav]
+    excited: [453-reversed-medium.wav, 639-faster-medium.wav, 262-faster-medium.wav,
+      284-slower-medium.wav, 685-lower-longish.wav, 139-mono-longish.wav, 185-reversed-longish.wav,
+      121-slower-longish.wav]
+    fire: [453-mono-medium.wav]
+    blocked: [189-lower-medium.wav]
+    misc: [508-slower-longish.wav, 526-reversed-longish.wav, 721-slower-longish.wav,
+      492-mono-longish.wav, 427-mono-longish.wav, 794-mono-longish.wav, 38-lower-longish.wav,
+      760-reversed-longish.wav, 727-slower-longish.wav, 38-slower-longish.wav]
+    turning: [189-lower-medium.wav, 600-reversed-medium.wav, 600-faster-medium.wav,
+      22-lower-medium.wav, 16-faster-medium.wav, 65-faster-medium.wav, 508-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_36
+  sounds:
+    hit: [77-faster-medium.wav, 613-mono-medium.wav, 260-faster-medium.wav, 233-reversed-medium.wav,
+      715-faster-medium.wav, 403-slower-medium.wav, 219-mono-medium.wav, 522-mono-medium.wav]
+    excited: [759-slower-longish.wav, 437-mono-longish.wav, 674-slower-longish.wav,
+      217-slower-longish.wav, 129-lower-longish.wav, 141-lower-longish.wav, 18-faster-longish.wav,
+      788-reversed-longish.wav]
+    fire: [766-faster-longish.wav]
+    blocked: [326-faster-medium.wav]
+    misc: [747-lower-longish.wav, 709-reversed-long.wav, 546-slower-long.wav, 76-lower-long.wav,
+      409-slower-long.wav, 167-slower-long.wav, 93-reversed-long.wav, 499-slower-huge.wav,
+      285-lower-huge.wav, 132-mono-huge.wav]
+    turning: [161-faster-medium.wav, 504-slower-medium.wav, 209-faster-medium.wav,
+      655-lower-medium.wav, 516-mono-medium.wav, 613-faster-medium.wav, 318-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: h
+  name: h_5
+  sounds:
+    hit: [259-lower-long.wav, 58-mono-longish.wav, 327-slower-long.wav, 615-lower-long.wav,
+      746-reversed-long.wav, 491-faster-long.wav, 359-mono-long.wav, 26-faster-longish.wav]
+    excited: [455-mono-long.wav, 455-lower-long.wav, 725-reversed-long.wav, 91-mono-long.wav,
+      91-lower-long.wav, 617-reversed-long.wav, 672-lower-long.wav, 290-slower-huge.wav]
+    fire: [322-mono-long.wav]
+    blocked: [615-lower-long.wav]
+    misc: [441-slower-huge.wav, 99-mono-huge.wav, 367-mono-huge.wav, 367-lower-huge.wav,
+      358-reversed-huge.wav, 420-lower-huge.wav, 783-lower-huge.wav, 358-slower-huge.wav,
+      306-mono-huge.wav, 783-slower-huge.wav]
+    turning: [688-faster-longish.wav, 10-mono-longish.wav, 158-mono-longish.wav,
+      158-lower-longish.wav, 688-lower-longish.wav, 533-lower-longish.wav, 327-mono-longish.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: q
+  name: q_2
+  sounds:
+    hit: [710-lower-long.wav, 485-lower-long.wav, 127-faster-long.wav, 619-faster-long.wav,
+      346-faster-long.wav, 24-lower-long.wav, 618-mono-long.wav, 618-lower-long.wav]
+    excited: [537-reversed-long.wav, 24-slower-long.wav, 11-lower-long.wav, 485-slower-huge.wav,
+      277-slower-huge.wav, 253-mono-huge.wav, 253-reversed-huge.wav, 253-lower-huge.wav]
+    fire: [127-lower-long.wav]
+    blocked: [24-slower-long.wav]
+    misc: [25-slower-huge.wav, 542-slower-huge.wav, 346-lower-huge.wav, 619-slower-huge.wav,
+      537-slower-huge.wav, 580-reversed-huge.wav, 135-faster-huge.wav, 550-slower-huge.wav,
+      609-slower-huge.wav, 135-mono-huge.wav]
+    turning: [710-faster-long.wav, 534-faster-long.wav, 626-faster-longish.wav, 776-mono-longish.wav,
+      292-slower-medium.wav, 574-lower-long.wav, 485-faster-long.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_33
+  sounds:
+    hit: [655-slower-medium.wav, 403-mono-medium.wav, 101-reversed-medium.wav,
+      316-mono-medium.wav, 308-faster-medium.wav, 4-lower-medium.wav, 735-faster-medium.wav,
+      770-mono-medium.wav]
+    excited: [652-mono-medium.wav, 340-reversed-medium.wav, 397-lower-longish.wav,
+      654-reversed-longish.wav, 566-reversed-longish.wav, 474-mono-longish.wav, 260-lower-longish.wav,
+      20-lower-longish.wav]
+    fire: [326-lower-medium.wav]
+    blocked: [655-slower-medium.wav]
+    misc: [84-slower-longish.wav, 83-lower-longish.wav, 328-mono-longish.wav, 182-lower-longish.wav,
+      78-faster-longish.wav, 206-reversed-long.wav, 72-mono-long.wav, 496-reversed-long.wav,
+      499-mono-long.wav, 482-lower-huge.wav]
+    turning: [768-faster-medium.wav, 161-lower-medium.wav, 301-faster-medium.wav,
+      636-faster-medium.wav, 111-reversed-medium.wav, 591-lower-short.wav, 35-mono-medium.wav,
+      ]
+  suitability: [monster, player, ally, food]
+- directory: c
+  name: c_0
+  sounds:
+    hit: [365-mono-medium.wav, 312-lower-medium.wav, 790-slower-medium.wav, 360-slower-medium.wav,
+      360-reversed-medium.wav, 312-mono-medium.wav, 96-lower-medium.wav, 713-lower-medium.wav]
+    excited: [426-slower-longish.wav, 211-mono-longish.wav, 280-slower-longish.wav,
+      50-faster-longish.wav, 424-mono-longish.wav, 355-slower-longish.wav, 115-slower-long.wav,
+      515-faster-long.wav]
+    fire: [355-lower-longish.wav]
+    blocked: [515-faster-long.wav]
+    misc: [354-faster-long.wav, 50-lower-long.wav, 117-mono-long.wav, 117-lower-long.wav,
+      756-faster-long.wav, 596-reversed-long.wav, 596-lower-long.wav, 469-mono-long.wav,
+      354-mono-long.wav, 210-mono-long.wav]
+    turning: [740-lower-short.wav, 90-mono-short.wav, 387-faster-short.wav,
+      571-reversed-short.wav, 164-faster-short.wav, 503-reversed-medium.wav, 164-lower-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: d
+  name: d_0
+  sounds:
+    hit: [721-lower-medium.wav, 506-mono-medium.wav, 685-mono-longish.wav, 477-slower-medium.wav,
+      247-slower-medium.wav, 721-mono-medium.wav, 197-reversed-medium.wav, 694-faster-medium.wav]
+    excited: [616-lower-longish.wav, 694-lower-longish.wav, 200-faster-longish.wav,
+      794-lower-longish.wav, 639-mono-longish.wav, 639-lower-longish.wav, 262-mono-longish.wav,
+      262-reversed-longish.wav]
+    fire: [185-lower-longish.wav]
+    blocked: [760-mono-longish.wav]
+    misc: [402-mono-longish.wav, 760-mono-longish.wav, 511-slower-longish.wav, 188-mono-longish.wav,
+      188-reversed-longish.wav, 118-reversed-longish.wav, 402-slower-long.wav, 44-mono-long.wav,
+      44-lower-long.wav, 760-slower-long.wav]
+    turning: [138-mono-medium.wav, 22-mono-medium.wav, 197-faster-medium.wav, 538-faster-medium.wav,
+      506-faster-medium.wav, 369-lower-medium.wav, 451-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: w
+  name: w_6
+  sounds:
+    hit: [293-mono-medium.wav, 394-lower-medium.wav, 229-slower-medium.wav, 293-reversed-medium.wav,
+      363-lower-medium.wav, 547-mono-medium.wav, 647-faster-medium.wav, 547-reversed-medium.wav]
+    excited: [320-reversed-medium.wav, 456-lower-medium.wav, 602-lower-medium.wav,
+      160-lower-medium.wav, 363-slower-medium.wav, 449-slower-medium.wav, 649-lower-longish.wav,
+      386-reversed-longish.wav]
+    fire: [223-faster-medium.wav]
+    blocked: [386-reversed-longish.wav]
+    misc: [74-lower-longish.wav, 540-mono-longish.wav, 466-lower-longish.wav, 765-slower-longish.wav,
+      423-slower-longish.wav, 744-mono-longish.wav, 223-slower-longish.wav, 21-faster-longish.wav,
+      21-mono-longish.wav, 21-slower-long.wav]
+    turning: [728-mono-short.wav, 229-reversed-short.wav, 628-mono-short.wav, 487-faster-short.wav,
+      229-lower-short.wav, 229-mono-short.wav, 490-reversed-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_14
+  sounds:
+    hit: [305-lower-medium.wav, 314-mono-medium.wav, 30-lower-medium.wav, 675-faster-medium.wav,
+      467-slower-medium.wav, 666-lower-medium.wav, 252-lower-medium.wav, 422-slower-medium.wav]
+    excited: [146-faster-medium.wav, 659-reversed-longish.wav, 176-lower-longish.wav,
+      566-mono-longish.wav, 144-reversed-longish.wav, 203-mono-longish.wav, 392-faster-longish.wav,
+      101-slower-longish.wav]
+    fire: [4-slower-medium.wav]
+    blocked: [176-lower-longish.wav]
+    misc: [180-lower-longish.wav, 676-slower-longish.wav, 187-slower-longish.wav,
+      57-mono-longish.wav, 131-mono-longish.wav, 112-reversed-long.wav, 206-slower-long.wav,
+      199-slower-huge.wav, 496-slower-huge.wav, 51-mono-huge.wav]
+    turning: [714-reversed-medium.wav, 422-lower-medium.wav, 270-lower-medium.wav,
+      591-reversed-short.wav, 605-lower-medium.wav, 419-reversed-medium.wav,
+      516-reversed-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_26
+  sounds:
+    hit: [250-reversed-medium.wav, 100-lower-medium.wav, 657-slower-longish.wav,
+      614-mono-medium.wav, 340-faster-medium.wav, 330-lower-medium.wav, 43-reversed-longish.wav,
+      663-reversed-medium.wav]
+    excited: [226-mono-longish.wav, 252-slower-longish.wav, 717-reversed-longish.wav,
+      146-reversed-longish.wav, 178-reversed-longish.wav, 484-lower-longish.wav, 75-mono-longish.wav,
+      398-reversed-longish.wav]
+    fire: [589-mono-longish.wav]
+    blocked: [213-mono-longish.wav]
+    misc: [3-slower-longish.wav, 213-mono-longish.wav, 704-reversed-long.wav, 680-reversed-long.wav,
+      234-slower-long.wav, 748-slower-long.wav, 31-faster-long.wav, 348-slower-long.wav,
+      708-faster-huge.wav, 285-mono-huge.wav]
+    turning: [378-lower-short.wav, 791-lower-medium.wav, 240-lower-short.wav,
+      41-reversed-short.wav, 661-slower-medium.wav, 410-mono-medium.wav, 136-mono-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: s
+  name: s_1
+  sounds:
+    hit: [734-lower-longish.wav, 349-slower-longish.wav, 279-faster-medium.wav,
+      63-reversed-longish.wav, 734-faster-medium.wav, 113-faster-longish.wav, 116-lower-longish.wav,
+      433-slower-medium.wav]
+    excited: [325-mono-longish.wav, 166-slower-longish.wav, 597-faster-longish.wav,
+      711-faster-longish.wav, 606-lower-longish.wav, 671-lower-long.wav, 85-slower-long.wav,
+      711-mono-long.wav]
+    fire: [279-mono-longish.wav]
+    blocked: [641-lower-medium.wav]
+    misc: [711-lower-long.wav, 668-slower-long.wav, 597-slower-long.wav, 470-reversed-long.wav,
+      634-faster-huge.wav, 670-slower-huge.wav, 67-slower-huge.wav, 622-faster-huge.wav,
+      622-mono-huge.wav, 513-slower-huge.wav]
+    turning: [439-mono-medium.wav, 242-faster-medium.wav, 304-lower-medium.wav, 186-lower-medium.wav,
+      641-lower-medium.wav, 186-faster-medium.wav, 37-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: c
+  name: c_6
+  sounds:
+    hit: [312-reversed-medium.wav, 561-slower-medium.wav, 355-mono-longish.wav,
+      779-reversed-medium.wav, 689-reversed-longish.wav, 27-slower-medium.wav, 361-faster-longish.wav,
+      651-faster-longish.wav]
+    excited: [23-faster-longish.wav, 418-slower-longish.wav, 342-faster-longish.wav,
+      123-lower-long.wav, 719-lower-long.wav, 23-reversed-long.wav, 743-reversed-long.wav,
+      288-faster-long.wav]
+    fire: [719-faster-longish.wav]
+    blocked: [164-mono-medium.wav]
+    misc: [483-slower-long.wav, 558-slower-long.wav, 460-mono-long.wav, 460-reversed-long.wav,
+      173-lower-long.wav, 370-slower-long.wav, 210-reversed-long.wav, 288-lower-long.wav,
+      743-slower-long.wav, 637-slower-huge.wav]
+    turning: [331-faster-short.wav, 27-mono-medium.wav, 164-mono-medium.wav,
+      331-lower-medium.wav, 90-faster-short.wav, 335-faster-medium.wav, 667-mono-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: m
+  name: m_0
+  sounds:
+    hit: [212-reversed-medium.wav, 224-faster-medium.wav, 40-faster-medium.wav,
+      505-mono-medium.wav, 232-slower-medium.wav, 169-mono-medium.wav, 553-mono-medium.wav,
+      454-reversed-longish.wav]
+    excited: [319-reversed-longish.wav, 593-lower-longish.wav, 62-reversed-longish.wav,
+      375-lower-longish.wav, 73-faster-longish.wav, 59-lower-long.wav, 251-lower-long.wav,
+      448-reversed-long.wav]
+    fire: [737-lower-longish.wav]
+    blocked: [753-faster-huge.wav]
+    misc: [103-reversed-long.wav, 286-reversed-long.wav, 753-faster-huge.wav, 236-faster-huge.wav,
+      251-slower-huge.wav, 673-mono-huge.wav, 753-lower-huge.wav, 14-mono-huge.wav,
+      87-slower-huge.wav, 754-lower-huge.wav]
+    turning: [531-faster-medium.wav, 159-faster-medium.wav, 429-reversed-short.wav,
+      457-faster-short.wav, 169-faster-medium.wav, 479-lower-medium.wav, 429-mono-short.wav]
+  suitability: [environment, food]
+- directory: m
+  name: m_5
+  sounds:
+    hit: [68-faster-longish.wav, 716-slower-longish.wav, 224-lower-longish.wav,
+      583-lower-medium.wav, 246-mono-medium.wav, 621-slower-medium.wav, 604-reversed-longish.wav,
+      40-lower-medium.wav]
+    excited: [224-slower-longish.wav, 54-mono-longish.wav, 321-slower-longish.wav,
+      73-mono-long.wav, 272-faster-long.wav, 251-reversed-long.wav, 272-reversed-long.wav,
+      448-lower-long.wav]
+    fire: [230-mono-longish.wav]
+    blocked: [621-slower-medium.wav]
+    misc: [751-mono-long.wav, 59-slower-long.wav, 13-mono-long.wav, 793-reversed-long.wav,
+      658-mono-huge.wav, 231-reversed-huge.wav, 753-mono-huge.wav, 14-reversed-huge.wav,
+      458-mono-huge.wav, 796-reversed-huge.wav]
+    turning: [159-reversed-medium.wav, 553-faster-medium.wav, 159-mono-medium.wav,
+      583-faster-medium.wav, 45-faster-short.wav, 621-mono-medium.wav, 457-mono-medium.wav]
+  suitability: [environment]
+- directory: h
+  name: h_6
+  sounds:
+    hit: [486-lower-long.wav, 222-faster-longish.wav, 222-reversed-long.wav, 598-reversed-long.wav,
+      712-mono-long.wav, 599-reversed-longish.wav, 501-lower-longish.wav, 688-slower-long.wav]
+    excited: [12-slower-long.wav, 491-lower-long.wav, 290-mono-long.wav, 290-reversed-long.wav,
+      746-slower-long.wav, 633-mono-long.wav, 322-slower-long.wav, 455-slower-long.wav]
+    fire: [633-faster-long.wav]
+    blocked: [322-slower-long.wav]
+    misc: [91-slower-long.wav, 420-faster-long.wav, 617-slower-huge.wav, 99-lower-huge.wav,
+      99-reversed-huge.wav, 358-mono-huge.wav, 337-reversed-huge.wav, 554-slower-huge.wav,
+      99-slower-huge.wav, 306-lower-huge.wav]
+    turning: [678-slower-longish.wav, 688-reversed-longish.wav, 12-faster-longish.wav,
+      300-mono-longish.wav, 599-faster-longish.wav, 500-mono-longish.wav, 245-slower-medium.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: s
+  name: s_7
+  sounds:
+    hit: [125-mono-medium.wav, 577-slower-medium.wav, 196-reversed-medium.wav,
+      325-faster-medium.wav, 303-mono-medium.wav, 242-slower-medium.wav, 444-lower-medium.wav,
+      304-slower-medium.wav]
+    excited: [279-lower-longish.wav, 421-mono-longish.wav, 289-mono-longish.wav, 570-slower-longish.wav,
+      63-slower-longish.wav, 581-faster-longish.wav, 668-reversed-long.wav, 777-reversed-long.wav]
+    fire: [734-mono-longish.wav]
+    blocked: [677-faster-short.wav]
+    misc: [671-slower-long.wav, 581-slower-long.wav, 470-mono-long.wav, 634-mono-huge.wav,
+      634-reversed-huge.wav, 634-slower-huge.wav, 350-mono-huge.wav, 150-reversed-huge.wav,
+      622-lower-huge.wav, 150-slower-huge.wav]
+    turning: [304-reversed-medium.wav, 265-lower-short.wav, 439-faster-medium.wav,
+      677-faster-short.wav, 413-lower-short.wav, 242-reversed-medium.wav, 281-slower-short.wav]
+  suitability: [monster, ally, food]
+- directory: b
+  name: b_21
+  sounds:
+    hit: [462-lower-medium.wav, 589-lower-longish.wav, 282-mono-medium.wav, 768-mono-medium.wav,
+      630-slower-longish.wav, 7-lower-medium.wav, 298-faster-medium.wav, 307-mono-longish.wav]
+    excited: [203-lower-longish.wav, 66-lower-longish.wav, 595-slower-longish.wav,
+      701-mono-longish.wav, 77-slower-longish.wav, 76-faster-longish.wav, 153-faster-longish.wav,
+      682-slower-longish.wav]
+    fire: [587-mono-longish.wav]
+    blocked: [106-lower-long.wav]
+    misc: [76-mono-long.wav, 726-slower-long.wav, 575-mono-long.wav, 572-slower-long.wav,
+      46-faster-long.wav, 106-lower-long.wav, 194-slower-long.wav, 93-lower-long.wav,
+      757-slower-long.wav, 708-mono-huge.wav]
+    turning: [612-lower-short.wav, 419-faster-medium.wav, 630-faster-medium.wav, 42-faster-medium.wav,
+      623-faster-medium.wav, 42-reversed-medium.wav, 378-mono-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: h
+  name: h_8
+  sounds:
+    hit: [486-faster-longish.wav, 58-reversed-longish.wav, 530-lower-long.wav,
+      12-lower-longish.wav, 268-mono-long.wav, 746-faster-longish.wav, 310-faster-longish.wav,
+      598-mono-long.wav]
+    excited: [533-slower-long.wav, 359-lower-long.wav, 388-reversed-long.wav, 455-reversed-long.wav,
+      781-lower-long.wav, 730-reversed-long.wav, 730-lower-long.wav, 501-slower-long.wav]
+    fire: [780-reversed-long.wav]
+    blocked: [533-mono-longish.wav]
+    misc: [222-slower-long.wav, 633-reversed-long.wav, 291-reversed-long.wav, 544-slower-long.wav,
+      730-slower-long.wav, 442-faster-huge.wav, 783-faster-huge.wav, 368-slower-huge.wav,
+      367-slower-huge.wav, 306-slower-huge.wav]
+    turning: [327-faster-longish.wav, 245-mono-medium.wav, 678-lower-medium.wav,
+      128-reversed-longish.wav, 518-faster-medium.wav, 528-lower-longish.wav, 533-mono-longish.wav]
+  suitability: [monster, player, ally, food]
+- directory: s
+  name: s_3
+  sounds:
+    hit: [116-mono-longish.wav, 116-reversed-longish.wav, 37-reversed-medium.wav,
+      317-reversed-medium.wav, 289-faster-longish.wav, 303-reversed-medium.wav, 0-slower-medium.wav,
+      317-mono-medium.wav]
+    excited: [63-lower-longish.wav, 421-reversed-longish.wav, 606-faster-longish.wav,
+      85-mono-longish.wav, 191-reversed-longish.wav, 668-faster-longish.wav, 48-slower-longish.wav,
+      198-reversed-long.wav]
+    fire: [48-mono-longish.wav]
+    blocked: [125-faster-medium.wav]
+    misc: [198-lower-long.wav, 606-slower-long.wav, 198-slower-long.wav, 777-slower-long.wav,
+      470-slower-huge.wav, 168-reversed-huge.wav, 513-lower-huge.wav, 150-mono-huge.wav,
+      350-slower-huge.wav, 588-slower-huge.wav]
+    turning: [304-mono-medium.wav, 433-lower-medium.wav, 196-faster-medium.wav, 125-faster-medium.wav,
+      439-reversed-medium.wav, 413-slower-short.wav, 413-reversed-short.wav]
+  suitability: [player, ally, food]
+- directory: s
+  name: s_0
+  sounds:
+    hit: [341-reversed-longish.wav, 48-reversed-longish.wav, 37-slower-longish.wav,
+      279-reversed-longish.wav, 242-mono-medium.wav, 125-slower-medium.wav, 577-mono-medium.wav,
+      303-faster-medium.wav]
+    excited: [29-lower-longish.wav, 113-lower-longish.wav, 116-slower-longish.wav,
+      421-slower-longish.wav, 325-slower-longish.wav, 581-lower-long.wav, 470-faster-long.wav,
+      670-reversed-long.wav]
+    fire: [289-reversed-longish.wav]
+    blocked: [641-faster-medium.wav]
+    misc: [472-lower-long.wav, 67-lower-long.wav, 784-lower-huge.wav, 168-mono-huge.wav,
+      150-faster-huge.wav, 350-lower-huge.wav, 588-lower-huge.wav, 168-slower-huge.wav,
+      150-lower-huge.wav, 622-reversed-huge.wav]
+    turning: [433-faster-medium.wav, 281-mono-short.wav, 607-mono-short.wav,
+      304-faster-short.wav, 281-reversed-short.wav, 641-faster-medium.wav, 381-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: h
+  name: h_1
+  sounds:
+    hit: [544-faster-longish.wav, 761-faster-longish.wav, 300-lower-longish.wav,
+      712-lower-long.wav, 244-slower-longish.wav, 268-lower-long.wav, 761-reversed-long.wav,
+      269-mono-longish.wav]
+    excited: [322-reversed-long.wav, 388-lower-long.wav, 368-faster-long.wav, 491-reversed-long.wav,
+      290-lower-long.wav, 712-slower-long.wav, 26-slower-long.wav, 633-lower-long.wav]
+    fire: [598-lower-long.wav]
+    blocked: [300-lower-longish.wav]
+    misc: [780-slower-long.wav, 291-mono-long.wav, 291-lower-long.wav, 367-faster-long.wav,
+      672-reversed-long.wav, 633-slower-huge.wav, 672-slower-huge.wav, 337-slower-huge.wav,
+      494-lower-huge.wav, 494-slower-huge.wav]
+    turning: [518-lower-medium.wav, 411-mono-longish.wav, 158-faster-medium.wav, 475-faster-longish.wav,
+      158-reversed-longish.wav, 533-faster-longish.wav, 128-lower-longish.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_23
+  sounds:
+    hit: [636-slower-medium.wav, 239-reversed-medium.wav, 183-lower-medium.wav,
+      663-mono-medium.wav, 385-faster-medium.wav, 407-lower-medium.wav, 148-slower-medium.wav,
+      545-reversed-medium.wav]
+    excited: [522-lower-medium.wav, 80-slower-medium.wav, 257-lower-longish.wav, 205-faster-longish.wav,
+      129-faster-longish.wav, 66-reversed-longish.wav, 568-faster-longish.wav, 6-lower-longish.wav]
+    fire: [787-faster-medium.wav]
+    blocked: [403-faster-medium.wav]
+    misc: [493-slower-longish.wav, 216-mono-longish.wav, 213-reversed-longish.wav,
+      143-faster-long.wav, 243-reversed-long.wav, 182-slower-long.wav, 482-mono-huge.wav,
+      447-faster-huge.wav, 152-reversed-huge.wav, 371-lower-huge.wav]
+    turning: [403-faster-medium.wav, 509-lower-medium.wav, 391-faster-short.wav, 519-faster-short.wav,
+      785-reversed-medium.wav, 551-faster-medium.wav, 430-faster-short.wav]
+  suitability: [player, ally, food]
+- directory: c
+  name: c_3
+  sounds:
+    hit: [96-slower-medium.wav, 610-mono-medium.wav, 335-lower-medium.wav, 387-lower-medium.wav,
+      335-mono-medium.wav, 360-lower-medium.wav, 96-reversed-medium.wav, 740-slower-medium.wav]
+    excited: [689-lower-longish.wav, 115-reversed-longish.wav, 370-faster-longish.wav,
+      1-faster-longish.wav, 211-lower-longish.wav, 123-faster-longish.wav, 356-faster-longish.wav,
+      361-reversed-longish.wav]
+    fire: [418-mono-longish.wav]
+    blocked: [356-faster-longish.wav]
+    misc: [424-reversed-longish.wav, 1-lower-longish.wav, 1-reversed-longish.wav,
+      345-faster-long.wav, 123-reversed-long.wav, 637-faster-long.wav, 117-reversed-long.wav,
+      123-slower-long.wav, 637-reversed-long.wav, 345-slower-huge.wav]
+    turning: [713-faster-medium.wav, 181-lower-medium.wav, 157-mono-medium.wav,
+      561-reversed-medium.wav, 571-lower-short.wav, 667-lower-short.wav, 695-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_30
+  sounds:
+    hit: [202-reversed-medium.wav, 555-mono-longish.wav, 489-mono-medium.wav,
+      49-reversed-medium.wav, 39-faster-medium.wav, 415-reversed-medium.wav, 30-reversed-medium.wav,
+      516-slower-medium.wav]
+    excited: [49-slower-longish.wav, 147-reversed-longish.wav, 666-slower-longish.wav,
+      484-reversed-longish.wav, 140-faster-longish.wav, 205-lower-longish.wav, 569-mono-longish.wav,
+      648-mono-longish.wav]
+    fire: [524-reversed-longish.wav]
+    blocked: [484-reversed-longish.wav]
+    misc: [260-slower-longish.wav, 757-faster-longish.wav, 484-slower-longish.wav,
+      243-faster-long.wav, 679-lower-long.wav, 143-reversed-long.wav, 656-slower-long.wav,
+      578-reversed-long.wav, 447-reversed-huge.wav, 371-reversed-huge.wav]
+    turning: [724-faster-medium.wav, 523-slower-medium.wav, 692-reversed-short.wav,
+      41-faster-short.wav, 539-reversed-short.wav, 248-faster-short.wav, 430-slower-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_35
+  sounds:
+    hit: [250-mono-medium.wav, 722-mono-medium.wav, 419-lower-medium.wav, 446-reversed-medium.wav,
+      566-faster-medium.wav, 419-mono-medium.wav, 692-slower-medium.wav, 412-lower-medium.wav]
+    excited: [587-lower-longish.wav, 763-slower-longish.wav, 330-slower-longish.wav,
+      792-lower-longish.wav, 731-slower-longish.wav, 573-mono-longish.wav, 461-slower-longish.wav,
+      555-slower-longish.wav]
+    fire: [385-reversed-medium.wav]
+    blocked: [419-mono-medium.wav]
+    misc: [20-slower-longish.wav, 748-lower-long.wav, 180-slower-long.wav, 778-slower-long.wav,
+      562-reversed-long.wav, 603-mono-long.wav, 767-lower-huge.wav, 749-slower-huge.wav,
+      482-reversed-huge.wav, 586-slower-huge.wav]
+    turning: [299-faster-short.wav, 410-lower-medium.wav, 378-slower-medium.wav, 100-faster-medium.wav,
+      270-faster-short.wav, 41-mono-short.wav, 584-faster-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_32
+  sounds:
+    hit: [261-lower-longish.wav, 590-mono-medium.wav, 652-lower-medium.wav, 452-lower-medium.wav,
+      397-reversed-longish.wav, 675-reversed-longish.wav, 627-mono-medium.wav, 717-faster-medium.wav]
+    excited: [762-mono-longish.wav, 735-slower-longish.wav, 83-mono-longish.wav, 274-slower-longish.wav,
+      216-reversed-longish.wav, 167-lower-longish.wav, 131-lower-longish.wav, 792-slower-long.wav]
+    fire: [110-reversed-longish.wav]
+    blocked: [717-faster-medium.wav]
+    misc: [680-faster-long.wav, 748-mono-long.wav, 102-slower-long.wav, 543-mono-long.wav,
+      93-mono-long.wav, 172-faster-long.wav, 107-slower-huge.wav, 172-reversed-huge.wav,
+      82-mono-huge.wav, 662-mono-huge.wav]
+    turning: [640-reversed-medium.wav, 584-slower-short.wav, 175-slower-medium.wav,
+      504-lower-medium.wav, 643-faster-medium.wav, 52-slower-medium.wav, 313-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: h
+  name: h_4
+  sounds:
+    hit: [134-faster-long.wav, 486-reversed-long.wav, 259-faster-longish.wav,
+      12-mono-longish.wav, 259-mono-long.wav, 500-slower-longish.wav, 688-mono-longish.wav,
+      533-reversed-longish.wav]
+    excited: [91-reversed-long.wav, 134-reversed-long.wav, 491-mono-long.wav, 486-slower-long.wav,
+      615-slower-long.wav, 310-slower-long.wav, 309-mono-long.wav, 491-slower-huge.wav]
+    fire: [725-mono-long.wav]
+    blocked: [491-slower-huge.wav]
+    misc: [420-mono-huge.wav, 442-mono-huge.wav, 507-mono-huge.wav, 306-faster-huge.wav,
+      783-mono-huge.wav, 669-reversed-huge.wav, 306-reversed-huge.wav, 442-slower-huge.wav,
+      669-slower-huge.wav, 494-mono-huge.wav]
+    turning: [245-reversed-medium.wav, 245-lower-medium.wav, 678-mono-medium.wav,
+      411-faster-longish.wav, 244-reversed-longish.wav, 500-faster-medium.wav,
+      528-mono-longish.wav]
+  suitability: [monster, player, ally, food]
+- directory: w
+  name: w_8
+  sounds:
+    hit: [293-lower-medium.wav, 32-reversed-medium.wav, 204-slower-medium.wav,
+      338-lower-medium.wav, 624-mono-medium.wav, 624-lower-medium.wav, 681-lower-medium.wav,
+      552-lower-medium.wav]
+    excited: [36-mono-medium.wav, 423-mono-medium.wav, 195-slower-medium.wav, 74-faster-medium.wav,
+      28-faster-medium.wav, 55-mono-medium.wav, 9-slower-medium.wav, 631-mono-medium.wav]
+    fire: [130-slower-medium.wav]
+    blocked: [293-lower-medium.wav]
+    misc: [532-lower-medium.wav, 386-mono-longish.wav, 267-slower-longish.wav, 160-slower-longish.wav,
+      532-slower-longish.wav, 649-slower-longish.wav, 585-slower-longish.wav, 466-slower-longish.wav,
+      28-slower-longish.wav, 324-slower-longish.wav]
+    turning: [204-reversed-medium.wav, 347-mono-short.wav, 490-mono-short.wav, 394-faster-short.wav,
+      347-slower-short.wav, 229-faster-short.wav, 703-faster-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_22
+  sounds:
+    hit: [261-faster-medium.wav, 397-faster-medium.wav, 383-mono-medium.wav, 750-lower-medium.wav,
+      774-lower-medium.wav, 555-faster-medium.wav, 241-faster-medium.wav, 390-mono-medium.wav]
+    excited: [318-slower-longish.wav, 147-lower-longish.wav, 162-mono-longish.wav,
+      705-mono-longish.wav, 102-reversed-longish.wav, 589-slower-longish.wav, 400-faster-longish.wav,
+      762-slower-longish.wav]
+    fire: [699-faster-longish.wav]
+    blocked: [241-faster-medium.wav]
+    misc: [679-reversed-long.wav, 351-mono-long.wav, 757-mono-long.wav, 352-reversed-long.wav,
+      680-mono-long.wav, 635-lower-long.wav, 488-lower-long.wav, 543-slower-long.wav,
+      488-slower-huge.wav, 71-lower-huge.wav]
+    turning: [4-reversed-medium.wav, 382-mono-medium.wav, 438-reversed-medium.wav,
+      422-mono-medium.wav, 86-reversed-medium.wav, 611-reversed-short.wav, 770-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: h
+  name: h_2
+  sounds:
+    hit: [725-faster-longish.wav, 746-lower-long.wav, 388-faster-longish.wav,
+      781-faster-longish.wav, 376-faster-longish.wav, 780-faster-longish.wav, 599-lower-longish.wav,
+      128-slower-longish.wav]
+    excited: [441-faster-long.wav, 10-slower-long.wav, 376-lower-long.wav, 544-reversed-long.wav,
+      388-mono-long.wav, 475-slower-long.wav, 725-lower-long.wav, 291-faster-long.wav]
+    fire: [780-mono-long.wav]
+    blocked: [420-slower-huge.wav]
+    misc: [309-faster-long.wav, 530-slower-long.wav, 259-slower-long.wav, 359-slower-long.wav,
+      309-reversed-long.wav, 507-faster-huge.wav, 554-reversed-huge.wav, 783-reversed-huge.wav,
+      420-slower-huge.wav, 494-faster-huge.wav]
+    turning: [789-slower-medium.wav, 244-lower-longish.wav, 10-lower-longish.wav,
+      245-faster-short.wav, 327-lower-longish.wav, 789-mono-short.wav, 244-mono-longish.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: m
+  name: m_2
+  sounds:
+    hit: [224-reversed-longish.wav, 505-slower-longish.wav, 40-mono-medium.wav,
+      61-mono-longish.wav, 177-lower-medium.wav, 212-lower-medium.wav, 583-reversed-medium.wav,
+      246-lower-medium.wav]
+    excited: [375-mono-longish.wav, 54-reversed-longish.wav, 73-lower-long.wav, 251-faster-long.wav,
+      272-lower-long.wav, 673-faster-long.wav, 13-lower-long.wav, 535-lower-long.wav]
+    fire: [212-slower-longish.wav]
+    blocked: [321-lower-longish.wav]
+    misc: [529-slower-huge.wav, 87-faster-huge.wav, 673-lower-huge.wav, 448-slower-huge.wav,
+      404-mono-huge.wav, 87-mono-huge.wav, 236-mono-huge.wav, 796-mono-huge.wav, 754-mono-huge.wav,
+      754-reversed-huge.wav]
+    turning: [457-reversed-medium.wav, 479-mono-medium.wav, 232-mono-medium.wav,
+      120-slower-medium.wav, 380-mono-medium.wav, 120-reversed-short.wav, 553-lower-medium.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: m
+  name: m_7
+  sounds:
+    hit: [108-slower-longish.wav, 255-lower-long.wav, 159-slower-medium.wav, 283-lower-longish.wav,
+      283-slower-long.wav, 737-reversed-longish.wav, 61-lower-longish.wav, 375-faster-longish.wav]
+    excited: [529-mono-long.wav, 529-lower-long.wav, 793-faster-long.wav, 251-mono-long.wav,
+      73-slower-long.wav, 373-lower-long.wav, 373-mono-long.wav, 286-lower-long.wav]
+    fire: [373-faster-long.wav]
+    blocked: [286-lower-long.wav]
+    misc: [535-mono-long.wav, 793-mono-long.wav, 231-mono-huge.wav, 231-lower-huge.wav,
+      535-slower-huge.wav, 404-lower-huge.wav, 236-reversed-huge.wav, 658-slower-huge.wav,
+      796-lower-huge.wav, 14-slower-huge.wav]
+    turning: [557-faster-medium.wav, 45-mono-short.wav, 531-mono-medium.wav,
+      505-faster-medium.wav, 105-reversed-medium.wav, 457-slower-medium.wav, 246-faster-medium.wav]
+  suitability: [environment, ally, food]
+- directory: q
+  name: q_1
+  sounds:
+    hit: [24-reversed-long.wav, 25-mono-long.wav, 277-lower-long.wav, 594-faster-long.wav,
+      25-lower-long.wav, 485-mono-long.wav, 537-faster-long.wav, 618-faster-long.wav]
+    excited: [534-reversed-long.wav, 594-mono-long.wav, 253-faster-long.wav, 431-slower-long.wav,
+      127-reversed-long.wav, 537-lower-long.wav, 11-mono-long.wav, 11-reversed-long.wav]
+    fire: [11-faster-long.wav]
+    blocked: [253-slower-huge.wav]
+    misc: [346-reversed-huge.wav, 618-slower-huge.wav, 534-slower-huge.wav, 710-slower-huge.wav,
+      550-reversed-huge.wav, 550-lower-huge.wav, 253-slower-huge.wav, 609-lower-huge.wav,
+      580-mono-huge.wav, 135-slower-huge.wav]
+    turning: [292-mono-medium.wav, 24-faster-longish.wav, 574-mono-long.wav, 25-faster-long.wav,
+      776-faster-longish.wav, 431-faster-longish.wav, 776-reversed-longish.wav]
+  suitability: [ally, food]
+- directory: b
+  name: b_39
+  sounds:
+    hit: [462-faster-medium.wav, 294-lower-medium.wav, 249-faster-medium.wav,
+      759-lower-medium.wav, 35-slower-medium.wav, 750-faster-medium.wav, 30-mono-medium.wav,
+      366-mono-medium.wav]
+    excited: [659-lower-longish.wav, 307-lower-longish.wav, 787-mono-longish.wav,
+      266-mono-longish.wav, 235-slower-longish.wav, 428-faster-longish.wav, 220-faster-longish.wav,
+      146-mono-longish.wav]
+    fire: [275-faster-medium.wav]
+    blocked: [787-mono-longish.wav]
+    misc: [510-reversed-longish.wav, 249-slower-longish.wav, 216-lower-longish.wav,
+      568-lower-long.wav, 459-mono-long.wav, 664-faster-long.wav, 788-slower-long.wav,
+      543-reversed-long.wav, 199-lower-long.wav, 773-slower-long.wav]
+    turning: [612-mono-short.wav, 611-slower-short.wav, 636-mono-medium.wav,
+      52-lower-medium.wav, 640-faster-medium.wav, 559-lower-short.wav, 89-faster-medium.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_46
+  sounds:
+    hit: [791-slower-medium.wav, 412-mono-medium.wav, 434-faster-medium.wav, 408-lower-medium.wav,
+      768-reversed-medium.wav, 266-faster-medium.wav, 60-slower-longish.wav, 142-faster-medium.wav]
+    excited: [569-faster-longish.wav, 589-reversed-longish.wav, 97-lower-longish.wav,
+      180-reversed-longish.wav, 396-slower-longish.wav, 690-slower-longish.wav, 57-reversed-longish.wav,
+      650-slower-longish.wav]
+    fire: [257-mono-longish.wav]
+    blocked: [408-lower-medium.wav]
+    misc: [241-slower-longish.wav, 18-lower-long.wav, 206-mono-long.wav, 352-mono-long.wav,
+      199-reversed-long.wav, 786-slower-long.wav, 575-slower-long.wav, 69-lower-long.wav,
+      5-mono-huge.wav, 51-lower-huge.wav]
+    turning: [548-faster-short.wav, 415-faster-medium.wav, 148-faster-medium.wav,
+      560-reversed-short.wav, 329-faster-short.wav, 480-reversed-short.wav,
+      692-mono-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_42
+  sounds:
+    hit: [137-slower-medium.wav, 84-lower-medium.wav, 614-reversed-medium.wav,
+      43-lower-longish.wav, 124-mono-medium.wav, 750-reversed-medium.wav, 614-faster-medium.wav,
+      595-faster-medium.wav]
+    excited: [587-reversed-longish.wav, 241-mono-longish.wav, 682-lower-longish.wav,
+      701-reversed-longish.wav, 43-slower-longish.wav, 323-slower-longish.wav, 679-faster-longish.wav,
+      167-reversed-longish.wav]
+    fire: [228-faster-longish.wav]
+    blocked: [329-slower-medium.wav]
+    misc: [709-lower-long.wav, 234-lower-long.wav, 215-mono-long.wav, 567-reversed-long.wav,
+      749-reversed-long.wav, 389-faster-long.wav, 82-faster-long.wav, 389-mono-huge.wav,
+      71-mono-huge.wav, 302-reversed-huge.wav]
+    turning: [86-lower-medium.wav, 80-lower-medium.wav, 334-mono-short.wav, 15-lower-medium.wav,
+      221-faster-short.wav, 329-slower-medium.wav, 724-mono-medium.wav]
+  suitability: [player, ally, food]
+- directory: m
+  name: m_6
+  sounds:
+    hit: [604-faster-medium.wav, 105-mono-medium.wav, 105-lower-medium.wav, 177-slower-medium.wav,
+      454-faster-medium.wav, 230-faster-longish.wav, 40-reversed-medium.wav, 583-mono-medium.wav]
+    excited: [40-slower-longish.wav, 454-mono-longish.wav, 737-mono-longish.wav, 319-mono-longish.wav,
+      230-lower-longish.wav, 68-lower-longish.wav, 62-mono-longish.wav, 54-lower-longish.wav]
+    fire: [62-faster-longish.wav]
+    blocked: [105-lower-medium.wav]
+    misc: [59-reversed-long.wav, 286-faster-long.wav, 535-faster-long.wav, 658-faster-long.wav,
+      255-slower-long.wav, 751-reversed-long.wav, 103-lower-long.wav, 14-faster-huge.wav,
+      404-faster-huge.wav, 751-slower-huge.wav]
+    turning: [169-reversed-medium.wav, 429-slower-medium.wav, 120-mono-short.wav,
+      45-lower-short.wav, 479-faster-medium.wav, 505-lower-medium.wav, 120-lower-short.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: w
+  name: w_1
+  sounds:
+    hit: [665-reversed-medium.wav, 56-faster-medium.wav, 681-mono-medium.wav,
+      151-reversed-medium.wav, 765-faster-medium.wav, 631-faster-medium.wav, 151-lower-medium.wav,
+      55-faster-medium.wav]
+    excited: [647-lower-medium.wav, 223-mono-medium.wav, 399-faster-medium.wav, 532-reversed-medium.wav,
+      104-lower-medium.wav, 541-reversed-medium.wav, 386-lower-longish.wav, 585-mono-longish.wav]
+    fire: [338-slower-medium.wav]
+    blocked: [399-faster-medium.wav]
+    misc: [28-reversed-longish.wav, 399-reversed-longish.wav, 324-lower-longish.wav,
+      109-mono-longish.wav, 631-slower-longish.wav, 133-slower-longish.wav, 686-reversed-longish.wav,
+      386-slower-longish.wav, 700-slower-longish.wav, 775-slower-long.wav]
+    turning: [703-reversed-short.wav, 195-faster-medium.wav, 620-reversed-medium.wav,
+      130-reversed-medium.wav, 620-lower-medium.wav, 620-mono-medium.wav, 204-lower-medium.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_43
+  sounds:
+    hit: [419-slower-medium.wav, 101-faster-medium.wav, 184-mono-medium.wav, 702-reversed-medium.wav,
+      119-lower-medium.wav, 340-mono-medium.wav, 502-reversed-medium.wav, 39-mono-longish.wav]
+    excited: [510-faster-longish.wav, 514-mono-longish.wav, 162-reversed-longish.wav,
+      202-slower-longish.wav, 510-lower-longish.wav, 395-slower-longish.wav, 656-faster-longish.wav,
+      226-slower-longish.wav]
+    fire: [241-lower-longish.wav]
+    blocked: [241-lower-longish.wav]
+    misc: [788-mono-longish.wav, 696-mono-longish.wav, 696-lower-longish.wav, 603-faster-longish.wav,
+      575-reversed-long.wav, 112-mono-long.wav, 635-mono-long.wav, 352-slower-long.wav,
+      447-mono-huge.wav, 302-slower-huge.wav]
+    turning: [294-faster-medium.wav, 35-faster-short.wav, 94-mono-short.wav, 174-slower-medium.wav,
+      446-faster-medium.wav, 438-lower-medium.wav, 297-lower-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_16
+  sounds:
+    hit: [374-faster-medium.wav, 145-mono-longish.wav, 705-faster-longish.wav,
+      682-faster-medium.wav, 640-slower-medium.wav, 53-reversed-medium.wav, 462-mono-medium.wav,
+      142-reversed-medium.wav]
+    excited: [57-faster-longish.wav, 520-mono-longish.wav, 522-slower-longish.wav,
+      696-faster-longish.wav, 343-lower-longish.wav, 778-reversed-longish.wav, 140-mono-longish.wav,
+      568-mono-long.wav]
+    fire: [493-lower-longish.wav]
+    blocked: [343-lower-longish.wav]
+    misc: [153-mono-long.wav, 47-slower-long.wav, 220-slower-long.wav, 496-mono-long.wav,
+      51-faster-long.wav, 78-slower-long.wav, 46-mono-huge.wav, 31-mono-huge.wav,
+      447-lower-huge.wav, 132-reversed-huge.wav]
+    turning: [2-faster-short.wav, 636-lower-medium.wav, 480-slower-medium.wav, 605-mono-medium.wav,
+      366-faster-medium.wav, 791-reversed-medium.wav, 175-reversed-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_24
+  sounds:
+    hit: [438-slower-medium.wav, 119-mono-medium.wav, 257-faster-medium.wav, 235-reversed-medium.wav,
+      714-slower-medium.wav, 517-mono-medium.wav, 217-faster-medium.wav, 263-faster-medium.wav]
+    excited: [527-faster-medium.wav, 792-faster-longish.wav, 654-mono-longish.wav,
+      75-faster-longish.wav, 241-reversed-longish.wav, 275-mono-longish.wav, 203-reversed-longish.wav,
+      546-mono-longish.wav]
+    fire: [443-mono-medium.wav]
+    blocked: [592-slower-longish.wav]
+    misc: [238-slower-longish.wav, 592-slower-longish.wav, 362-mono-longish.wav, 679-mono-long.wav,
+      276-mono-long.wav, 122-lower-long.wav, 351-slower-long.wav, 499-lower-long.wav,
+      302-faster-huge.wav, 302-lower-huge.wav]
+    turning: [86-mono-medium.wav, 657-reversed-medium.wav, 174-faster-short.wav,
+      467-lower-medium.wav, 612-slower-short.wav, 53-mono-medium.wav, 611-mono-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_5
+  sounds:
+    hit: [364-faster-medium.wav, 235-mono-medium.wav, 684-slower-medium.wav, 722-reversed-medium.wav,
+      301-lower-medium.wav, 632-mono-medium.wav, 613-lower-medium.wav, 308-reversed-medium.wav]
+    excited: [690-reversed-longish.wav, 3-lower-longish.wav, 682-mono-longish.wav,
+      582-slower-longish.wav, 383-slower-longish.wav, 786-mono-long.wav, 656-reversed-long.wav,
+      656-lower-long.wav]
+    fire: [323-mono-longish.wav]
+    blocked: [613-lower-medium.wav]
+    misc: [276-reversed-long.wav, 742-reversed-long.wav, 757-reversed-long.wav, 107-mono-long.wav,
+      586-faster-long.wav, 126-reversed-long.wav, 76-slower-long.wav, 106-reversed-long.wav,
+      46-reversed-huge.wav, 69-slower-huge.wav]
+    turning: [516-faster-short.wav, 2-reversed-short.wav, 791-mono-medium.wav,
+      155-reversed-short.wav, 207-lower-medium.wav, 270-mono-medium.wav, 612-reversed-short.wav]
+  suitability: [monster, player, ally, food]
+- directory: d
+  name: d_5
+  sounds:
+    hit: [121-mono-medium.wav, 451-lower-medium.wav, 727-faster-medium.wav, 284-lower-medium.wav,
+      401-lower-medium.wav, 646-reversed-medium.wav, 17-mono-medium.wav, 17-lower-medium.wav]
+    excited: [794-faster-medium.wav, 727-lower-medium.wav, 402-faster-longish.wav,
+      139-lower-longish.wav, 185-mono-longish.wav, 760-faster-longish.wav, 79-slower-longish.wav,
+      646-slower-longish.wav]
+    fire: [492-faster-medium.wav]
+    blocked: [138-faster-medium.wav]
+    misc: [511-reversed-longish.wav, 694-reversed-longish.wav, 17-slower-longish.wav,
+      639-reversed-longish.wav, 200-reversed-longish.wav, 758-slower-longish.wav,
+      492-slower-longish.wav, 188-lower-longish.wav, 118-mono-longish.wav, 200-slower-long.wav]
+    turning: [600-mono-medium.wav, 369-reversed-medium.wav, 425-reversed-medium.wav,
+      284-faster-medium.wav, 369-mono-medium.wav, 556-mono-medium.wav, 138-faster-medium.wav]
+  suitability: [monster, player, ally, food]
+- directory: b
+  name: b_17
+  sounds:
+    hit: [202-lower-medium.wav, 443-lower-medium.wav, 219-lower-medium.wav, 750-mono-medium.wav,
+      731-reversed-medium.wav, 613-reversed-medium.wav, 443-faster-medium.wav, 590-reversed-medium.wav]
+    excited: [47-faster-longish.wav, 275-reversed-longish.wav, 717-mono-longish.wav,
+      638-reversed-longish.wav, 705-lower-longish.wav, 614-slower-longish.wav, 699-mono-longish.wav,
+      75-lower-longish.wav]
+    fire: [3-reversed-longish.wav]
+    blocked: [568-slower-long.wav]
+    misc: [414-faster-longish.wav, 194-faster-longish.wav, 162-slower-long.wav, 766-slower-long.wav,
+      18-reversed-long.wav, 215-reversed-long.wav, 747-slower-long.wav, 199-mono-long.wav,
+      568-slower-long.wav, 295-slower-huge.wav]
+    turning: [221-slower-medium.wav, 729-slower-medium.wav, 299-lower-short.wav,
+      156-mono-short.wav, 316-faster-medium.wav, 334-slower-short.wav, 136-lower-short.wav]
+  suitability: [player, ally, food]
+- directory: b
+  name: b_29
+  sounds:
+    hit: [724-slower-medium.wav, 19-reversed-medium.wav, 452-faster-medium.wav,
+      731-faster-medium.wav, 366-lower-medium.wav, 111-slower-medium.wav, 84-reversed-medium.wav,
+      274-faster-medium.wav]
+    excited: [217-mono-medium.wav, 659-mono-longish.wav, 461-lower-longish.wav, 592-mono-longish.wav,
+      502-slower-longish.wav, 766-mono-longish.wav, 579-mono-longish.wav, 648-lower-longish.wav]
+    fire: [282-reversed-medium.wav]
+    blocked: [220-lower-longish.wav]
+    misc: [141-mono-longish.wav, 220-lower-longish.wav, 266-slower-longish.wav, 357-reversed-longish.wav,
+      110-slower-longish.wav, 717-slower-longish.wav, 769-faster-long.wav, 414-lower-long.wav,
+      400-lower-long.wav, 739-slower-long.wav]
+    turning: [2-lower-short.wav, 584-reversed-short.wav, 329-mono-short.wav,
+      148-reversed-medium.wav, 661-lower-short.wav, 523-mono-short.wav, 539-faster-short.wav]
+  suitability: [player, ally, food]
+- directory: d
+  name: d_1
+  sounds:
+    hit: [477-mono-medium.wav, 170-mono-medium.wav, 453-faster-medium.wav, 508-lower-medium.wav,
+      508-mono-medium.wav, 425-mono-medium.wav, 506-reversed-medium.wav, 685-faster-medium.wav]
+    excited: [139-faster-medium.wav, 336-faster-medium.wav, 427-faster-medium.wav,
+      401-slower-medium.wav, 538-slower-longish.wav, 16-slower-longish.wav, 616-reversed-longish.wav,
+      601-mono-longish.wav]
+    fire: [17-reversed-medium.wav]
+    blocked: [402-reversed-longish.wav]
+    misc: [492-reversed-longish.wav, 38-reversed-longish.wav, 402-reversed-longish.wav,
+      64-mono-longish.wav, 188-faster-longish.wav, 200-mono-longish.wav, 44-faster-longish.wav,
+      185-slower-longish.wav, 336-slower-longish.wav, 601-slower-longish.wav]
+    turning: [138-reversed-medium.wav, 721-faster-medium.wav, 738-lower-medium.wav,
+      247-reversed-medium.wav, 65-mono-medium.wav, 189-mono-medium.wav, 738-reversed-medium.wav,
+      ]
+  suitability: [monster, environment, player, ally, food]
+- directory: b
+  name: b_38
+  sounds:
+    hit: [385-mono-medium.wav, 545-slower-longish.wav, 101-lower-medium.wav, 180-faster-longish.wav,
+      7-reversed-medium.wav, 390-reversed-medium.wav, 514-faster-medium.wav, 323-reversed-longish.wav]
+    excited: [579-reversed-longish.wav, 75-reversed-longish.wav, 340-slower-longish.wav,
+      102-lower-longish.wav, 437-slower-longish.wav, 92-slower-longish.wav, 126-faster-long.wav,
+      459-reversed-long.wav]
+    fire: [715-mono-longish.wav]
+    blocked: [102-lower-longish.wav]
+    misc: [328-slower-long.wav, 752-mono-long.wav, 143-mono-long.wav, 764-slower-long.wav,
+      112-slower-long.wav, 122-mono-long.wav, 5-lower-huge.wav, 143-slower-huge.wav,
+      82-lower-huge.wav, 31-slower-huge.wav]
+    turning: [238-faster-medium.wav, 502-faster-medium.wav, 100-reversed-medium.wav,
+      226-faster-medium.wav, 299-reversed-short.wav, 175-mono-short.wav, 334-reversed-short.wav]
+  suitability: [monster, ally, food]
+
+###extra sounds - joplin and johnson
+
+- directory: j
+  name: j_98
+  sounds:
+    hit: [r98.wav-lower.wav, r78.wav, r54.wav-lower.wav, r56.wav-lower.wav, r24.wav-reverse.wav,
+      r21.wav, r68.wav, r4.wav]
+    excited: [r92.wav-faster.wav, r22.wav-lower.wav, r18.wav-lower.wav, r16.wav-lower.wav,
+      r99.wav, r99.wav-reverse.wav, r74.wav-faster.wav, r97.wav]
+    fire: [r39.wav-reverse.wav]
+    blocked: [r98.wav-lower.wav]
+    misc: [r30.wav, r34.wav-slower.wav, r7.wav-slower.wav, r38.wav-faster.wav, r45.wav-lower.wav,
+      r85.wav-slower.wav, r29.wav-reverse.wav, r46.wav-slower.wav, r65.wav-reverse.wav,
+      r9.wav-lower.wav]
+    turning: [r17.wav-faster.wav, r19.wav-reverse.wav, r83.wav-faster.wav, r83.wav,
+      r3.wav-faster.wav, r20.wav, r21.wav-faster.wav]
+  suitability: [environment, player, ally, food]
+
+- directory: j
+  name: j_913
+  sounds:
+    hit: [r28.wav, r54.wav-slower.wav, r56.wav-slower.wav, r90.wav-reverse.wav,
+      r26.wav, r87.wav-reverse.wav, r32.wav, r78.wav-slower.wav]
+    excited: [r74.wav-lower.wav, r74.wav-reverse.wav, r69.wav-slower.wav, r32.wav-slower.wav,
+      r35.wav-slower.wav, r91.wav, r74.wav-slower.wav, r44.wav-slower.wav]
+    fire: [r77.wav]
+    blocked: [r74.wav-lower.wav]
+    misc: [r25.wav-reverse.wav]
+    turning: [r24.wav-lower.wav, r95.wav-lower.wav, r54.wav, r94.wav-reverse.wav,
+      r34.wav-reverse.wav, r13.wav-faster.wav, r99.wav-faster.wav]
+  suitability: [environment, player, ally, food]
+- directory: j
+  name: j_92
+  sounds:
+    hit: [r70.wav-faster.wav, r48.wav, r71.wav-faster.wav, r61.wav-faster.wav,
+      r2.wav-reverse.wav, r68.wav-lower.wav, r19.wav, r24.wav]
+    excited: [r63.wav, r23.wav-lower.wav, r87.wav-faster.wav, r18.wav-reverse.wav,
+      r45.wav-faster.wav, r71.wav-lower.wav, r67.wav-lower.wav, r6.wav-slower.wav]
+    fire: [r86.wav-lower.wav]
+    blocked: [r47.wav]
+    misc: [r93.wav-reverse.wav, r47.wav, r96.wav-faster.wav, r15.wav-faster.wav, r91.wav-faster.wav,
+      r71.wav-slower.wav, r64.wav-lower.wav, r91.wav-lower.wav, r44.wav, r9.wav-faster.wav]
+    turning: [r68.wav-faster.wav, r2.wav-faster.wav, r57.wav, r8.wav-lower.wav,
+      r76.wav-faster.wav, r50.wav-faster.wav, r95.wav-reverse.wav]
+  suitability: [environment, player, ally, food]
+- directory: j
+  name: j_75
+  sounds:
+    hit: [j51.wav-slower.wav, j30.wav-faster.wav, j72.wav-faster.wav, j2.wav-reverse.wav,
+      j18.wav-faster.wav, j60.wav-faster.wav, j9.wav-reverse.wav, j22.wav-lower.wav]
+    excited: [j80.wav-lower.wav, j40.wav-lower.wav, j42.wav-lower.wav, j58.wav, j69.wav-lower.wav,
+      j79.wav-slower.wav, j2.wav-slower.wav, j36.wav-faster.wav]
+    fire: [j83.wav-reverse.wav]
+    blocked: [j80.wav-lower.wav]
+    misc: [j45.wav-slower.wav, j60.wav-slower.wav, j90.wav-slower.wav, j23.wav-slower.wav,
+      j11.wav, j27.wav-slower.wav, j47.wav-slower.wav, j76.wav-slower.wav, j82.wav,
+      j52.wav-slower.wav]
+    turning: [j49.wav-lower.wav, j26.wav-faster.wav, j33.wav-faster.wav, j1.wav-faster.wav,
+      j26.wav-reverse.wav, j49.wav-faster.wav, j33.wav-reverse.wav]
+  suitability: [player, ally, food]
+- directory: j
+  name: j_97
+  sounds:
+    hit: [r4.wav-lower.wav, r53.wav-lower.wav, r17.wav-lower.wav, r78.wav-reverse.wav,
+      r3.wav-reverse.wav, r50.wav-lower.wav, r17.wav-reverse.wav, r62.wav]
+    excited: [r23.wav-reverse.wav, r22.wav, r57.wav-slower.wav, r80.wav-slower.wav,
+      r77.wav-faster.wav, r20.wav-slower.wav, r47.wav-faster.wav, r61.wav-lower.wav]
+    fire: [r40.wav-faster.wav]
+    blocked: [r54.wav-faster.wav]
+    misc: [r59.wav, r11.wav-slower.wav, r28.wav-lower.wav, r88.wav-slower.wav, r29.wav-faster.wav,
+      r26.wav-slower.wav, r41.wav-slower.wav, r51.wav-lower.wav, r66.wav-lower.wav,
+      r9.wav-reverse.wav]
+    turning: [r54.wav-faster.wav, r55.wav-faster.wav, r55.wav-lower.wav, r8.wav-faster.wav,
+       r8.wav-slower.wav, r27.wav-faster.wav, r14.wav-reverse.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_99
+  sounds:
+    hit: [r37.wav, r39.wav, r32.wav-faster.wav, r59.wav-faster.wav, r88.wav-reverse.wav,
+      r42.wav, r70.wav, r10.wav-slower.wav]
+    excited: [r32.wav-lower.wav, r30.wav-reverse.wav, r92.wav-reverse.wav, r49.wav-lower.wav,
+      r35.wav-lower.wav, r77.wav-reverse.wav, r93.wav-lower.wav, r58.wav-lower.wav]
+    fire: [r62.wav-slower.wav]
+    blocked: [r32.wav-lower.wav]
+    misc: [r51.wav-faster.wav, r28.wav-slower.wav, r92.wav-slower.wav, r36.wav, r46.wav-lower.wav,
+      r77.wav-slower.wav, r15.wav-lower.wav, r1.wav-slower.wav, r66.wav-reverse.wav,
+      r15.wav-slower.wav]
+    turning: [r6.wav-faster.wav, r48.wav-faster.wav, r76.wav, r56.wav-faster.wav,
+      r84.wav-lower.wav, r72.wav-faster.wav, r57.wav-faster.wav]
+  suitability: [monster, player, ally, food]
+- directory: j
+  name: j_91
+  sounds:
+    hit: [r86.wav, r39.wav-lower.wav, r52.wav, r86.wav-reverse.wav, r22.wav-reverse.wav,
+      r82.wav-reverse.wav, r26.wav-faster.wav, r7.wav-reverse.wav]
+    excited: [r58.wav-faster.wav, r13.wav-lower.wav, r90.wav-lower.wav, r21.wav-slower.wav,
+      r40.wav-lower.wav, r26.wav-lower.wav, r79.wav-reverse.wav, r79.wav-lower.wav]
+    fire: [r71.wav-reverse.wav]
+    blocked: [r86.wav-reverse.wav]
+    misc: [r1.wav, r1.wav-reverse.wav, r47.wav-lower.wav, r58.wav, r90.wav-slower.wav,
+      r97.wav-slower.wav, r30.wav-slower.wav, r67.wav-slower.wav, r87.wav-slower.wav,
+      r58.wav-slower.wav]
+    turning: [r14.wav-lower.wav, r72.wav-lower.wav, r19.wav-faster.wav, r4.wav-faster.wav,
+      r42.wav-faster.wav, r20.wav-faster.wav, r73.wav-faster.wav]
+  suitability: [monster, environment, player, ally]
+- directory: j
+  name: j_70
+  sounds:
+    hit: [j15.wav-reverse.wav, j70.wav-faster.wav, j21.wav-reverse.wav, j88.wav-reverse.wav,
+      j79.wav-reverse.wav, j67.wav-slower.wav, j24.wav-lower.wav, j71.wav-faster.wav]
+    excited: [j63.wav-lower.wav, j72.wav-reverse.wav, j58.wav-lower.wav, j44.wav,
+      j71.wav, j56.wav, j9.wav-slower.wav, j37.wav]
+    fire: [j34.wav]
+    blocked: [j81.wav-slower.wav]
+    misc: [j78.wav-reverse.wav, j78.wav-lower.wav, j43.wav-slower.wav, j85.wav-slower.wav,
+      j70.wav-slower.wav, j84.wav-reverse.wav, j12.wav-slower.wav, j81.wav-slower.wav,
+      j52.wav-reverse.wav, j50.wav-slower.wav]
+    turning: [ j29.wav, j67.wav-faster.wav, j54.wav-faster.wav, j25.wav, j28.wav-lower.wav,
+      j19.wav-faster.wav, j4.wav-faster.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_72
+  sounds:
+    hit: [j91.wav-slower.wav, j49.wav-reverse.wav, j65.wav, j42.wav-faster.wav,
+      j33.wav-slower.wav, j6.wav-reverse.wav, j59.wav, j61.wav]
+    excited: [j70.wav-reverse.wav, j34.wav-lower.wav, j60.wav-reverse.wav, j58.wav-reverse.wav,
+      j14.wav-reverse.wav, j18.wav, j18.wav-reverse.wav, j17.wav-lower.wav]
+    fire: [j70.wav]
+    blocked: [j10.wav-faster.wav]
+    misc: [j62.wav-faster.wav, j16.wav-slower.wav, j40.wav-slower.wav, j53.wav-faster.wav,
+      j38.wav-slower.wav, j32.wav-slower.wav, j36.wav, j53.wav, j52.wav, j82.wav-reverse.wav]
+    turning: [j77.wav-faster.wav, j77.wav-reverse.wav, j26.wav-lower.wav, j88.wav-faster.wav,
+      j10.wav-faster.wav, j28.wav-reverse.wav, j51.wav-reverse.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_93
+  sounds:
+    hit: [r53.wav, r68.wav-reverse.wav, r17.wav, r33.wav-lower.wav, r85.wav-faster.wav,
+      r81.wav, r88.wav-lower.wav, r31.wav-lower.wav]
+    excited: [r23.wav, r69.wav-reverse.wav, r2.wav-slower.wav, r17.wav-slower.wav,
+      r97.wav-lower.wav, r52.wav-slower.wav, r58.wav-reverse.wav, r74.wav]
+    fire: [r67.wav-faster.wav]
+    blocked: [r36.wav-reverse.wav]
+    misc: [r70.wav-slower.wav, r64.wav-faster.wav, r61.wav-slower.wav, r36.wav-reverse.wav,
+      r93.wav-slower.wav, r91.wav-slower.wav, r65.wav, r65.wav-lower.wav, r25.wav-slower.wav,
+      r9.wav-slower.wav]
+    turning: [r76.wav-reverse.wav, r24.wav-faster.wav, r7.wav-faster.wav, r10.wav,
+      r23.wav-faster.wav, r11.wav-faster.wav, r33.wav-faster.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_79
+  sounds:
+    hit: [j22.wav-reverse.wav, j89.wav-lower.wav, j61.wav-lower.wav, j46.wav-lower.wav,
+      j74.wav-reverse.wav, j78.wav-faster.wav, j74.wav-lower.wav, j85.wav-lower.wav]
+    excited: [j60.wav-lower.wav, j44.wav-lower.wav, j69.wav-reverse.wav, j90.wav,
+      j23.wav-reverse.wav, j57.wav-reverse.wav, j13.wav, j13.wav-reverse.wav]
+    fire: [j45.wav]
+    blocked: [j44.wav-lower.wav]
+    misc: [j31.wav-lower.wav, j39.wav-reverse.wav, j46.wav-slower.wav, j66.wav, j66.wav-reverse.wav,
+      j34.wav-slower.wav, j27.wav-faster.wav, j58.wav-slower.wav, j76.wav-reverse.wav,
+      j82.wav-faster.wav]
+    turning: [j19.wav-reverse.wav, j51.wav-faster.wav, j7.wav-reverse.wav, j4.wav-lower.wav,
+      j6.wav, j91.wav-faster.wav, j3.wav-slower.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_94
+  sounds:
+    hit: [r21.wav-lower.wav, r73.wav-lower.wav, r4.wav-reverse.wav, r34.wav-lower.wav,
+      r75.wav-faster.wav, r62.wav-reverse.wav, r37.wav-reverse.wav, r21.wav-reverse.wav]
+    excited: [r73.wav-slower.wav, r31.wav-slower.wav, r85.wav-lower.wav, r75.wav-reverse.wav,
+      r43.wav, r27.wav-slower.wav, r81.wav-slower.wav, r53.wav-slower.wav]
+    fire: [r61.wav-reverse.wav]
+    blocked: [r93.wav]
+    misc: [r1.wav-lower.wav, r93.wav, r45.wav-reverse.wav, r99.wav-slower.wav, r96.wav-reverse.wav,
+      r96.wav-lower.wav, r5.wav-slower.wav, r64.wav-slower.wav, r29.wav-slower.wav,
+      r51.wav-slower.wav]
+    turning: [ r83.wav-reverse.wav, r60.wav-lower.wav, r57.wav-reverse.wav, r12.wav-reverse.wav,
+      r31.wav-faster.wav, r37.wav-faster.wav, r63.wav-faster.wav]
+  suitability: [monster, environment, ally, food]
+- directory: j
+  name: j_76
+  sounds:
+    hit: [j89.wav-faster.wav, j68.wav, j9.wav-faster.wav, j25.wav-slower.wav,
+      j88.wav-lower.wav, j8.wav-lower.wav, j1.wav, j68.wav-lower.wav]
+    excited: [j35.wav-faster.wav, j88.wav-slower.wav, j40.wav, j42.wav-reverse.wav,
+      j14.wav, j35.wav, j57.wav-lower.wav, j17.wav]
+    fire: [j40.wav-faster.wav]
+    blocked: [j68.wav-lower.wav]
+    misc: [j31.wav-reverse.wav, j39.wav-lower.wav, j81.wav-lower.wav, j48.wav-slower.wav,
+      j42.wav-slower.wav, j76.wav-faster.wav, j72.wav-slower.wav, j62.wav-reverse.wav,
+      j47.wav, j82.wav-lower.wav]
+    turning: [j5.wav-lower.wav, j68.wav-faster.wav, j5.wav-reverse.wav, j24.wav-faster.wav,
+      j5.wav-faster.wav, j87.wav-lower.wav, j10.wav-lower.wav]
+  suitability: [environment, player, ally, food]
+- directory: j
+  name: j_77
+  sounds:
+    hit: [j10.wav-slower.wav, j49.wav, j74.wav-faster.wav, j19.wav-slower.wav,
+      j33.wav-lower.wav, j31.wav-faster.wav, j81.wav-faster.wav, j20.wav-lower.wav]
+    excited: [j41.wav, j46.wav-reverse.wav, j45.wav-lower.wav, j63.wav-reverse.wav,
+      j64.wav-reverse.wav, j38.wav-reverse.wav, j32.wav-lower.wav, j37.wav-reverse.wav]
+    fire: [j89.wav]
+    blocked: [j37.wav-slower.wav]
+    misc: [j66.wav-faster.wav, j22.wav-slower.wav, j61.wav-slower.wav, j56.wav-slower.wav,
+      j13.wav-slower.wav, j37.wav-slower.wav, j47.wav-reverse.wav, j73.wav-lower.wav,
+      j82.wav-slower.wav, j73.wav-slower.wav]
+    turning: [j29.wav-faster.wav, j7.wav-lower.wav, j20.wav-faster.wav, j87.wav-reverse.wav,
+      j54.wav-lower.wav, j6.wav-faster.wav, j19.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_912
+  sounds:
+    hit: [r34.wav, r20.wav-lower.wav, r39.wav-faster.wav, r78.wav-lower.wav, r55.wav-reverse.wav,
+      r60.wav, r69.wav-faster.wav, r52.wav-reverse.wav]
+    excited: [r98.wav-reverse.wav, r37.wav-lower.wav, r3.wav, r49.wav-faster.wav,
+      r70.wav-reverse.wav, r93.wav-faster.wav, r33.wav-slower.wav, r50.wav-slower.wav]
+    fire: [r98.wav]
+    blocked: [r3.wav]
+    misc: [r32.wav-reverse.wav, r40.wav, r67.wav-reverse.wav, r79.wav, r37.wav-slower.wav,
+      r47.wav-reverse.wav, r49.wav-slower.wav, r45.wav-slower.wav, r38.wav-slower.wav,
+      r25.wav]
+    turning: [r12.wav-faster.wav, r12.wav, r8.wav-reverse.wav, r62.wav-faster.wav,
+      r78.wav-faster.wav, r80.wav-lower.wav, r98.wav-faster.wav]
+  suitability: [environment, player, ally, food]
+- directory: j
+  name: j_710
+  sounds:
+    hit: [j68.wav-slower.wav, j20.wav-reverse.wav, j79.wav, j41.wav-faster.wav,
+      j2.wav-faster.wav, j9.wav-lower.wav, j24.wav-reverse.wav, j14.wav-faster.wav]
+    excited: [j20.wav-slower.wav, j16.wav-lower.wav, j34.wav-reverse.wav, j64.wav-lower.wav,
+      j23.wav, j38.wav, j38.wav-lower.wav, j47.wav-faster.wav]
+    fire: [j8.wav-slower.wav]
+    blocked: [j20.wav-slower.wav]
+    misc: [j11.wav-faster.wav, j17.wav-slower.wav, j36.wav-reverse.wav, j31.wav-slower.wav,
+      j27.wav, j27.wav-reverse.wav, j47.wav-lower.wav, j11.wav-lower.wav, j84.wav-slower.wav,
+      j50.wav]
+    turning: [j75.wav-faster.wav, j28.wav-faster.wav, j4.wav, j75.wav, j51.wav,
+      j67.wav-lower.wav, j54.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_711
+  sounds:
+    hit: [j24.wav, j12.wav-faster.wav, j44.wav-faster.wav, j2.wav, j21.wav, j57.wav-faster.wav,
+      j7.wav-slower.wav, j23.wav-faster.wav]
+    excited: [j1.wav-slower.wav, j85.wav-reverse.wav, j83.wav-lower.wav, j70.wav-lower.wav,
+      j60.wav, j72.wav-lower.wav, j13.wav-lower.wav, j30.wav-lower.wav]
+    fire: [j48.wav-reverse.wav]
+    blocked: [j44.wav-faster.wav]
+    misc: [j80.wav-slower.wav, j84.wav-lower.wav, j44.wav-slower.wav, j14.wav-slower.wav,
+      j18.wav-slower.wav, j53.wav-reverse.wav, j11.wav-reverse.wav, j66.wav-slower.wav,
+      j36.wav-slower.wav, j73.wav-faster.wav]
+    turning: [ j77.wav-lower.wav, j59.wav-faster.wav, j29.wav-lower.wav, j15.wav,
+      j65.wav-reverse.wav, j3.wav-reverse.wav, j3.wav-faster.wav]
+  suitability: [environment, player, ally, food]
+- directory: j
+  name: j_910
+  sounds:
+    hit: [r16.wav-reverse.wav, r28.wav-faster.wav, r30.wav-faster.wav, r6.wav-reverse.wav,
+      r81.wav-lower.wav, r79.wav-faster.wav, r81.wav-reverse.wav, r84.wav-slower.wav]
+    excited: [r19.wav-slower.wav, r13.wav-reverse.wav, r85.wav, r75.wav, r43.wav-reverse.wav,
+      r48.wav-slower.wav, r98.wav-slower.wav, r23.wav-slower.wav]
+    fire: [r14.wav-slower.wav]
+    blocked: [r85.wav]
+    misc: [r45.wav, r18.wav-slower.wav, r16.wav-slower.wav, r46.wav-faster.wav, r5.wav-reverse.wav,
+      r79.wav-slower.wav, r64.wav, r51.wav, r47.wav-slower.wav, r65.wav-faster.wav]
+    turning: [ r27.wav, r82.wav-lower.wav, r42.wav-lower.wav, r95.wav-faster.wav,
+      r72.wav, r22.wav-faster.wav, r76.wav-lower.wav]
+  suitability: [monster, environment, ally, food]
+- directory: j
+  name: j_96
+  sounds:
+    hit: [r5.wav-faster.wav, r42.wav-slower.wav, r52.wav-lower.wav, r63.wav-reverse.wav,
+      r6.wav, r31.wav-reverse.wav, r11.wav-reverse.wav, r35.wav-faster.wav]
+    excited: [r30.wav-lower.wav, r75.wav-lower.wav, r92.wav, r92.wav-lower.wav, r49.wav,
+      r4.wav-slower.wav, r41.wav-reverse.wav, r68.wav-slower.wav]
+    fire: [r24.wav-slower.wav]
+    blocked: [r49.wav]
+    misc: [r22.wav-slower.wav, r5.wav, r36.wav-lower.wav, r46.wav-reverse.wav, r15.wav-reverse.wav,
+      r51.wav-reverse.wav, r91.wav-reverse.wav, r66.wav-faster.wav, r96.wav-slower.wav,
+      r9.wav]
+    turning: [r60.wav-faster.wav, r73.wav-reverse.wav, r19.wav-lower.wav, r84.wav,
+      r52.wav-faster.wav, r10.wav-faster.wav, r80.wav-faster.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_74
+  sounds:
+    hit: [j63.wav-faster.wav, j43.wav, j45.wav-faster.wav, j26.wav-slower.wav,
+      j16.wav-faster.wav, j90.wav-faster.wav, j28.wav-slower.wav, j4.wav-slower.wav]
+    excited: [j74.wav, j16.wav-reverse.wav, j42.wav, j63.wav, j18.wav-lower.wav, j32.wav,
+      j57.wav, j81.wav]
+    fire: [j39.wav-faster.wav]
+    blocked: [j39.wav-faster.wav]
+    misc: [j78.wav, j89.wav-slower.wav, j74.wav-slower.wav, j63.wav-slower.wav, j78.wav-slower.wav,
+      j52.wav-faster.wav, j53.wav-slower.wav, j11.wav-slower.wav, j73.wav, j73.wav-reverse.wav]
+    turning: [j15.wav-faster.wav, j86.wav-faster.wav, j29.wav-slower.wav, j59.wav-lower.wav,
+      j20.wav, j91.wav-lower.wav, j68.wav-reverse.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_71
+  sounds:
+    hit: [j65.wav-slower.wav, j38.wav-faster.wav, j79.wav-lower.wav, j69.wav-faster.wav,
+      j17.wav-faster.wav, j58.wav-faster.wav, j1.wav-lower.wav, j43.wav-lower.wav]
+    excited: [j86.wav-reverse.wav, j41.wav-lower.wav, j46.wav, j80.wav-reverse.wav,
+      j16.wav, j45.wav-reverse.wav, j44.wav-reverse.wav, j35.wav-reverse.wav]
+    fire: [j48.wav]
+    blocked: [j25.wav-faster.wav]
+    misc: [j90.wav-reverse.wav, j71.wav-lower.wav, j17.wav-reverse.wav, j39.wav, j37.wav-lower.wav,
+      j66.wav-lower.wav, j57.wav-slower.wav, j30.wav-slower.wav, j27.wav-lower.wav,
+      j76.wav]
+    turning: [j26.wav, j77.wav, j3.wav-lower.wav, j75.wav-lower.wav, j54.wav-reverse.wav,
+      j25.wav-faster.wav, j25.wav-lower.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_73
+  sounds:
+    hit: [j34.wav-faster.wav, j59.wav-slower.wav, j46.wav-faster.wav, j21.wav-slower.wav,
+      j86.wav, j22.wav-faster.wav, j77.wav-slower.wav, j54.wav-slower.wav]
+    excited: [j40.wav-reverse.wav, j64.wav, j14.wav-lower.wav, j35.wav-lower.wav,
+      j90.wav-lower.wav, j71.wav-reverse.wav, j12.wav, j12.wav-reverse.wav]
+    fire: [j85.wav]
+    blocked: [j14.wav-lower.wav]
+    misc: [j31.wav, j84.wav-faster.wav, j86.wav-slower.wav, j41.wav-slower.wav, j83.wav-slower.wav,
+      j64.wav-slower.wav, j84.wav, j39.wav-slower.wav, j62.wav-lower.wav, j52.wav-lower.wav]
+    turning: [j75.wav-reverse.wav, j7.wav-faster.wav, j1.wav-reverse.wav, j21.wav-faster.wav,
+      j25.wav-reverse.wav, j3.wav, j8.wav-faster.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_95
+  sounds:
+    hit: [r33.wav, r62.wav-lower.wav, r89.wav-lower.wav, r82.wav, r12.wav-slower.wav,
+      r56.wav-reverse.wav, r11.wav-lower.wav, r50.wav]
+    excited: [r60.wav-slower.wav, r71.wav, r90.wav, r82.wav-slower.wav, r85.wav-reverse.wav,
+      r40.wav-reverse.wav, r67.wav, r41.wav]
+    fire: [r18.wav]
+    blocked: [r82.wav-slower.wav]
+    misc: [r3.wav-slower.wav, r36.wav-faster.wav, r44.wav-faster.wav, r59.wav-slower.wav,
+      r15.wav, r29.wav, r44.wav-lower.wav, r36.wav-slower.wav, r66.wav-slower.wav,
+      r65.wav-slower.wav]
+    turning: [ r89.wav-faster.wav, r8.wav, r86.wav-faster.wav, r80.wav, r34.wav-faster.wav,
+      r95.wav, r10.wav-reverse.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_90
+  sounds:
+    hit: [r53.wav-reverse.wav, r33.wav-reverse.wav, r20.wav-reverse.wav, r7.wav,
+      r48.wav-reverse.wav, r73.wav, r31.wav, r14.wav]
+    excited: [r94.wav-slower.wav, r69.wav-lower.wav, r1.wav-faster.wav, r13.wav, r61.wav,
+      r43.wav-lower.wav, r26.wav-reverse.wav, r49.wav-reverse.wav]
+    fire: [r95.wav-slower.wav]
+    blocked: [r13.wav]
+    misc: [r41.wav-lower.wav, r86.wav-slower.wav, r89.wav-slower.wav, r39.wav-slower.wav,
+      r5.wav-lower.wav, r40.wav-slower.wav, r75.wav-slower.wav, r38.wav-reverse.wav,
+      r64.wav-reverse.wav, r25.wav-lower.wav]
+    turning: [r82.wav-faster.wav, r94.wav-faster.wav, r72.wav-reverse.wav, r84.wav-faster.wav,
+      r14.wav-faster.wav, r84.wav-reverse.wav, r83.wav-lower.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_78
+  sounds:
+    hit: [j79.wav-faster.wav, j43.wav-faster.wav, j65.wav-lower.wav, j8.wav, j6.wav-lower.wav,
+      j59.wav-reverse.wav, j51.wav-lower.wav, j15.wav-lower.wav]
+    excited: [j43.wav-reverse.wav, j2.wav-lower.wav, j6.wav-slower.wav, j48.wav-lower.wav,
+      j83.wav, j72.wav, j69.wav, j23.wav-lower.wav]
+    fire: [j64.wav-faster.wav]
+    blocked: [j48.wav-lower.wav]
+    misc: [j56.wav-lower.wav, j56.wav-reverse.wav, j32.wav-reverse.wav, j12.wav-lower.wav,
+      j30.wav-reverse.wav, j35.wav-slower.wav, j69.wav-slower.wav, j36.wav-lower.wav,
+      j62.wav, j50.wav-reverse.wav]
+    turning: [j29.wav-reverse.wav, j10.wav-reverse.wav, j7.wav, j5.wav, j65.wav-faster.wav,
+       j10.wav, j87.wav-faster.wav]
+  suitability: [monster, environment, player, ally, food]
+- directory: j
+  name: j_911
+  sounds:
+    hit: [r27.wav-lower.wav, r50.wav-reverse.wav, r55.wav-slower.wav, r16.wav,
+      r63.wav-lower.wav, r97.wav-faster.wav, r41.wav-faster.wav, r27.wav-reverse.wav]
+    excited: [r59.wav-reverse.wav, r97.wav-reverse.wav, r28.wav-reverse.wav, r87.wav,
+      r35.wav, r35.wav-reverse.wav, r77.wav-lower.wav, r63.wav-slower.wav]
+    fire: [r99.wav-lower.wav]
+    blocked: [r59.wav-reverse.wav]
+    misc: [r13.wav-slower.wav, r43.wav-slower.wav, r38.wav, r38.wav-lower.wav, r46.wav,
+      r96.wav, r29.wav-lower.wav, r44.wav-reverse.wav, r66.wav, r25.wav-faster.wav]
+    turning: [r53.wav-faster.wav, r10.wav-lower.wav, r80.wav-reverse.wav, r55.wav,
+      r54.wav-reverse.wav, r81.wav-faster.wav, r12.wav-lower.wav]
+  suitability: [monster, environment, player, ally, food]

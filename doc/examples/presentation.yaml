@@ -1,0 +1,61 @@
+# Copyright (C) 2008 Douglas Bagnall
+#
+# This file is part of Te Tuhi Video Game System, or Te Tuhi for short.
+#
+# Te Tuhi is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# Te Tuhi is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
+
+# This is an example presentation file. It uses tetuhi as a slideshow engine.
+# This is handy if you are doing a talk about the software.
+#
+# ./tetuhi -ys path/to/this/file
+#
+# TODO: it should be possible to break into a game from the middle of
+# a presentation (with a game: "filename.jpg" tag)
+
+
+- text:
+    Te Tuhi Video Game System
+  delay: 12
+  image: background.jpg
+  chatter:
+    "this text is ignored, but is a good place for you to make notes about what you intend to say"
+
+- delay: 3
+  image: random.png
+  chatter:
+    "This picture will show for 3 seconds."
+
+- delay: 9999
+  image:  another.png
+  chatter:
+    "And this one will show until you press a key"
+
+- delay: 0.5
+  image: brief.jpg
+
+- delay: 999
+  image: background-plain.jpg
+  text:
+    - "Words"
+    - " and more words"
+    - "    with formatting preserved"
+    - " (the block as a whole is centred)"
+  chatter:
+    "This text will be displayed, in the default font"
+
+- delay: 40
+  text:
+    "more text"
+  chatter:
+    "and so will this, on the same background as last time"
