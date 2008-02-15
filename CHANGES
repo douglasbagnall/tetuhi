@@ -1,0 +1,15 @@
+0.83.1
+    - Whitespace sanity.
+    - Removing data directories, and have them generated as necessary.
+      
+0.81, 0.82, 0.83
+    - Copyright notices.
+    - GNUification for Savannah.
+    - Documentation (minimal).
+    - Removing some unused stuff.
+    - Moving sound to separate tree.
+    
+0.80 
+    - Number given, arbitrarily and retroactively to the first code used 
+      in public display (at Te Tuhi Centre for the Arts, November 2007).
+      
