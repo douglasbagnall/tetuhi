@@ -1,0 +1,62 @@
+rudy, athlon k7: revision 136, scanning 512x384, with 30 randomly placed 2x2 images.
+
+using LOWRES:5  PRESCAN:5  FAST_SWEEP  
+   prescan:    8335 cycles,  0.750 secs
+scan_zones:   50000 cycles,  2.110 secs
+     total:                  2.860 secs
+
+using LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+   prescan:    8335 cycles,  1.260 secs
+scan_zones:   50000 cycles,  1.780 secs
+     total:                  3.040 secs
+
+using LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+   prescan:    8335 cycles,  0.820 secs
+scan_zones:   50000 cycles,  2.190 secs
+     total:                  3.010 secs
+
+using LINESCAN  PRESCAN: 5  FAST_SWEEP  
+   prescan:    8335 cycles,  0.860 secs
+scan_zones:   50000 cycles,  2.350 secs
+     total:                  3.210 secs
+
+using LINESCAN  PRESCAN: 5  FAST_SWEEP  
+   prescan:    8335 cycles,  0.710 secs
+scan_zones:   50000 cycles,  2.390 secs
+     total:                  3.100 secs
+
+using LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+   prescan:    8335 cycles,  0.980 secs
+scan_zones:   50000 cycles,  2.130 secs
+     total:                  3.110 secs
+
+using LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+   prescan:    8335 cycles,  1.100 secs
+scan_zones:   50000 cycles,  2.090 secs
+     total:                  3.190 secs
+
+using LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+   prescan:    8335 cycles,  1.500 secs
+scan_zones:   50000 cycles,  1.750 secs
+     total:                  3.250 secs
+
+using FAST_SWEEP  
+   prescan:    8335 cycles,  -0.010 secs
+scan_zones:   50000 cycles,  5.170 secs
+     total:                  5.160 secs
+
+using 
+   prescan:    8335 cycles,  -0.000 secs
+scan_zones:   50000 cycles,  8.090 secs
+     total:                  8.090 secs
+
+using PRESCAN: 5  FAST_SWEEP  
+   prescan:    8335 cycles,  0.740 secs
+scan_zones:   50000 cycles,  2.860 secs
+     total:                  3.600 secs
+
+using PRESCAN: 4  FAST_SWEEP  
+   prescan:    8335 cycles,  1.090 secs
+scan_zones:   50000 cycles,  2.790 secs
+     total:                  3.880 secs
+

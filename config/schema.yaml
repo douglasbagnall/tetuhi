@@ -1,0 +1,100 @@
+# Copyright (C) 2008 Douglas Bagnall
+#
+# This file is part of Te Tuhi Video Game System, or Te Tuhi for short.
+#
+# Te Tuhi is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# Te Tuhi is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
+
+#the actor team types 
+actors:
+  - player
+  - ally
+  - player-guided-bullet
+  - player-bullet
+  - smart-ally
+  - food
+  - magic
+  - moving-magic
+  - smart-prey
+  - dumb-prey
+  - static-environment
+  - moving-environment
+  - monster
+  - enemy-stupid
+  - enemy
+  - enemy-guided-bullet
+  - enemy2
+  - enemy-bullet
+  - wall
+
+#attributes (and attribute types) of each team
+attributes:
+  name: hidden_string
+  rules: rules_map
+  aims: aims_map
+  attention: attention_map
+  character: character_list
+  directions: list
+  stack: number
+  mind: mind_string
+  suitability: suitability_map
+  steps: list
+  intro_single: string
+  intro_plural: string
+  sympathy: number
+  score: number
+  sound_group: string
+  sprite_group: string
+
+rules_map:
+  die: actors
+  unblock: actors
+  exclude: actors
+  depends: actors
+  shoot_at: actors
+  fire:     actors
+
+aims_map:
+  - ignore
+  - chase
+  - chase-near
+  - follow
+  - flock
+  - sidestep
+  - avoid
+  - flee
+
+
+attention_map:
+  actors: number
+
+character_list:
+  - mobile
+  - stubborn
+  - unblocks    
+  - bullet
+  - magic
+
+mind_string:
+  - complex
+  - simple
+  - none
+  - reactive
+  - player
+
+suitability_map:
+  tiny: number
+  huge: number
+  monster_rating: number
+
+

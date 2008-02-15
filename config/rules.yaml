@@ -1,0 +1,735 @@
+# Copyright (C) 2008 Douglas Bagnall
+#
+# This file is part of Te Tuhi Video Game System, or Te Tuhi for short.
+#
+# Te Tuhi is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# Te Tuhi is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
+
+- aims: {ally: avoid, dumb-prey: chase, enemy: flee, enemy-bullet: avoid, enemy-guided-bullet: avoid,
+    enemy-stupid: flee, enemy2: flee, food: chase, magic: chase, monster: avoid, moving-environment: avoid,
+    moving-magic: chase, player: ignore, player-bullet: avoid, player-guided-bullet: sidestep,
+    smart-ally: avoid, smart-prey: chase, static-environment: avoid, wall: avoid}
+  attention: {ally: 0.5, dumb-prey: 1.1000000000000001, enemy: 1.5, enemy-bullet: 1.3,
+    enemy-guided-bullet: 1.3, enemy-stupid: 1.3, enemy2: 1.5, food: 1, magic: 1.2,
+    monster: 1.3, moving-environment: 0.5, moving-magic: 1.2, player: 1, player-bullet: 0.5,
+    player-guided-bullet: 0.5, smart-ally: 0.59999999999999998, smart-prey: 1.1000000000000001,
+    static-environment: 0.40000000000000002, wall: 0.69999999999999996}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: This is you!
+  intro_single: This is you!
+  mind: player
+  name: player
+  rules:
+    depends: []
+    die: [monster, enemy-stupid, enemy, enemy-guided-bullet, enemy2, enemy-bullet]
+    exclude: []
+    fire: []
+    fires: [player-guided-bullet, player-bullet]
+    shoot_at: [monster, enemy-stupid, enemy, enemy2]
+    unblock: [food, magic, moving-magic, smart-prey, dumb-prey, monster, enemy-stupid,
+      enemy, enemy-guided-bullet, enemy2, enemy-bullet]
+  score: 0
+  sound_group: player
+  sprite_group: player
+  stack: 100
+  steps:
+  - [0, -2, 0]
+  - [1, -1, 1]
+  - [2, 0, 2]
+  - [1, 1, 3]
+  - [0, 2, 4]
+  - [-1, 1, 5]
+  - [-2, 0, 6]
+  - [-1, -1, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, tiny: 1.0}
+  sympathy: 2
+- aims: {ally: ignore, dumb-prey: ignore, enemy: ignore, enemy-bullet: ignore, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: ignore, food: ignore, magic: ignore, monster: ignore,
+    moving-environment: ignore, moving-magic: ignore, player: ignore, player-bullet: ignore,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: ignore}
+  attention: {ally: 1, dumb-prey: 1, enemy: 1, enemy-bullet: 1, enemy-guided-bullet: 1,
+    enemy-stupid: 1, enemy2: 1, food: 1, magic: 1, monster: 1, moving-environment: 1,
+    moving-magic: 1, player: 1, player-bullet: 1, player-guided-bullet: 1, smart-ally: 1,
+    smart-prey: 1, static-environment: 1, wall: 1}
+  character: [bullet]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: you can throw these things at your enemies.
+  intro_single: bang.
+  mind: simple
+  name: player-bullet
+  rules:
+    depends: []
+    die: [player, ally, player-guided-bullet, smart-ally, food, magic, moving-magic,
+      smart-prey, dumb-prey, static-environment, moving-environment, monster, enemy-stupid,
+      enemy, enemy-guided-bullet, enemy2, enemy-bullet, wall]
+    exclude: [player-guided-bullet]
+    fire: []
+    fired: []
+    fires: []
+    shoot_at: []
+    unblock: [player-bullet]
+  score: 0
+  sound_group: ally
+  sprite_group: bullet
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 1.0, tiny: 9.0}
+  sympathy: 1
+- aims: {ally: sidestep, dumb-prey: sidestep, enemy: chase, enemy-bullet: sidestep,
+    enemy-guided-bullet: sidestep, enemy-stupid: chase, enemy2: chase, food: ignore,
+    magic: sidestep, monster: chase, moving-environment: sidestep, moving-magic: sidestep,
+    player: sidestep, player-bullet: sidestep, player-guided-bullet: sidestep, smart-ally: sidestep,
+    smart-prey: sidestep, static-environment: sidestep, wall: avoid}
+  attention: {ally: 0.5, dumb-prey: 0.5, enemy: 1.5, enemy-bullet: 1.5, enemy-guided-bullet: 0.5,
+    enemy-stupid: 1.5, enemy2: 0.5, food: 0.5, magic: 0.5, monster: 1.5, moving-environment: 0.5,
+    moving-magic: 0.5, player: 0.5, player-bullet: 0.5, player-guided-bullet: 0.5,
+    smart-ally: 0.5, smart-prey: 0.5, static-environment: 0.5, wall: 0.40000000000000002}
+  character: [mobile, stubborn, bullet]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: You can throw these guided missiles at your enemies.
+  intro_single: You can throw this at things. It tries to hit them.
+  mind: simple
+  name: player-guided-bullet
+  rules:
+    depends: []
+    die: [player, ally, player-guided-bullet, player-bullet, smart-ally, food, magic,
+      moving-magic, smart-prey, dumb-prey, static-environment, moving-environment,
+      monster, enemy-stupid, enemy, enemy-guided-bullet, enemy2, enemy-bullet, wall]
+    exclude: [player-bullet]
+    fire: []
+    fired: []
+    fires: []
+    shoot_at: []
+    unblock: []
+  score: 0
+  sound_group: ally
+  sprite_group: bullet
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 1.0, tiny: 9.0}
+  sympathy: 1
+- aims: {ally: ignore, dumb-prey: ignore, enemy: ignore, enemy-bullet: ignore, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: ignore, food: ignore, magic: ignore, monster: ignore,
+    moving-environment: ignore, moving-magic: ignore, player: ignore, player-bullet: ignore,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: ignore}
+  attention: {ally: 1, dumb-prey: 1, enemy: 1, enemy-bullet: 1, enemy-guided-bullet: 1,
+    enemy-stupid: 1, enemy2: 1, food: 1, magic: 1, monster: 1, moving-environment: 1,
+    moving-magic: 1, player: 1, player-bullet: 1, player-guided-bullet: 1, smart-ally: 1,
+    smart-prey: 1, static-environment: 1, wall: 1}
+  character: [unblocks, magic]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Magic food. Who knows what it does.
+  intro_single: this snack has magical qualities.
+  mind: none
+  name: magic
+  rules:
+    depends: []
+    die: [player, player-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: []
+  score: 7
+  sound_group: food
+  sprite_group: food
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 2.0, tiny: 7.0}
+  sympathy: 1
+- aims: {ally: sidestep, dumb-prey: sidestep, enemy: follow, enemy-bullet: sidestep,
+    enemy-guided-bullet: sidestep, enemy-stupid: follow, enemy2: sidestep, food: sidestep,
+    magic: avoid, monster: follow, moving-environment: sidestep, moving-magic: avoid,
+    player: flee, player-bullet: avoid, player-guided-bullet: sidestep, smart-ally: avoid,
+    smart-prey: sidestep, static-environment: sidestep, wall: avoid}
+  attention: {ally: 0.5, dumb-prey: 0.5, enemy: 0.5, enemy-bullet: 0.5, enemy-guided-bullet: 0.5,
+    enemy-stupid: 0.5, enemy2: 0.5, food: 0.5, magic: 0.5, monster: 0.5, moving-environment: 0.5,
+    moving-magic: 0.5, player: 1.5, player-bullet: 0.5, player-guided-bullet: 0.5,
+    smart-ally: 0.5, smart-prey: 0.5, static-environment: 0.5, wall: 1}
+  character: [unblocks, magic]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Magic food. It will try to run away.
+  intro_single: catch this to gain superpowers (briefly).
+  mind: simple
+  name: moving-magic
+  rules:
+    depends: []
+    die: [player]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [player-guided-bullet, player-bullet, food, enemy-guided-bullet, enemy-bullet]
+  score: 10
+  sound_group: food
+  sprite_group: food
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 3.0, tiny: 7.0}
+  sympathy: 1
+- aims: {ally: avoid, dumb-prey: avoid, enemy: chase-near, enemy-bullet: avoid, enemy-guided-bullet: avoid,
+    enemy-stupid: chase-near, enemy2: flee, food: sidestep, magic: sidestep, monster: avoid,
+    moving-environment: sidestep, moving-magic: sidestep, player: flock, player-bullet: sidestep,
+    player-guided-bullet: sidestep, smart-ally: sidestep, smart-prey: avoid, static-environment: sidestep}
+  attention: {ally: 0.59999999999999998, dumb-prey: 0.5, enemy: 1.1000000000000001,
+    enemy-bullet: 1.1000000000000001, enemy-guided-bullet: 1, enemy-stupid: 1.1000000000000001,
+    enemy2: 1.2, food: 0.29999999999999999, magic: 0.40000000000000002, monster: 1.2,
+    moving-environment: 0.59999999999999998, moving-magic: 0.40000000000000002, player: 0.5,
+    player-bullet: 0.5, player-guided-bullet: 0.5, smart-ally: 0.5, smart-prey: 1.1000000000000001,
+    static-environment: 0.59999999999999998, wall: 1}
+  character: [mobile, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These are trying to help you, but are often a bit stupid.
+  intro_single: This is a friendly creature.
+  mind: simple
+  name: ally
+  rules:
+    depends: []
+    die: [smart-prey, monster, enemy-guided-bullet, enemy2, enemy-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [smart-prey, monster, enemy-stupid, enemy, enemy-guided-bullet, enemy2,
+      enemy-bullet]
+  score: 0
+  sound_group: ally
+  sprite_group: ally
+  stack: 60
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, tiny: 1.0}
+  sympathy: 1
+- aims: {ally: sidestep, dumb-prey: sidestep, enemy: chase-near, enemy-bullet: avoid,
+    enemy-guided-bullet: avoid, enemy-stupid: avoid, enemy2: flee, food: sidestep,
+    magic: sidestep, monster: avoid, moving-environment: sidestep, moving-magic: sidestep,
+    player: sidestep, player-bullet: avoid, player-guided-bullet: avoid, smart-ally: sidestep,
+    smart-prey: flee, static-environment: sidestep, wall: avoid}
+  attention: {ally: 0.5, dumb-prey: 0.5, enemy: 0.80000000000000004, enemy-bullet: 1.2,
+    enemy-guided-bullet: 1.2, enemy-stupid: 0.29999999999999999, enemy2: 1.3, food: 0.40000000000000002,
+    magic: 0.40000000000000002, monster: 1.0, moving-environment: 0.5, moving-magic: 0.29999999999999999,
+    player: 0.5, player-bullet: 1.2, player-guided-bullet: 1.2, smart-ally: 0.40000000000000002,
+    smart-prey: 1.1000000000000001, static-environment: 0.5, wall: 0.20000000000000001}
+  character: [mobile, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These are trying to help you.
+  intro_single: this thing tries to help you by chasing monsters.
+  mind: complex
+  name: smart-ally
+  rules:
+    depends: []
+    die: [player-guided-bullet, player-bullet, smart-prey, monster, enemy-guided-bullet,
+      enemy-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [enemy, enemy-guided-bullet, enemy-bullet]
+  score: 0
+  sound_group: ally
+  sprite_group: ally
+  stack: 60
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, tiny: 1.0}
+  sympathy: 1
+- aims: {ally: chase, dumb-prey: avoid, enemy: follow, enemy-bullet: avoid, enemy-guided-bullet: sidestep,
+    enemy-stupid: sidestep, enemy2: follow, food: sidestep, magic: sidestep, monster: avoid,
+    moving-environment: sidestep, moving-magic: sidestep, player: flee, player-bullet: avoid,
+    player-guided-bullet: sidestep, smart-ally: sidestep, smart-prey: avoid, static-environment: sidestep,
+    wall: sidestep}
+  attention: {ally: 0.90000000000000002, dumb-prey: 0.5, enemy: 0.5, enemy-bullet: 1.3999999999999999,
+    enemy-guided-bullet: 0.5, enemy-stupid: 0.5, enemy2: 0.5, food: 0.5, magic: 0.5,
+    monster: 1.3999999999999999, moving-environment: 0.5, moving-magic: 0.5, player: 1.5,
+    player-bullet: 1.3999999999999999, player-guided-bullet: 0.5, smart-ally: 0.5,
+    smart-prey: 0.5, static-environment: 0.5, wall: 0.5}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These creatures are delicious.
+  intro_single: good food, if you can catch it.
+  mind: complex
+  name: smart-prey
+  rules:
+    depends: []
+    die: [player, player-bullet, monster, enemy-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [ally, player-guided-bullet, player-bullet, smart-ally, enemy-guided-bullet,
+      enemy-bullet]
+  score: 10
+  sound_group: food
+  sprite_group: food
+  stack: 20
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 7.0, numbers: many, tiny: 2.0}
+  sympathy: 0
+- aims: {ally: sidestep, dumb-prey: flock, enemy: follow, enemy-bullet: avoid, enemy-guided-bullet: sidestep,
+    enemy-stupid: follow, enemy2: flock, food: sidestep, magic: sidestep, monster: flee,
+    moving-environment: sidestep, moving-magic: sidestep, player: flee, player-bullet: avoid,
+    player-guided-bullet: ignore, smart-ally: sidestep, smart-prey: avoid, static-environment: sidestep,
+    wall: avoid}
+  attention: {ally: 0.5, dumb-prey: 0.5, enemy: 0.80000000000000004, enemy-bullet: 1.2,
+    enemy-guided-bullet: 0.5, enemy-stupid: 0.80000000000000004, enemy2: 0.80000000000000004,
+    food: 0.5, magic: 0.5, monster: 1.3999999999999999, moving-environment: 0.5, moving-magic: 0.5,
+    player: 1.5, player-bullet: 1.2, player-guided-bullet: 0.5, smart-ally: 0.5, smart-prey: 0.5,
+    static-environment: 0.5, wall: 0.5}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These creatures are delicious and easily tricked.
+  intro_single: catch this poor creature.
+  mind: simple
+  name: dumb-prey
+  rules:
+    depends: []
+    die: [player, player-bullet, monster]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [player-guided-bullet, player-bullet, enemy-guided-bullet, enemy-bullet]
+  score: 6
+  sound_group: food
+  sprite_group: food
+  stack: 20
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 7.0, numbers: many, tiny: 2.0}
+  sympathy: 0
+- aims: {ally: ignore, dumb-prey: ignore, enemy: ignore, enemy-bullet: ignore, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: ignore, food: ignore, magic: ignore, monster: ignore,
+    moving-environment: ignore, moving-magic: ignore, player: ignore, player-bullet: ignore,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: ignore}
+  attention: {ally: 1, dumb-prey: 1, enemy: 1, enemy-bullet: 1, enemy-guided-bullet: 1,
+    enemy-stupid: 1, enemy2: 1, food: 1, magic: 1, monster: 1, moving-environment: 1,
+    moving-magic: 1, player: 1, player-bullet: 1, player-guided-bullet: 1, smart-ally: 1,
+    smart-prey: 1, static-environment: 1, wall: 1}
+  character: [stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Yum!!
+  intro_single: nice to eat.
+  mind: none
+  name: food
+  rules:
+    depends: []
+    die: [player, player-bullet, monster]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [player-guided-bullet]
+  score: 2
+  sound_group: food
+  sprite_group: food
+  stack: 20
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 2.0, numbers: many, tiny: 8.0}
+  sympathy: 0
+- aims: {ally: sidestep, dumb-prey: ignore, enemy: ignore, enemy-bullet: avoid, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: sidestep, food: ignore, magic: ignore, monster: sidestep,
+    moving-environment: sidestep, moving-magic: ignore, player: sidestep, player-bullet: avoid,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: sidestep}
+  attention: {ally: 0.5, dumb-prey: 0.5, enemy: 0.5, enemy-bullet: 0.59999999999999998,
+    enemy-guided-bullet: 0.5, enemy-stupid: 0.5, enemy2: 0.5, food: 0.5, magic: 0.5,
+    monster: 0.40000000000000002, moving-environment: 0.5, moving-magic: 0.5, player: 0.5,
+    player-bullet: 0.59999999999999998, player-guided-bullet: 0.5, smart-ally: 0.5,
+    smart-prey: 0.5, static-environment: 0.5, wall: 0.5}
+  character: []
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These are harmless, but sometimes get in the way. Stupid things!
+  intro_single: This can be obstructive but is otherwise benign.
+  mind: simple
+  name: moving-environment
+  rules:
+    depends: []
+    die: [player-bullet, enemy-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: []
+  score: 0
+  sound_group: environment
+  sprite_group: environment
+  stack: 20
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 7.0, monster_rating: 2.0, tiny: 1.0}
+  sympathy: 0
+- aims: {ally: ignore, dumb-prey: ignore, enemy: ignore, enemy-bullet: ignore, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: ignore, food: ignore, magic: ignore, monster: ignore,
+    moving-environment: ignore, moving-magic: ignore, player: ignore, player-bullet: ignore,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: ignore}
+  attention: {ally: 1, dumb-prey: 1, enemy: 1, enemy-bullet: 1, enemy-guided-bullet: 1,
+    enemy-stupid: 1, enemy2: 1, food: 1, magic: 1, monster: 1, moving-environment: 1,
+    moving-magic: 1, player: 1, player-bullet: 1, player-guided-bullet: 1, smart-ally: 1,
+    smart-prey: 1, static-environment: 1, wall: 1}
+  character: []
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: these don't move. They're landscape features.
+  intro_single: This is just part of the set.
+  mind: none
+  name: static-environment
+  rules:
+    depends: []
+    die: []
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: []
+  score: 0
+  sound_group: environment
+  sprite_group: environment
+  stack: 10
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 9.0, monster_rating: 1.0, tiny: 0.0}
+  sympathy: 0
+- aims: {ally: flee, dumb-prey: follow, enemy: flock, enemy-bullet: sidestep, enemy-guided-bullet: sidestep,
+    enemy-stupid: avoid, enemy2: sidestep, food: sidestep, magic: sidestep, monster: avoid,
+    moving-environment: sidestep, moving-magic: follow, player: chase, player-bullet: avoid,
+    player-guided-bullet: flee, smart-ally: flee, smart-prey: follow, static-environment: sidestep,
+    wall: sidestep}
+  attention: {ally: 1.3, dumb-prey: 0.40000000000000002, enemy: 0.40000000000000002,
+    enemy-bullet: 0.5, enemy-guided-bullet: 0.5, enemy-stupid: 0.29999999999999999,
+    enemy2: 0.29999999999999999, food: 0.5, magic: 0.5, monster: 1.2, moving-environment: 0.5,
+    moving-magic: 0.29999999999999999, player: 1.3, player-bullet: 1.2, player-guided-bullet: 1.2,
+    smart-ally: 1.2, smart-prey: 0.40000000000000002, static-environment: 0.5, wall: 0.5}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Nasty creatures. Watch out for them!
+  intro_single: this wants to eat you.
+  mind: complex
+  name: enemy
+  rules:
+    depends: []
+    die: [ally, player-guided-bullet, player-bullet, smart-ally, monster]
+    exclude: []
+    fire: []
+    fires: [enemy-guided-bullet, enemy-bullet]
+    shoot_at: [player, ally, smart-ally]
+    unblock: [player, food, enemy-guided-bullet, enemy-bullet]
+  score: 10
+  sound_group: monster
+  sprite_group: monster
+  stack: 50
+  steps:
+  - [0, -2, 0]
+  - [1, -1, 1]
+  - [2, 0, 2]
+  - [1, 1, 3]
+  - [0, 2, 4]
+  - [-1, 1, 5]
+  - [-2, 0, 6]
+  - [-1, -1, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, numbers: many, tiny: 1.0}
+  sympathy: -2
+- aims: {ally: ignore, dumb-prey: ignore, enemy: ignore, enemy-bullet: ignore, enemy-guided-bullet: ignore,
+    enemy-stupid: ignore, enemy2: ignore, food: ignore, magic: ignore, monster: ignore,
+    moving-environment: ignore, moving-magic: ignore, player: ignore, player-bullet: ignore,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: ignore, static-environment: ignore}
+  attention: {ally: 1, dumb-prey: 1, enemy: 1, enemy-bullet: 1, enemy-guided-bullet: 1,
+    enemy-stupid: 1, enemy2: 1, food: 1, magic: 1, monster: 1, moving-environment: 1,
+    moving-magic: 1, player: 1, player-bullet: 1, player-guided-bullet: 1, smart-ally: 1,
+    smart-prey: 1, static-environment: 1, wall: 1}
+  character: [bullet]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Some creatures throw these at you. Watch out.
+  intro_single: 'be careful: a creature may throw this at you.'
+  mind: none
+  name: enemy-bullet
+  rules:
+    depends: [enemy-stupid, enemy, enemy2]
+    die: [player, ally, player-guided-bullet, player-bullet, smart-ally, magic, moving-magic,
+      smart-prey, dumb-prey, static-environment, moving-environment, monster, enemy-stupid,
+      enemy, enemy-guided-bullet, enemy2, wall]
+    exclude: [enemy-guided-bullet]
+    fire: []
+    fired: []
+    fires: []
+    shoot_at: []
+    unblock: [player, ally, player-guided-bullet, player-bullet, smart-ally, food,
+      smart-prey, dumb-prey, moving-environment, monster, enemy-stupid, enemy, enemy-guided-bullet,
+      enemy2, enemy-bullet]
+  score: 0
+  sound_group: monster
+  sprite_group: monster
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 1.0, tiny: 9.0}
+  sympathy: -1
+- aims: {ally: chase, dumb-prey: sidestep, enemy: avoid, enemy-bullet: sidestep, enemy-guided-bullet: sidestep,
+    enemy-stupid: avoid, enemy2: avoid, food: sidestep, magic: sidestep, monster: chase,
+    moving-environment: sidestep, moving-magic: sidestep, player: chase, player-bullet: sidestep,
+    player-guided-bullet: ignore, smart-ally: sidestep, smart-prey: sidestep, static-environment: sidestep,
+    wall: sidestep}
+  attention: {ally: 1.3, dumb-prey: 0.5, enemy: 0.5, enemy-bullet: 0.5, enemy-guided-bullet: 0.5,
+    enemy-stupid: 0.5, enemy2: 0.5, food: 0.5, magic: 0.5, monster: 1.1000000000000001,
+    moving-environment: 0.5, moving-magic: 0.5, player: 1.5, player-bullet: 0.5, player-guided-bullet: 0.5,
+    smart-ally: 0.5, smart-prey: 0.5, static-environment: 0.5, wall: 0.5}
+  character: [mobile, stubborn, bullet]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Some creatures throw these missiles at you.
+  intro_single: these missiles are hard to escape.
+  mind: simple
+  name: enemy-guided-bullet
+  rules:
+    depends: [enemy-stupid, enemy, enemy2]
+    die: [player, ally, player-guided-bullet, player-bullet, smart-ally, magic, moving-magic,
+      smart-prey, dumb-prey, static-environment, moving-environment, monster, enemy-stupid,
+      enemy, enemy-guided-bullet, enemy2, wall]
+    exclude: [enemy-bullet]
+    fire: []
+    fired: []
+    fires: []
+    shoot_at: []
+    unblock: [player, ally, player-guided-bullet, player-bullet, smart-ally, food,
+      moving-magic, smart-prey, dumb-prey, static-environment, moving-environment,
+      monster, enemy-stupid, enemy, enemy-guided-bullet, enemy2, enemy-bullet]
+  score: 1
+  sound_group: monster
+  sprite_group: monster
+  stack: 50
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 0.0, monster_rating: 1.0, tiny: 9.0}
+  sympathy: -1
+- aims: {ally: chase, dumb-prey: follow, enemy: sidestep, enemy-bullet: sidestep,
+    enemy-guided-bullet: sidestep, enemy-stupid: avoid, enemy2: flock, food: ignore,
+    magic: ignore, monster: flee, moving-environment: sidestep, moving-magic: ignore,
+    player: chase, player-bullet: avoid, player-guided-bullet: flee, smart-ally: chase,
+    smart-prey: follow, static-environment: sidestep, wall: sidestep}
+  attention: {ally: 1.3999999999999999, dumb-prey: 0.40000000000000002, enemy: 0.5,
+    enemy-bullet: 0.5, enemy-guided-bullet: 0.5, enemy-stupid: 0.5, enemy2: 0.5, food: 0.5,
+    magic: 0.5, monster: 1.5, moving-environment: 0.5, moving-magic: 0.5, player: 1.5,
+    player-bullet: 1.5, player-guided-bullet: 1.5, smart-ally: 1.1000000000000001,
+    smart-prey: 0.29999999999999999, static-environment: 0.5, wall: 0.59999999999999998}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: Trolls of some kind.
+  intro_single: look out for this!
+  mind: complex
+  name: enemy2
+  rules:
+    depends: []
+    die: [player-guided-bullet, player-bullet, monster]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [player, ally, smart-ally, monster, enemy-guided-bullet, enemy-bullet]
+  score: 5
+  sound_group: monster
+  spite_group: monster
+  stack: 70
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 2.0, monster_rating: 7.0, tiny: 1.0}
+  sympathy: -2
+- aims: {ally: avoid, dumb-prey: follow, enemy: avoid, enemy-bullet: avoid, enemy-guided-bullet: avoid,
+    enemy-stupid: avoid, enemy2: avoid, food: sidestep, magic: flock, monster: flee,
+    moving-environment: sidestep, moving-magic: flock, player: chase, player-bullet: avoid,
+    player-guided-bullet: avoid, smart-ally: avoid, smart-prey: follow, static-environment: sidestep,
+    wall: avoid}
+  attention: {ally: 1.3999999999999999, dumb-prey: 0.80000000000000004, enemy: 0.5,
+    enemy-bullet: 0.29999999999999999, enemy-guided-bullet: 0.5, enemy-stupid: 0.59999999999999998,
+    enemy2: 0.5, food: 0.29999999999999999, magic: 0.29999999999999999, monster: 1.3,
+    moving-environment: 0.5, moving-magic: 0.40000000000000002, player: 1.3999999999999999,
+    player-bullet: 1, player-guided-bullet: 1, smart-ally: 1.3999999999999999, smart-prey: 0.80000000000000004,
+    static-environment: 0.5, wall: 0.5}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: thugs. beware.
+  intro_single: Keep away from this. It is stupid but dangerous.
+  mind: simple
+  name: enemy-stupid
+  rules:
+    depends: []
+    die: [ally, player-guided-bullet, player-bullet, monster]
+    exclude: []
+    fire: []
+    fires: [enemy-bullet]
+    shoot_at: [player, ally, smart-ally]
+    unblock: [player, ally, player-guided-bullet, player-bullet, smart-ally, enemy-guided-bullet,
+      enemy-bullet]
+  score: 3
+  sound_group: monster
+  sprite_group: monster
+  stack: 70
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, tiny: 1.0}
+  sympathy: -2
+- aims: {ally: ignore, dumb-prey: chase, enemy: chase-near, enemy-bullet: avoid, enemy-guided-bullet: avoid,
+    enemy-stupid: chase-near, enemy2: flee, food: ignore, magic: ignore, monster: avoid,
+    moving-environment: sidestep, moving-magic: avoid, player: chase-near, player-bullet: avoid,
+    player-guided-bullet: ignore, smart-ally: ignore, smart-prey: chase-near, static-environment: sidestep,
+    wall: sidestep}
+  attention: {ally: 0.29999999999999999, dumb-prey: 0.5, enemy: 0.5, enemy-bullet: 0.5,
+    enemy-guided-bullet: 1.2, enemy-stupid: 0.5, enemy2: 1.2, food: 0.20000000000000001,
+    magic: 0.5, monster: 0.59999999999999998, moving-environment: 0.80000000000000004,
+    moving-magic: 0.29999999999999999, player: 0.29999999999999999, player-bullet: 1.2,
+    player-guided-bullet: 0.5, smart-ally: 0.5, smart-prey: 0.20000000000000001, static-environment: 0.80000000000000004,
+    wall: 0.5}
+  character: [mobile, stubborn, unblocks]
+  directions: [0, 2, 4, 6, stop, random]
+  intro_plural: These hate everyone, so stay away.
+  intro_single: A grumpy monster.
+  mind: simple
+  name: monster
+  rules:
+    depends: []
+    die: [player-guided-bullet, player-bullet, enemy-guided-bullet, enemy-bullet]
+    exclude: []
+    fire: []
+    fires: []
+    shoot_at: []
+    unblock: [player, ally, player-guided-bullet, player-bullet, smart-ally, food,
+      smart-prey, dumb-prey, enemy-stupid, enemy, enemy-guided-bullet, enemy2, enemy-bullet]
+  score: 5
+  sound_group: monster
+  sprite_group: monster
+  stack: 60
+  steps:
+  - [0, -1, 0]
+  - [0, 0, 1]
+  - [1, 0, 2]
+  - [0, 0, 3]
+  - [0, 1, 4]
+  - [0, 0, 5]
+  - [-1, 0, 6]
+  - [0, 0, 7]
+  suitability: {huge: 1.0, monster_rating: 8.0, tiny: 1.0}
+  sympathy: -1
+- aims: {}
+  attention: {}
+  mind: wall
+  name: wall
+  rules:
+    die: []
+    unblock: [wall]

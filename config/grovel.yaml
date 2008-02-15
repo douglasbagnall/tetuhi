@@ -1,0 +1,41 @@
+# Copyright (C) 2008 Douglas Bagnall
+#
+# This file is part of Te Tuhi Video Game System, or Te Tuhi for short.
+#
+# Te Tuhi is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# Te Tuhi is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Te Tuhi.  If not, see <http://www.gnu.org/licenses/>.
+- text:
+    "Sorry; I can't find the game in this picture"
+  delay: 2.5
+  image: null
+
+- text:
+    "at least, not a good one."
+  delay: 2.5
+  image: null
+
+- text:
+    "sorry."
+  delay: 1.5
+  image: null
+
+- text:
+    "You can try it anyway, though"
+  delay: 2
+  image: null
+
+- text:
+    "as soon as this apology is over."
+  delay: 2
+  image: null
+

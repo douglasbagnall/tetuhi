@@ -1,0 +1,60 @@
+[{'functions': {'prescan': 9.7799999999999994, 'scan_zones': 14.65}, 'fn_prescan': 9.7799999999999994, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 14.65, 'total': 24.43, 'whole': 39.659999999999997, 'options': 'LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 6.5099999999999998, 'scan_zones': 16.059999999999999}, 'fn_prescan': 6.5099999999999998, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 16.059999999999999, 'total': 22.57, 'whole': 37.82, 'options': 'LOWRES: 4  PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 8.1999999999999993, 'scan_zones': 15.68}, 'fn_prescan': 8.1999999999999993, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 15.68, 'total': 23.879999999999999, 'whole': 38.359999999999999, 'options': 'LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 7.3200000000000003, 'scan_zones': 16.760000000000002}, 'fn_prescan': 7.3200000000000003, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 16.760000000000002, 'total': 24.080000000000002, 'whole': 38.969999999999999, 'options': 'LOWRES: 5  PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 7.6299999999999999, 'scan_zones': 19.539999999999999}, 'fn_prescan': 7.6299999999999999, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 19.539999999999999, 'total': 27.169999999999998, 'whole': 42.310000000000002, 'options': 'LINESCAN  PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 7.0199999999999996, 'scan_zones': 22.170000000000002}, 'fn_prescan': 7.0199999999999996, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 22.170000000000002, 'total': 29.190000000000001, 'whole': 44.200000000000003, 'options': 'PRESCAN: 4  FAST_SWEEP  \n'}, {'functions': {'prescan': 7.3399999999999999, 'scan_zones': 15.109999999999999}, 'fn_prescan': 7.3399999999999999, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 15.109999999999999, 'total': 22.449999999999999, 'whole': 37.770000000000003, 'options': 'LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  \n'}, {'functions': {'prescan': 6.0800000000000001, 'scan_zones': 17.010000000000002}, 'fn_prescan': 6.0800000000000001, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 17.010000000000002, 'total': 23.090000000000003, 'whole': 38.259999999999998, 'options': 'LOWRES: 5  PRESCAN: 5  FAST_SWEEP  \n'}, {'functions': {'prescan': 6.9199999999999999, 'scan_zones': 20.170000000000002}, 'fn_prescan': 6.9199999999999999, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 20.170000000000002, 'total': 27.090000000000003, 'whole': 42.140000000000001, 'options': 'LINESCAN  PRESCAN: 5  FAST_SWEEP  \n'}, {'functions': {'prescan': 6.4000000000000004, 'scan_zones': 21.579999999999998}, 'fn_prescan': 6.4000000000000004, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 21.579999999999998, 'total': 27.979999999999997, 'whole': 43.479999999999997, 'options': 'PRESCAN: 5  FAST_SWEEP  \n'}, {'functions': {'prescan': 0.11, 'scan_zones': 30.43}, 'fn_prescan': 0.11, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 30.43, 'total': 30.539999999999999, 'whole': 46.399999999999999, 'options': 'FAST_SWEEP  \n'}, {'functions': {'prescan': 0.080000000000000002, 'scan_zones': 42.049999999999997}, 'fn_prescan': 0.080000000000000002, 'settings': 'placing 30 images on map of (512,384), searching 50000 times on parrot\n', 'fn_scan_zones': 42.049999999999997, 'total': 42.129999999999995, 'whole': 57.259999999999998, 'options': '\n'}]
+placing 30 images on map of (512,384), searching 50000 times on parrot
+
+Mon Aug 20 17:14:54 2007
+
+prescan
+0.080  
+0.110  FAST_SWEEP  
+6.080  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+6.400  PRESCAN: 5  FAST_SWEEP  
+6.510  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+6.920  LINESCAN  PRESCAN: 5  FAST_SWEEP  
+7.020  PRESCAN: 4  FAST_SWEEP  
+7.320  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+7.340  LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+7.630  LINESCAN  PRESCAN: 4  FAST_SWEEP  
+8.200  LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+9.780  LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+
+scan_zones
+14.650  LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+15.110  LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+15.680  LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+16.060  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+16.760  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+17.010  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+19.540  LINESCAN  PRESCAN: 4  FAST_SWEEP  
+20.170  LINESCAN  PRESCAN: 5  FAST_SWEEP  
+21.580  PRESCAN: 5  FAST_SWEEP  
+22.170  PRESCAN: 4  FAST_SWEEP  
+30.430  FAST_SWEEP  
+42.050  
+
+total
+22.450  LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+22.570  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+23.090  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+23.880  LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+24.080  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+24.430  LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+27.090  LINESCAN  PRESCAN: 5  FAST_SWEEP  
+27.170  LINESCAN  PRESCAN: 4  FAST_SWEEP  
+27.980  PRESCAN: 5  FAST_SWEEP  
+29.190  PRESCAN: 4  FAST_SWEEP  
+30.540  FAST_SWEEP  
+42.130  
+
+whole process
+37.770  LINESCAN  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+37.820  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+38.260  LOWRES: 5  PRESCAN: 5  FAST_SWEEP  
+38.360  LINESCAN  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+38.970  LOWRES: 5  PRESCAN: 4  FAST_SWEEP  
+39.660  LINESCAN  LOWRES: 4  PRESCAN: 4  FAST_SWEEP  
+42.140  LINESCAN  PRESCAN: 5  FAST_SWEEP  
+42.310  LINESCAN  PRESCAN: 4  FAST_SWEEP  
+43.480  PRESCAN: 5  FAST_SWEEP  
+44.200  PRESCAN: 4  FAST_SWEEP  
+46.400  FAST_SWEEP  
+57.260  

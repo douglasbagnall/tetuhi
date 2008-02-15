@@ -1,0 +1,61 @@
+Image handling
+
+* experiment with other blobfinders
+
+* better clustering.
+
+* better animation.
+
+Speed improvements (which also lead to better games)
+
+* vectorise scanning.
+
+* scan for vision in lower resolution (but collision in hi res).
+
+* quicker start up (pyYAML is the slowest thing)
+
+* Look for speed ups in finding blobs.
+
+OLPC changes:
+
+* Generated sounds (csound, or python)
+
+* Sugarising
+
+* Adapt for smaller camera, screen
+
+* shrink neural nets, decision grid (for speed)
+
+* Try to reduce memory, especially worst case memory.
+
+Gameplay:
+
+* Turn neural net training on (actions better tuned to environment)
+
+* more game types (platform, scrolling would be easy to start with).
+
+* more species (defined in config/rules.yaml)
+
+* augment networks with delayed/damped inputs.
+
+* Multiplayer?
+
+* share characters between games.
+
+* game can get harder as it progresses (training in the background)
+
+* better tests of what makes a good game (try to track agents
+   experience/ anxiety)
+
+* By default, automatically adjust for number of CPUs
+
+Misc:
+
+* documentation
+
+* tests (including reviving obsolete ones)
+
+* build system, packaging (./configure, python setup.py .deb, etc)
+
+* more sophisticated attract loop.
+
