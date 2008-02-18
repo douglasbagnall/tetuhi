@@ -511,7 +511,7 @@ class Window:
         for x in yaml.load(f):
             self.message_screen(x, **kwargs)
 
-    def presentation(self, filename):
+    def presentation(self, filename, player=None, player_args=()):
         """play the text in the file as a presentation. That just
         means the fire button advances play."""
         f = open(filename)
@@ -525,13 +525,20 @@ class Window:
                              -1, 0 #left
                              ][key])
 
+        def extra_handler(event):
+            print event, event.key
+            if event.key == 112 and player:
+                player(*player_args)
+            else:
+                raise CycleJump(1)
+
         i = 0
         d = os.path.dirname(filename)
         while i < len(p):
             x = p[i]
             try:
                 self.message_screen(x, fire_handler=fire_handler, key_handler=key_handler,
-                                    extra_handler=fire_handler, directory=d)
+                                    extra_handler=extra_handler, directory=d)
                 i += 1
             except CycleJump, e:
                 i += e.jump

@@ -230,7 +230,7 @@ class Game:
     def do_extra_keys(self, event):
         """any keys not handled as motion or firing must be handled here"""
         #XXX only getting pygame.KEYDOWN events, not KEYUP
-        if event.key in (115, 32):
+        if event.key in (116, 115):
             self.player_sprite.toggle_mode()
 
 

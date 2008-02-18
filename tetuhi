@@ -59,7 +59,7 @@ def cycle():
         attractor.remember_game(game)
 
 def present(filename):
-    window.presentation(filename)
+    window.presentation(filename, player=go, player_args=(config.TEST_IMAGE,))
 
 
 def get_opts():
