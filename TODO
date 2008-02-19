@@ -1,20 +1,20 @@
 An incomplete list of things that could be done with tetuhi
 
 
-General improvements 
+General improvements
 
 * Documentation. any would be good.
 
-* Make a real config file (that vg/config.py parses) 
+* Make a real config file (that vg/config.py parses)
 
 * Tests (including reviving obsolete ones)
 
 * Build system, packaging (./configure, python setup.py .deb, etc)
- 
+
 
 Image handling
 
-* Experiment with other blobfinders (which would involve stabilising the 
+* Experiment with other blobfinders (which would involve stabilising the
   API)
 
 * Better clustering.
@@ -67,8 +67,12 @@ Gameplay:
 
 * By default, automatically adjust for number of CPUs
 
+* Try to avoid stuck elements -- more forgiving interaction between
+   animation and collision detection.
+
+* More interesting and characteristic animation. Each team should move
+   in its own way, so you can at least tell them apart from that.
 
 Misc:
 
 * more sophisticated attract loop.
-
