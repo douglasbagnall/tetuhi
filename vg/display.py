@@ -528,7 +528,10 @@ class Window:
         def extra_handler(event):
             print event, event.key
             if event.key == 112 and player:
-                player(*player_args)
+                try:
+                    player(*player_args)
+                except GameQuit:
+                    raise CycleJump(0)
             else:
                 raise CycleJump(1)
 
