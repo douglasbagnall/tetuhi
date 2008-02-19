@@ -62,6 +62,25 @@ def present(filename):
     window.presentation(filename, player=go, player_args=(config.TEST_IMAGE,))
 
 
+def set_n_processes(given=None):
+    from semanticCore import cpu_count
+    print "found %d CPUs" % cpu_count
+    try:
+        config.PROCESSES = int(given)
+    except (ValueError, TypeError):
+        config.PROCESSES = cpu_count
+
+    per_cpu = float(config.PROCESSES) / cpu_count
+    if per_cpu > 1.0:
+        config.RULE_GROWING_TIMEOUT *= per_cpu
+        config.RULE_GROWING_PARENT_TIMEOUT *= (per_cpu ** 1.2)
+    print ("Using %s processes\n children have %s secs, parent has %s" %
+           (config.PROCESSES,
+            config.RULE_GROWING_TIMEOUT,
+            config.RULE_GROWING_PARENT_TIMEOUT)
+           )
+
+
 def get_opts():
     parser = OptionParser()
     parser.add_option("-c", "--capture", dest="capture",
@@ -132,13 +151,7 @@ if __name__ == '__main__':
     elif options.bias and options.bias.lower() == 'nasty':
         config.NASTY_ONLY = True
 
-    if options.processes:
-        _p = config.PROCESSES
-        config.PROCESSES = int(options.processes)
-        config.RULE_GROWING_TIMEOUT *= float(config.PROCESSES) / _p
-        config.RULE_GROWING_PARENT_TIMEOUT = config.RULE_GROWING_TIMEOUT * config.RULE_GROWING_TIMEOUT / 4
-        print "children have %s secs, parent %s" % (config.RULE_GROWING_TIMEOUT,
-                                                    config.RULE_GROWING_PARENT_TIMEOUT)
+    set_n_processes(options.processes)
 
     # now that config is settled, import other modules.
     from vg.display import Window

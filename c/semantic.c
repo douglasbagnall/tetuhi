@@ -19,6 +19,7 @@
 #include <Python.h>
 #include "structmember.h"
 #include <string.h>
+#include <sys/sysinfo.h>
 
 #include "libgamemap.h"
 #include "../lib/pyserf_helpers.c"
@@ -521,4 +522,7 @@ initsemanticCore(void)
     Py_INCREF(&Gamemap_type);
     PyModule_AddObject(m, "Gamemap", (PyObject *)&Gamemap_type);
 
+    /*Find the number of CPUs
+      uses a gnu extension to libc from sys/sysinfo.h */
+    PyModule_AddIntConstant(m, "cpu_count",  get_nprocs());
 }
