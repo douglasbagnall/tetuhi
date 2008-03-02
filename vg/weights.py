@@ -34,6 +34,16 @@
 """
 
 from vg import config
+import nnpy
+
+
+def seed_nets(entropy):
+    """seed the nnpy generator. once per game works for all nets"""
+    random_holding_net = nnpy.Network([2,3,1])
+    random_holding_net.seed_random(entropy[1])
+    return random_holding_net
+
+
 
 #these need to be more independantly generated.
 
@@ -123,3 +133,10 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
     name = '-'.join(str(x) for x in bit_pattern)
     #net.save_weights('/tmp/%s.weights' % name)
     #net.dump_weights('/tmp/%s.dump' % name)
+
+
+
+
+def get_net(team):
+    return nnpy.Network([team.inputs_per_type * (team.game.n_teams + 1) + config.EXTRA_INPUTS + config.FEEDBACK_NODES,
+                         config.LAYER2_NODES, len(team.directions) + team.fires + config.FEEDBACK_NODES], bias=1)

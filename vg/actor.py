@@ -25,15 +25,9 @@ from vg.misc import GameOver
 from vg.rules import TYPE_MAP
 from vg import magic
 
-import nnpy
 
 from config import DEAD, PLAYING, DYING
 
-def seed_nets(entropy):
-    """seed the nnpy generator. once per game works for all nets"""
-    random_holding_net = nnpy.Network([2,3,1])
-    random_holding_net.seed_random(entropy[1])
-    return random_holding_net
 
 
 class ImageInfo:
@@ -603,8 +597,7 @@ class Team:
         except AttributeError:
             print r, r.__dict__
 
-        self.net = nnpy.Network([self.inputs_per_type * (self.game.n_teams + 1) + config.EXTRA_INPUTS + config.FEEDBACK_NODES,
-                                 config.LAYER2_NODES, len(self.directions) + self.fires + config.FEEDBACK_NODES], bias=1)
+        self.net = weights.get_net(self)
 
 
         weights.get_weights(self.net, bit_pattern, self.rules.character, self.inputs_per_type, fire_at)

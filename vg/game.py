@@ -27,7 +27,7 @@ from vg import config
 from vg import assort
 from vg import utils
 from vg import misc
-from vg import actor
+from vg import actor, weights
 from vg import rules
 from vg import magic
 from vg.misc import GameEscape, GameOver, SpriteError, GameStop, ParseError
@@ -51,7 +51,7 @@ class Game:
     def __init__(self, background, blobs, window=None, entropy=None):
         if entropy:
             #seed the neural networks' RNG.
-            self.random_holder = actor.seed_nets(entropy)
+            self.random_holder = weights.seed_nets(entropy)
 
         self.background = background
         self.blobs = blobs
