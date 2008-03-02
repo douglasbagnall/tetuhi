@@ -138,5 +138,13 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
 
 
 def get_net(team):
-    return nnpy.Network([team.inputs_per_type * (team.game.n_teams + 1) + config.EXTRA_INPUTS + config.FEEDBACK_NODES,
-                         config.LAYER2_NODES, len(team.directions) + team.fires + config.FEEDBACK_NODES], bias=1)
+    inputs = (team.inputs_per_type * (team.game.n_teams + 1) +
+              config.EXTRA_INPUTS + config.FEEDBACK_NODES)
+    outputs = len(team.directions) + team.fires + config.FEEDBACK_NODES
+
+    if config.LAYER2_NODES:
+        shape = [inputs, config.LAYER2_NODES, outputs]
+    else:
+        shape = [inputs, outputs]
+        
+    return nnpy.Network(shape, bias=1)
