@@ -78,8 +78,10 @@ extra_weights = (
 
 
 
-def _set_weights(net, bit, inputs_per_type, attention, inner_w, outer_w):
-    """"""
+def _set_weights(net, bit, inputs_per_type, attention, inner_w, outer_w=None):
+    """Set the weights to prefer motion as indicated by inner_w and
+    outer_w. Only sets the first 4 outputs (which correspond to the 0,
+    90, 180, 270 degree turns)"""
     for output in range(4):
         for i in range(8):
             o = (output * 2 + i) % 8
@@ -94,13 +96,21 @@ def _set_simple_weights(net, b, weights):
 
 
 def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
-    """get some weights for the approriate net.  The second interlayer
-    feeds through as simple encouragers."""
-    print bit_pattern
+    """Set the net's weights in accordance with its role.
+
+    If the net has 2 layers, the, the weights will feed straight
+    through.
+
+    If it has 3, the second interlayer will pretty much just feed straight through.
+    """
+    #XXX not pretty
     #XXX later, look in database of previously used nets.
     bits = len(bit_pattern)
-
-    n_inputs, n_hidden, n_outputs = net.shape
+    if len(net.shape) == 3:
+        n_inputs, n_hidden, n_outputs = net.shape
+    else:
+        n_inputs, n_outputs = net.shape
+        n_hidden = n_outputs
     if config.RANDOMISE_WEIGHTS:
         net.randomise((-0.01, 0.01))
     else:
@@ -125,10 +135,11 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
             net.set_single_weight(0, s + i, fire_output, fire_weights[i])
 
 
-    #feed straight through from hidden to output.
-    #XXX should put other nodes to use.
-    for o in range(n_outputs):
-        net.set_single_weight(1, o, o, 1)
+    if len(net.shape) == 3:
+        #feed straight through from hidden to output.
+        #XXX should put other nodes to use.
+        for o in range(n_outputs):
+            net.set_single_weight(1, o, o, 1)
 
     name = '-'.join(str(x) for x in bit_pattern)
     #net.save_weights('/tmp/%s.weights' % name)
@@ -146,5 +157,5 @@ def get_net(team):
         shape = [inputs, config.LAYER2_NODES, outputs]
     else:
         shape = [inputs, outputs]
-        
+
     return nnpy.Network(shape, bias=1)
