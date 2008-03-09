@@ -209,3 +209,69 @@ LIFE_STATES = (DEAD, DYING, PLAYING)
 
 BULLET_SPEED = 3
 
+CONFIG_PATH = ['./config/tetuhi.conf', '~/.tetuhirc',  '/etc/tetuhi.conf',]
+
+def _parse_value(s):
+    if s in ('False', 'True'):
+        return eval(s)
+    v = s
+    try:
+        v = float(s)
+        v = int(s)
+    except ValueError:
+        pass
+    return v
+
+def _read_config(config_path):
+    """Really simple config parser.  Takes a list of filenames, whose
+    contents are in the form:
+
+    SOME_KEY = 'some value'
+    ANOTHER_KEY = 7.2
+
+    and puts the pairs into global scope, making floats, ints, and
+    booleans wherever possible.  The filenames are in order of
+    precedence, which is actually the reverse order from which they
+    are read.
+    """
+
+    from shlex import shlex
+    from os.path import expanduser
+    g = globals()
+
+
+    for fn in reversed(config_path):
+        try:
+            conf = shlex(file(expanduser(fn)), posix=True)
+            print conf
+            while True:
+                key = conf.get_token()
+                if key is None:
+                    break
+                if conf.get_token() != '=':
+                    raise ValueError("missing equals sign on line %s?" % conf.lineno)
+                v = conf.get_token()
+                if v is None:
+                    raise ValueError("premature ending of conf file on line %s" % conf.lineno)
+                if v == '(':
+                    t = []
+                    while True:
+                        v = conf.get_token()
+                        if v == ')':
+                            break
+                        t.append(_parse_value(v))
+                        comma = conf.get_token()
+                        if comma != ',':
+                            conf.push_token(comma)
+                    v = tuple(t)
+                else:
+                    v = _parse_value(v)
+                g[key] = v
+
+        except IOError, e:
+            print "File %s not readable" % fn
+
+
+
+_read_config(CONFIG_PATH)
+del _expanduser, _read_config, _parse_value
