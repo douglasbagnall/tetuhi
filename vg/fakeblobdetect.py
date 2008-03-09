@@ -87,7 +87,7 @@ class BlobFinder:
 
     def parse(self, *args):
         """find the blobs and background"""
-        bg = Image.new('RGB', config.WINDOW_SIZE, (255, 255, 255))
+        bg = Image.new('RGB', config.WORKING_SIZE, (255, 255, 255))
         blobs = []
         sx = 20
         sy = 20

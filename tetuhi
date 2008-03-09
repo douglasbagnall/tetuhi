@@ -137,7 +137,6 @@ if __name__ == '__main__':
         config.FULLSCREEN = True
         #XXX a lot of stuff here to set the sizes right
         #config.WORKING_SIZE = (1024, 768)
-        #config.WINDOW_SIZE = (1024, 768)
     if options.really_capture:
         config.CAMERA_SCRIPT = config.CAPTURE_SCRIPT
     if options.sound:
@@ -178,7 +177,7 @@ if __name__ == '__main__':
 
 
     #NOW stuff actually happens
-    window = Window(config.WINDOW_SIZE, capture=options.capture)
+    window = Window(config.WORKING_SIZE, capture=options.capture)
 
     if options.exhibit:
         cycle()

@@ -135,8 +135,6 @@ OUTPUT_NODES = 6
 EXNODE_STOPPED, EXNODE_TURNY, EXNODE_CONTINUITY, EXNODE_BLOCKED = range(EXTRA_INPUTS)
 
 
-
-WINDOW_SIZE =   (768,576)
 WORKING_SIZE =  (768,576)
 
 PIXEL_SIZE = 4
@@ -144,8 +142,8 @@ ACTOR_ZONES = [4, 50, 250]
 DUMB_ACTOR_ZONES = [4, 80]
 
 #convex hull perimeters
-TINY_SPRITE_SIZE = WINDOW_SIZE[0] // 32
-IDEAL_SPRITE_SIZE = WINDOW_SIZE[0] // 3
+TINY_SPRITE_SIZE = WORKING_SIZE[0] // 32
+IDEAL_SPRITE_SIZE = WORKING_SIZE[0] // 3
 TINY_VOLUME = TINY_SPRITE_SIZE ** 2 // 4
 
 
@@ -209,7 +207,7 @@ LIFE_STATES = (DEAD, DYING, PLAYING)
 
 BULLET_SPEED = 3
 
-CONFIG_PATH = ['./config/tetuhi.conf', '~/.tetuhirc',  '/etc/tetuhi.conf',]
+CONFIG_PATH = ['./tetuhi.conf', './config/tetuhi.conf', '~/.tetuhirc',  '/etc/tetuhi.conf',]
 
 def _parse_value(s):
     if s in ('False', 'True'):
@@ -238,7 +236,7 @@ def _read_config(config_path):
     from shlex import shlex
     from os.path import expanduser
     g = globals()
-
+    groupers = {'(':(')', tuple), '[':(']', list)}
 
     for fn in reversed(config_path):
         try:
@@ -253,17 +251,18 @@ def _read_config(config_path):
                 v = conf.get_token()
                 if v is None:
                     raise ValueError("premature ending of conf file on line %s" % conf.lineno)
-                if v == '(':
-                    t = []
+                if v in groupers:
+                    end, func = groupers[v]
+                    seq = []
                     while True:
-                        v = conf.get_token()
-                        if v == ')':
+                        tok = conf.get_token()
+                        if tok == end:
                             break
-                        t.append(_parse_value(v))
+                        seq.append(_parse_value(tok))
                         comma = conf.get_token()
                         if comma != ',':
                             conf.push_token(comma)
-                    v = tuple(t)
+                    v = func(seq)
                 else:
                     v = _parse_value(v)
                 g[key] = v

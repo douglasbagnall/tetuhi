@@ -269,7 +269,7 @@ class Window:
         """write the message in the default font"""
         s = self.text(message, colour)
         w, h = s.get_size()
-        max_x, max_y = config.WINDOW_SIZE
+        max_x, max_y = config.WORKING_SIZE
         if pos == 'centre':
             pos = (max(2, (max_x - w) // 2),
                    max(2, (max_y - h) // 2))
@@ -285,7 +285,7 @@ class Window:
             message = message.split('\n')
 
         if pos == 'centre':
-            max_x, max_y = config.WINDOW_SIZE
+            max_x, max_y = config.WORKING_SIZE
             w, h = (0, 0)
             for line in message:
                 _w, _h = self.font_plain.size(line)
@@ -317,7 +317,7 @@ class Window:
         self.screen.blit(self.background, (0,0))
         message = team.intro()
         w, h = self.font_plain.size(message)
-        max_x, max_y = config.WINDOW_SIZE
+        max_x, max_y = config.WORKING_SIZE
         left, top = max_x, max_y
         right, bottom = 0, 0
         for s in team.sprites:
@@ -333,11 +333,11 @@ class Window:
 
         if top > h + margin:
             x, y = (min(left, max_x - (w + margin)), top - h)
-        elif bottom < config.WINDOW_SIZE[1] - (h + margin):
+        elif bottom < config.WORKING_SIZE[1] - (h + margin):
             x, y = (min(left, max_x - (w + margin)), bottom)
         elif left > w + margin:
             x, y = (left - w, cy)
-        elif right < config.WINDOW_SIZE[0] - (w + margin):
+        elif right < config.WORKING_SIZE[0] - (w + margin):
             x, y = (right, cy)
         else:
             x, y = cx, cy
