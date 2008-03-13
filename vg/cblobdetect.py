@@ -312,7 +312,7 @@ def collect_entropy(im, bits=config.ENTROPY_BITS):
     #interleave the blocks, so each part of the image has practical effect.
     #(a bit silly, nonetheless)
     e2 = ''.join(sum(zip(*e), ()))
-    return list(array.array("l", e2))
+    return list(array.array("i", e2))
 
 def avoid_chromakey(im):
     """replace the chroma colour by one blue pixel off"""
