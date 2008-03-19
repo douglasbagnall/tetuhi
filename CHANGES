@@ -1,3 +1,11 @@
+0.84
+    - A few changes to make it compile on x86-64 systems.
+    - Look for and parse configuration files (see doc/examples). 
+    - Support networks without hidden layers (for speed).
+    - Improved support for presentations. No use to most people.
+    - Number of subprocesses defaults to number of available CPUs.
+    - Numerous fixes and tidy-ups.
+
 0.83.1
     - Whitespace sanity.
     - Removing data directories, and have them generated as necessary.
