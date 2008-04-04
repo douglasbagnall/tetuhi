@@ -20,11 +20,11 @@ import os, random
 from math import atan2, pi
 
 import Image
-import pygame, yaml
+import pygame
 from pygame import mixer, sprite
 
 from vg import config
-from vg.utils import id_generator
+from vg.utils import id_generator, yaml_load
 from vg.misc import GameEscape, GameQuit, CycleJump
 
 pygame.init()
@@ -507,15 +507,13 @@ class Window:
 
     def text_cycle(self, filename, **kwargs):
         """play the text in the file"""
-        f = open(filename)
-        for x in yaml.load(f):
+        for x in yaml_load(filename):
             self.message_screen(x, **kwargs)
 
     def presentation(self, filename, player=None, player_args=()):
         """play the text in the file as a presentation. That just
         means the fire button advances play."""
-        f = open(filename)
-        p = [x for x in yaml.load(f)]
+        p = [x for x in yaml_load(filename)]
         def fire_handler(*args):
             raise CycleJump(1)
         def key_handler(key):

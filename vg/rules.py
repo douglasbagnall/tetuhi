@@ -30,7 +30,7 @@ order is fixed.
 """
 
 from vg import config
-import yaml
+from vg import utils
 import random
 from bisect import bisect
 
@@ -81,8 +81,7 @@ TYPE_MAP = {}
 
 def _load_base_types():
     global PLAYER_TYPES, NON_PLAYER_TYPES, TYPE_MAP
-    f = open(config.RULES_FILE)
-    for x in yaml.load(f):
+    for x in utils.yaml_load(config.RULES_FILE):
         t = TeamRules(x)
         if t.mind not in ('player', 'wall'):
             if not config.ENEMY_FIRES and t.name in ('enemy_bullet', 'enemy_guided_bullet'):
