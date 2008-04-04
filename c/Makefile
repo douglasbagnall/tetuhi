@@ -104,6 +104,9 @@ python-install: python
 python-test: python-install
 	$(PYTHON) test.py -s
 
+olpc: all
+	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c semantic.c -o semantic.o
+	$(CC) -pthread -shared -Wl,-O1 semantic.o -lgamemap -o semanticCore.so
 
 #
 # include dependency files if they exist

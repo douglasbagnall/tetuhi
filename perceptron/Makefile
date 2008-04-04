@@ -26,9 +26,9 @@ LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
 #include /config.mak
-#OPTFLAGS =  -O4 -march=athlon -pipe -ffast-math -pg  
+#OPTFLAGS =  -O4 -march=athlon -pipe -ffast-math -pg
 INCLUDES = -lgsl -lgslcblas -lm
-COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GNU_SOURCE -fgnu89-inline 
+COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GNU_SOURCE -fgnu89-inline
 #for profiling:
 #COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -D_GNU_SOURCE -pg
 
@@ -36,6 +36,8 @@ COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GN
 RANLIB	= true
 
 include ./local.mak
+
+PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
 #CC	= gcc-4.1
 
@@ -87,8 +89,8 @@ asm:
 	gcc-4.1  $(CFLAGS) $(ASM_OPTS) $(ASM_INFILE) -o $(ASM_DIR)/$(ASM_OUTFILE)-4_1.s
 
 cpp:
-	$(CC)  $(CFLAGS) -E nn_test.c -o $(ASM_DIR)/nn_test.i 
-	$(CC)  $(CFLAGS) -E training.c -o $(ASM_DIR)/training.i 
+	$(CC)  $(CFLAGS) -E nn_test.c -o $(ASM_DIR)/nn_test.i
+	$(CC)  $(CFLAGS) -E training.c -o $(ASM_DIR)/training.i
 
 test:	clean install
 	$(CC)  $(CFLAGS)   nn_test.c -o /tmp/nn_test.o -l$(BASENAME) -lmcheck $(INCLUDES)
@@ -104,6 +106,12 @@ python-install:	python
 
 python-test: python-install
 	$(PYTHON) test.py
+
+olpc: all
+	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c nnpy.c -o nnpy.o
+	$(CC) -pthread -shared -Wl,-O1 nnpy.o -lperceptron  $(INCLUDES)  -o nnpy.so
+
+
 
 #
 # include dependency files if they exist

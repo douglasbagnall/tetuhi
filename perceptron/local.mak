@@ -1,3 +1,4 @@
-MACHINE_OPTS =  -march=athlon-xp -mfpmath=sse,387 -msse 
+MACHINE_OPTS =  -march=athlon  -m3dnow
+LOCAL_OPTS = $(MACHINE_OPTS)
 
-PYTHON = python2.4
+PYTHON = python2.5
