@@ -130,6 +130,13 @@ def process_in_fork(function, display, processes, timeout):
 
 
 def yaml_load(filename):
+    """Load and interpret a YAML file, using whichever library is
+    found. The following packages are tried:
+
+     pysyck
+     pyyaml (with C extensions if available)
+
+    """
     f = open(filename)
     try:
         import syck
@@ -142,7 +149,7 @@ def yaml_load(filename):
             from yaml import CLoader as Loader
         except ImportError:
             from yaml import Loader
-        
+
         y = yaml.load(f, Loader=Loader)
 
     f.close()
