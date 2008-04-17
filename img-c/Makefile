@@ -22,7 +22,7 @@ PYNAME = $(BASENAME).so
 #DEBUG_FLAGS = -g -O0
 DEBUG_FLAGS = -O3
 
-COMMON_OPTS =   -pipe -ffast-math -std=gnu99 -Wall -ffast-math -fomit-frame-pointer -fno-PIC  -D_GNU_SOURCE
+COMMON_OPTS =   -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -fno-PIC  -D_GNU_SOURCE
 
 
 #CC	= cgcc
@@ -76,7 +76,7 @@ python-install: python
 python-test: python-install
 	$(PYTHON) test.py
 
-olpc: all
+olpc:
 	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c img.c -o $(BASENAME).o
 	$(CC) -pthread -shared -Wl,-O1 $(BASENAME).o  -o $(PYNAME)
 

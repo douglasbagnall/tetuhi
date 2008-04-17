@@ -39,7 +39,7 @@ include ./local.mak
 
 PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
-#CC	= gcc-4.1
+#CC	= gcc-4.2
 
 SRCS	=  perceptron.c training.c debug.c
 OBJS	= $(SRCS:.c=.o)
@@ -108,8 +108,8 @@ python-test: python-install
 	$(PYTHON) test.py
 
 olpc: all
-	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c nnpy.c -o nnpy.o
-	$(CC) -pthread -shared -Wl,-O1 nnpy.o -lperceptron  $(INCLUDES)  -o nnpy.so
+	$(CC) $(PY_CFLAGS)  $(CFLAGS)   -c nnpy.c -o nnpy.o
+	$(CC) -pthread -shared -Wl,-O1 nnpy.o -L. -lperceptron  $(INCLUDES)  -o nnpy.so
 
 
 

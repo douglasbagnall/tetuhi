@@ -20,22 +20,23 @@ BASENAME = gamemap
 LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
-#OPTFLAGS =  -O3 -march=athlon -pipe -ffast-math -pg  
 #INCLUDES = -lm
+#LOCAL_OPTS	= -march=native
 
 #DEBUG_FLAGS = -g -O0
 DEBUG_FLAGS = -O3
 
 
-COMMON_OPTS =  $(DEBUG_FLAGS) -pipe -ffast-math -std=gnu99 -Wall -ffast-math -fomit-frame-pointer -fno-PIC -D_GNU_SOURCE -march=native
+COMMON_OPTS =  $(DEBUG_FLAGS) -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer  -D_GNU_SOURCE
 
+#CC	= gcc-4.2
 #CC	= cgcc
 RANLIB	= true
-PYTHON	= python
+PYTHON	= python2.5
 
 include ./local.mak
 
-PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON) 
+PY_CFLAGS =    -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
 SRCS	= gamemap.c scan.c
 OBJS	= $(SRCS:.c=.o)
@@ -50,7 +51,7 @@ ASM_DIR = ./asm
 ASM_INFILE = scan.c
 ASM_OUTFILE = scan
 #ASM_OPTS = -S -fkeep-inline-functions
-ASM_OPTS = -S -fverbose-asm  -fkeep-inline-functions 
+ASM_OPTS = -S -fverbose-asm  -fkeep-inline-functions
 
 
 .SUFFIXES: .c .o
@@ -106,7 +107,7 @@ python-test: python-install
 
 olpc: all
 	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c semantic.c -o semantic.o
-	$(CC) -pthread -shared -Wl,-O1 semantic.o -lgamemap -o semanticCore.so
+	$(CC) -pthread -shared -Wl,-O1 semantic.o -L. -lgamemap  -o semanticCore.so
 
 #
 # include dependency files if they exist
