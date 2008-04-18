@@ -128,3 +128,32 @@ def process_in_fork(function, display, processes, timeout):
         for pid in children: #kill slowcoaches, if any
             os.kill(pid, 9)
     return results
+
+
+
+
+def yaml_load(filename):
+    """Load and interpret a YAML file, using whichever library is
+    found. The following packages are tried:
+
+     pysyck
+     pyyaml (with C extensions if available)
+
+    """
+    f = open(filename)
+    try:
+        import syck
+        s = f.read()
+        y = syck.load(s)
+
+    except:
+        import yaml
+        try:
+            from yaml import CLoader as Loader
+        except ImportError:
+            from yaml import Loader
+
+        y = yaml.load(f, Loader=Loader)
+
+    f.close()
+    return y

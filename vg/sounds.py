@@ -20,12 +20,8 @@
 import random, os
 
 from vg import config
+from vg import utils
 
-import yaml
-try:
-    from yaml import CLoader as Loader
-except ImportError:
-    from yaml import Loader
 
 
 class SoundManager:
@@ -38,9 +34,7 @@ class SoundManager:
 
     def load(self, filename):
         """Load up the class copies of yaml data"""
-        f = open(filename)
-        self.sounds[:] = yaml.load(f, Loader=Loader)
-        f.close()
+        self.sounds[:] = yaml_load(filename)
         for x in self.sounds:
             for s in x['suitability']:
                 sounds = self.sets.setdefault(s, [])
