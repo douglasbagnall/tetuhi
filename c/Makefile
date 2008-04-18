@@ -20,17 +20,17 @@ BASENAME = gamemap
 LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
-#OPTFLAGS =  -O3 -march=athlon -pipe -ffast-math -pg
+
 #INCLUDES = -lm
 #LOCAL_OPTS	= -march=native
-
 
 #DEBUG_FLAGS = -g -O0
 DEBUG_FLAGS = -O3
 
-COMMON_OPTS =  $(DEBUG_FLAGS) -pipe -ffast-math -std=gnu99 -Wall -ffast-math -fomit-frame-pointer -fno-PIC -D_GNU_SOURCE -march=native
+
 COMMON_OPTS =  $(DEBUG_FLAGS) -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer  -D_GNU_SOURCE
 
+#CC	= gcc-4.2
 #CC	= cgcc
 RANLIB	= true
 PYTHON	= python2.5

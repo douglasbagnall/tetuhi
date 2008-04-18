@@ -22,7 +22,7 @@ PYNAME = $(BASENAME).so
 #DEBUG_FLAGS = -g -O0
 DEBUG_FLAGS = -O3
 
-COMMON_OPTS =   -pipe -ffast-math -std=gnu99 -Wall -ffast-math -fomit-frame-pointer -fno-PIC  -D_GNU_SOURCE
+COMMON_OPTS =   -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -fno-PIC  -D_GNU_SOURCE
 
 
 #CC	= cgcc
@@ -31,7 +31,7 @@ PYTHON	= python
 
 include ./local.mak
 
-PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON) 
+PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
 SRCS	= img.c
 OBJS	= $(SRCS:.c=.o)
@@ -74,8 +74,11 @@ python-install: python
 	mv $(PYNAME) /usr/local/lib/$(PYTHON)/site-packages/
 
 python-test: python-install
-	$(PYTHON) test.py 
+	$(PYTHON) test.py
 
+olpc:
+	$(CC) $(PY_CFLAGS)  $(CFLAGS)  $(CPPFLAGS2) -c img.c -o $(BASENAME).o
+	$(CC) -pthread -shared -Wl,-O1 $(BASENAME).o  -o $(PYNAME)
 
 
 #

@@ -76,7 +76,9 @@ def fork_safely(logfile=config.CHILD_LOG, mode='a',logmode='PID'):
     os.dup2(fdlog.fileno(), sys.stdout.fileno())
     os.dup2(fdlog.fileno(), sys.stderr.fileno())
     if not config.ALLOW_ERRORS_TO_KILL_X:
-        for x in range(3, 20):
+        #shut out a whole lot of files in the (reasonable) hope that
+        #one of them is X
+        for x in range(3, 10):
             os.dup2(fdlog.fileno(), x)
 
     return 0
@@ -94,7 +96,8 @@ def process_in_fork(function, display, processes, timeout):
             try:
                 function()
             except Exception, e:
-                #exception will kill X window (and thus main process), so catch anything
+                #exception will kill X window (and thus main process),
+                #so catch everything
                 traceback.print_exc()
                 sys.stderr.flush()
             os._exit(0)

@@ -22,7 +22,7 @@
 #include <Python.h>
 #include "structmember.h"
 
-#include "../pyserf_helpers.c"
+#include "../lib/pyserf_helpers.c"
 #include "libperceptron.h"
 
 
