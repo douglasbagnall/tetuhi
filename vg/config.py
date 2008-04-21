@@ -232,7 +232,7 @@ def _read_config(config_path):
     precedence, which is actually the reverse order from which they
     are read.
     """
-
+    from sys import stderr
     from shlex import shlex
     from os.path import expanduser
     g = globals()
@@ -241,7 +241,7 @@ def _read_config(config_path):
     for fn in reversed(config_path):
         try:
             conf = shlex(file(expanduser(fn)), posix=True)
-            print conf
+            #print conf
             while True:
                 key = conf.get_token()
                 if key is None:
@@ -268,7 +268,7 @@ def _read_config(config_path):
                 g[key] = v
 
         except IOError, e:
-            print "File %s not readable" % fn
+            print >> stderr, "File %s not readable" % fn
 
 
 
