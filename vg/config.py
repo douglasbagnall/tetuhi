@@ -212,68 +212,42 @@ BULLET_SPEED = 3
 
 CONFIG_PATH = ['./tetuhi.conf', './config/tetuhi.conf', '~/.tetuhirc',  '/etc/tetuhi.conf',]
 
-def _parse_value(s):
-    if s in ('False', 'True'):
-        return eval(s)
-    v = s
-    try:
-        v = float(s)
-        v = int(s)
-    except ValueError:
-        pass
-    return v
-
 def _read_config(config_path):
-    """Really simple config parser.  Takes a list of filenames, whose
-    contents are in the form:
+    """Parse configuration files by executing them.
+
+    The files are executed using the exec() function, putting the
+    variables they declare in this modules global scope. Typically the
+    config files should have lines like:
 
     SOME_KEY = 'some value'
     ANOTHER_KEY = 7.2
+    THIRD_KEY = (ANOTHER_KEY / 3) ** 1.4
 
-    and puts the pairs into global scope, making floats, ints, and
-    booleans wherever possible.  The filenames are in order of
-    precedence, which is actually the reverse order from which they
-    are read.
+    Obviously there would be a problem if any files in config_path are
+    untrustworthy.
+
+    The filenames are in order of precedence, which is actually the
+    reverse order from which they are read.
     """
-    from sys import stderr
-    from shlex import shlex
+    import sys, traceback
     from os.path import expanduser
-    g = globals()
-    groupers = {'(':(')', tuple), '[':(']', list)}
-
     for fn in reversed(config_path):
+        fn = expanduser(fn)
         try:
-            conf = shlex(file(expanduser(fn)), posix=True)
-            #print conf
-            while True:
-                key = conf.get_token()
-                if key is None:
-                    break
-                if conf.get_token() != '=':
-                    raise ValueError("missing equals sign on line %s?" % conf.lineno)
-                v = conf.get_token()
-                if v is None:
-                    raise ValueError("premature ending of conf file on line %s" % conf.lineno)
-                if v in groupers:
-                    end, func = groupers[v]
-                    seq = []
-                    while True:
-                        tok = conf.get_token()
-                        if tok == end:
-                            break
-                        seq.append(_parse_value(tok))
-                        comma = conf.get_token()
-                        if comma != ',':
-                            conf.push_token(comma)
-                    v = func(seq)
-                else:
-                    v = _parse_value(v)
-                g[key] = v
-
+            execfile(fn, globals())
         except IOError, e:
-            print >> stderr, "File %s not readable" % fn
-
+            print >> sys.stderr, "File %s not readable" % fn
+        except Exception, e:
+            # try to catch and rint only the last bit of the stack
+            # trace, from the config file.
+            print >> sys.stderr, "**** Problem in configuration file %s ****" % (fn)
+            printing = False
+            for line in traceback.format_exception(*sys.exc_info()):
+                printing = printing or fn in line
+                if printing:
+                    print line.replace(', in <module>',''),
+            print
 
 
 _read_config(CONFIG_PATH)
-del _expanduser, _read_config, _parse_value
+del _expanduser, _read_config
