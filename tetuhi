@@ -123,12 +123,11 @@ def get_opts():
     return parser.parse_args()
 
 
-
 if __name__ == '__main__':
     options, files = get_opts()
     if not files:
         files = [config.TEST_IMAGE]
-
+    
 
     if options.profile:
         print "profiling"
@@ -147,12 +146,15 @@ if __name__ == '__main__':
         config.FULLSCREEN = True
         #XXX a lot of stuff here to set the sizes right
         #config.WORKING_SIZE = (1024, 768)
-    if options.really_capture:
-        if options.xo:
+    if  options.xo:
+        if options.really_capture:
             config.CAMERA_SCRIPT = config.XO_CAPTURE_SCRIPT
             config.CAPTURE_IMAGE_TYPE = 'png'
-        else:
-            config.CAMERA_SCRIPT = config.CAPTURE_SCRIPT
+            print "set script and type to %s, %s" % (config.CAMERA_SCRIPT, config.CAPTURE_IMAGE_TYPE)
+
+    elif options.really_capture:
+        config.CAMERA_SCRIPT = config.CAPTURE_SCRIPT
+
     if options.sound:
         #fragile (added late for release)
         config.SOUND = True
@@ -201,6 +203,9 @@ if __name__ == '__main__':
     elif options.presentation:
         present(options.presentation)
     else:
+        if options.really_capture:
+            files = [utils.photograph_in_fork()]
+
         for fn in files:
             if options.profile:
                 profile.run('go(fn, mode="noplay")', PROFILE_FILE)

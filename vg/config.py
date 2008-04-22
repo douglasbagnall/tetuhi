@@ -101,9 +101,10 @@ PHOTO_DIRECTORY = './photos/'
 CAPTURE_SCRIPT = 'scripts/capture.sh'
 FAKE_CAPTURE_SCRIPT = 'scripts/fake-capture.sh'
 XO_CAPTURE_SCRIPT = 'scripts/olpc-capture.sh'
+#CAMERA_SCRIPT = FAKE_CAPTURE_SCRIPT
 CAMERA_SCRIPT = CAPTURE_SCRIPT
 CAPTURE_IMAGE_TYPE = 'jpg' #png for XO_CAPTURE_SCRIPT
-#CAMERA_SCRIPT = FAKE_CAPTURE_SCRIPT
+
 
 
 TEST_IMAGE = _expanduser('~/images/tetuhi-examples/cowboy-tanks.jpg')

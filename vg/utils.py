@@ -107,7 +107,8 @@ def process_in_fork(function, display, processes, timeout):
     timeout += time.time()
     results = []
     while children and time.time() < timeout:
-        display()
+        if display is not None:
+            display()
         pid, status = os.waitpid(-1, os.WNOHANG)
         if pid in children:
             children.remove(pid)
@@ -130,6 +131,19 @@ def process_in_fork(function, display, processes, timeout):
     return results
 
 
+
+
+
+def photograph_in_fork(display=None):
+    """Take a photograph, making up returning its filename"""
+    format = "%Y-%m-%d_%H-%M-%S/original." + config.CAPTURE_IMAGE_TYPE
+    filename = os.path.join(config.PHOTO_DIRECTORY, time.strftime(format))
+
+    def photograph():
+        os.system(config.CAMERA_SCRIPT + ' ' + filename)
+
+    process_in_fork(photograph, display, 1, config.CAMERA_TIMEOUT)
+    return filename
 
 
 def yaml_load(filename):

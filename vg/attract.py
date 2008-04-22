@@ -57,18 +57,13 @@ class Attractor:
 
     def take_photo(self):
         """Trigger the camera in a background process, and wait for the picture to arrive"""
-        #utils.make_dir(config.PHOTO_DIRECTORY)
-        format = "%Y-%m-%d_%H-%M-%S/original." + config.CAPTURE_IMAGE_TYPE
-        filename = os.path.join(config.PHOTO_DIRECTORY, time.strftime(format))
-        def photograph():
-            os.system(config.CAMERA_SCRIPT + ' ' + filename)
 
         def display():
             self.window.unwrite()
             self.window.write(random.choice('"#*+*oO0.'))
             self.window.alert_pause(0.5)
 
-        utils.process_in_fork(photograph, display, 1, config.CAMERA_TIMEOUT)
+        utils.photograph_in_fork(display)
         #XXX need error checking
         return filename
 
