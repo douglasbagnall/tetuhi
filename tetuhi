@@ -150,6 +150,7 @@ if __name__ == '__main__':
     if options.really_capture:
         if options.xo:
             config.CAMERA_SCRIPT = config.XO_CAPTURE_SCRIPT
+            config.CAPTURE_IMAGE_SUFFIX = 'png'
         else:
             config.CAMERA_SCRIPT = config.CAPTURE_SCRIPT
     if options.sound:
