@@ -100,6 +100,7 @@ PHOTO_DIRECTORY = './photos/'
 
 CAPTURE_SCRIPT = 'scripts/capture.sh'
 FAKE_CAPTURE_SCRIPT = 'scripts/fake-capture.sh'
+XO_CAPTURE_SCRIPT = 'scripts/olpc-capture.sh'
 CAMERA_SCRIPT = CAPTURE_SCRIPT
 #CAMERA_SCRIPT = FAKE_CAPTURE_SCRIPT
 

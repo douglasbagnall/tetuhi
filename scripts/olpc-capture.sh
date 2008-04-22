@@ -22,4 +22,4 @@ DIR=`dirname $1`
 mkdir -p $DIR
 
 #from  http://wiki.laptop.org/go/Programming_the_camera
-gst-launch-0.10 v4l2src ! ffmpegcolorspace ! pngenc ! filesink location=$1
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! jpegenc quality=95 ! filesink location=$1
