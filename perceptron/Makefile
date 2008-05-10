@@ -21,14 +21,16 @@
 BASENAME = perceptron
 
 PYTHON = python2.5
+#CC	= gcc-3.4
 
 LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
 #include /config.mak
 #OPTFLAGS =  -O4 -march=athlon -pipe -ffast-math -pg
+GCC_VERSION_OPTS = $(shell $(CC) --help -v 2>/dev/null |grep -o -m 1 "\-fgnu89-inline")
 INCLUDES = -lgsl -lgslcblas -lm
-COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GNU_SOURCE -fgnu89-inline
+COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GNU_SOURCE $(GCC_VERSION_OPTS)
 #for profiling:
 #COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -D_GNU_SOURCE -pg
 
@@ -38,8 +40,6 @@ RANLIB	= true
 include ./local.mak
 
 PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
-
-#CC	= gcc-4.2
 
 SRCS	=  perceptron.c training.c debug.c
 OBJS	= $(SRCS:.c=.o)
