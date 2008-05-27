@@ -1,0 +1,5 @@
+These modules have been cross-compiled for the OLPC XO, because I
+found this to be a moderately complicated process.
+
+To use them, move them somewhere in the python path, or add this
+directory to it (eg 'export PYTHONPATH=/path_to_tetuhi/binaries/olpc').
