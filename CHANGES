@@ -1,6 +1,16 @@
+
+0.85
+    - Yaml import uses either PySyck or PyYaml, depending what is
+      available.
+    - Improvements to Makefiles, so the modules build on more systems.
+    - Adaptation for OLPC XO (incomplete, but it runs).
+    - More flexible (fully executable) config files, and option to
+      dump current config values.
+    - Various fiddly changes and sort-of clean-ups or improvements.
+
 0.84
     - A few changes to make it compile on x86-64 systems.
-    - Look for and parse configuration files (see doc/examples). 
+    - Look for and parse configuration files (see doc/examples).
     - Support networks without hidden layers (for speed).
     - Improved support for presentations. No use to most people.
     - Number of subprocesses defaults to number of available CPUs.
@@ -9,15 +19,14 @@
 0.83.1
     - Whitespace sanity.
     - Removing data directories, and have them generated as necessary.
-      
+
 0.81, 0.82, 0.83
     - Copyright notices.
     - GNUification for Savannah.
     - Documentation (minimal).
     - Removing some unused stuff.
     - Moving sound to separate tree.
-    
-0.80 
-    - Number given, arbitrarily and retroactively to the first code used 
+
+0.80
+    - Number given, arbitrarily and retroactively to the first code used
       in public display (at Te Tuhi Centre for the Arts, November 2007).
-      

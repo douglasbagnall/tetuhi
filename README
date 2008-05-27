@@ -1,4 +1,12 @@
 
+Binaries
+
+In 0.85 I have included binary versions of the C extension modules,
+compiled for the Geode and Python version 2.5.  This is for the
+convenience of OLPC users, and anyone else who can't be bothered
+trying to figure out how to build the modules.  These are in the
+./binaries/olpc directory.
+
 Compiling
 
 It may be necessary to change the Makefiles compile the C code in the
@@ -23,4 +31,6 @@ There is a separately downloadable package of audio samples by various
 authors, licenced under the Creative Commons sampling plus license
 (http://creativecommons.org/licenses/sampling+/1.0/), and another
 package of test images by Douglas Bagnall, which may be used and
-redistributed in any manner whatsoever.
+redistributed in any manner whatsoever. These can be found via
+http://sf.net/project/showfiles.php?group_id=217385 under the 0.83
+release.
