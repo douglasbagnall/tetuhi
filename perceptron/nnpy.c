@@ -196,11 +196,11 @@ Network_opinion(PyObject *self, PyObject *inputs)
     if(PyObject_CheckReadBuffer(inputs)){
 	/* if it is a string or array, copy it in exactly. */
 	const void *buffer;
-	int len;
+	Py_ssize_t len;
 	PyObject_AsReadBuffer(inputs, &buffer, &len);
 	if (len != net->input->insize * sizeof(weight_t)){
-	    debug("input size is %zu, len is %d\n", net->input->insize * sizeof(weight_t), len);
-	    return PyErr_Format(PyExc_ValueError, "wrong input size (got %u, should be %zu).",
+	    debug("input size is %zu, len is %zu\n", net->input->insize * sizeof(weight_t), len);
+	    return PyErr_Format(PyExc_ValueError, "wrong input size (got %zu, should be %zu).",
 				len, (net->input->insize * sizeof(weight_t)));
 	}
 	memcpy(data, buffer, len); //re-pointing would not work well with bias.
@@ -248,11 +248,11 @@ arrays_from_pyset(PyObject *set, int pairs, int insize, int outsize, weight_t *i
 	    return -1;
 	}
 	if (insize != PySequence_Size(inputs)){
-	    PyErr_Format(PyExc_IndexError, "given %d inputs, wanted %d", PySequence_Size(inputs), insize);
+	    PyErr_Format(PyExc_IndexError, "given %zu inputs, wanted %d", PySequence_Size(inputs), insize);
 	    return -1;
 	}
 	if (outsize != PySequence_Size(targets)){
-	    PyErr_Format(PyExc_IndexError, "given %d targets, wanted %d", PySequence_Size(targets), outsize);
+	    PyErr_Format(PyExc_IndexError, "given %zu targets, wanted %d", PySequence_Size(targets), outsize);
 	    return -1;
 	}
 	if (! PYLIST_TO_WEIGHT_T(iv, inputs, insize) ||
@@ -394,7 +394,7 @@ Network_best_of_set (PyObject *self, PyObject *args, PyObject *keywds)
     unsigned int groupsize = 0; //size of each group
     unsigned int bytesize = 0;
     const void *buffer;
-    int len;
+    Py_ssize_t len;
 
 
     static char *kwlist[] = {"set", "count", "population", NULL};
@@ -437,7 +437,7 @@ Network_best_of_set (PyObject *self, PyObject *args, PyObject *keywds)
 		Py_DECREF(group);
 		free(input_v);
 		return PyErr_Format(PyExc_ValueError, "impossible thing happened, "
-				    "or vector size is wrong (%d instead of %d)",
+				    "or vector size is wrong (%zu instead of %d)",
 				    len, bytesize);
 	    }
 	    memcpy(iv, buffer, bytesize);
@@ -445,7 +445,7 @@ Network_best_of_set (PyObject *self, PyObject *args, PyObject *keywds)
 	}
 	else{ /*list (of lists of weight_t; or of buffers)*/
 	    if (groupsize != PySequence_Size(group)){
-		PyErr_Format(PyExc_ValueError, "group %d is the wrong size( %d, should be %d)",
+		PyErr_Format(PyExc_ValueError, "group %d is the wrong size( %zu, should be %d)",
 			     i, PySequence_Size(group), groupsize);
 		goto outer_error;
 	    }
@@ -457,14 +457,14 @@ Network_best_of_set (PyObject *self, PyObject *args, PyObject *keywds)
 		}
 		if(PyObject_CheckReadBuffer(inputs)){ /*buffer */
 		    if (PyObject_AsReadBuffer(inputs, &buffer, &len) < 0 || len != insize * sizeof(weight_t)){
-			PyErr_Format(PyExc_ValueError, "input vector size is wrong (%d instead of %u)",
+			PyErr_Format(PyExc_ValueError, "input vector size is wrong (%zu instead of %u)",
 				     len, (uint32_t)(insize * sizeof(weight_t)));
 			goto inner_error;
 		    }
 		    memcpy(iv, buffer, len);
 		}
 		if (insize != PySequence_Size(inputs)){
-		    PyErr_Format(PyExc_IndexError, "wrong size (%d inputs, wanted %d)", PySequence_Size(inputs), insize);
+		    PyErr_Format(PyExc_IndexError, "wrong size (%zu inputs, wanted %d)", PySequence_Size(inputs), insize);
 		    goto inner_error;
 		}
 
@@ -615,7 +615,7 @@ Network_set_weights (PyObject *self, PyObject *obj, void *context)
 {
     nn_Network_t *net = ((Network_object *)self)->net;
     char *weights;
-    int len = 1;
+    Py_ssize_t len = 1;
     if (!obj) {
 	PyErr_SetString(PyExc_TypeError, "eh?");
 	return -1;
@@ -702,7 +702,7 @@ test_buffer(PyObject *self, PyObject *args)
     /*given list of array.arrays */
     debug("using buffer interface\n");
     const void *buffer;
-    int len;
+    Py_ssize_t len;
     if (PyObject_AsReadBuffer(obj, &buffer, &len)){//never never should fail?
 	return PyErr_Format(PyExc_ValueError, "impossible thing happened");
     }
