@@ -661,7 +661,7 @@ Network_get_weight_size(PyObject *self, void* context)
 static PyObject *
 Network___reduce__(PyObject *self)
 {
-    debug("in reduce for object %p\n", self);
+    //debug("in reduce for object %p\n", self);
     nn_Network_t *net = ((Network_object *)self)->net;
     /* get shape and weights */
     PyObject *shape = Network_get_shape(self, NULL);
