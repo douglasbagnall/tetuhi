@@ -30,7 +30,6 @@ from vg.misc import GameEscape, GameQuit, CycleJump
 pygame.init()
 mixer.init(config.AUDIO_FREQ, config.AUDIO_BITS, config.AUDIO_CHANNELS)
 
-from vg import config
 
 def stretch(im, size, filter=Image.NEAREST):
     im.load()
