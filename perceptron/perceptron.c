@@ -249,11 +249,11 @@ nn_opinion(nn_Network_t *net, weight_t *inputs){
 
 /*************** disk IO ***************/
 
-char *nn_net_header = "multilayer perceptron\nbias: %d\n";
-char *nn_net_header_readable = "dump of multilayer perceptron\nbias: %d\n";
-char *nn_layer_header = "layer size: %u\n";
-char *nn_data_header = "weights follow two carriage returns (%u numbers, %u bytes each)\n";
-char *nn_end_header = "good luck!\n\n";
+#define NET_HEADER           "multilayer perceptron\nbias: %d\n"
+#define NET_HEADER_READABLE  "dump of multilayer perceptron\nbias: %d\n"
+#define LAYER_HEADER         "layer size: %u\n"
+#define DATA_HEADER          "weights follow two carriage returns (%u numbers, %u bytes each)\n"
+#define END_HEADER           "good luck!\n\n"
 
 int
 nn_save_weights(nn_Network_t *net, char *filename){
@@ -266,16 +266,19 @@ nn_save_weights(nn_Network_t *net, char *filename){
         return -1;
     }
     /*descriptive headers at start */
-    fprintf(f, nn_net_header, net->bias);
+    fprintf(f, NET_HEADER, net->bias);
     for (i = 0; i < NN_MAX_LAYERS; i++){
 	if (! net->layers[i].insize)
 	    break;
-	fprintf(f, nn_layer_header, net->layers[i].insize);
+	fprintf(f, LAYER_HEADER, net->layers[i].insize);
     }
-    fprintf(f, nn_data_header, net->weight_alloc_size, sizeof(weight_t));
-    fprintf(f, nn_end_header);
+    fprintf(f, DATA_HEADER, net->weight_alloc_size, sizeof(weight_t));
+    fputs(END_HEADER, f);
     //write the net itself
-    fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f);
+    if (fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f)){
+        _warn("could'nt write to '%s'", filename);
+        return -1;
+    }
     fclose(f);
     return 0;
 }
@@ -288,19 +291,20 @@ nn_load_weights(nn_Network_t *net, char *filename){
     int bias;
     size_t a;
     unsigned int sizes[NN_MAX_LAYERS];
+    int shush = 0;
     FILE *f = fopen(filename, "rb");
     if (! f){
         _warn("couldn't open file '%s'\n", filename);
         return -1;
     }
-    fscanf(f, nn_net_header, &bias);
+    shush += fscanf(f, NET_HEADER, &bias);
     if (net->bias != bias){
-        _warn("saved net has %sbias, unlike this one -- can't cope with this yet\n", bias ? "": "no ");
+        _warn("saved net has %s bias, unlike this one -- can't cope with this yet\n", bias ? "": "no ");
         goto hell;
     }
 
     for (i = 0; i < NN_MAX_LAYERS; i++){
-	if(! fscanf(f, nn_layer_header, sizes + i))
+	if(! fscanf(f, LAYER_HEADER, sizes + i))
 	    break;
 	if(sizes[i] != net->layers[i].insize){
 	    _warn("saved layer %d is size %u, wanted %u\n", i, sizes[i], net->layers[i].insize);
@@ -308,15 +312,15 @@ nn_load_weights(nn_Network_t *net, char *filename){
 	}
     }
     sizes[i] = 0;
-    fscanf(f, nn_data_header, &count, &size);
+    shush += fscanf(f, DATA_HEADER, &count, &size);
     if (sizeof(weight_t) != size || count != net->weight_alloc_size){
         _warn("saved net won't fit: %u numbers of %u bytes; wanted %u x %u\n",
 	      count, size, (uint32_t)net->weight_alloc_size, (uint32_t)sizeof(weight_t));
-	fclose(f);
         goto hell;
     }
 
-    fscanf(f, nn_end_header);
+    //shush += fseek(f, strlen(END_HEADER), SEEK_CUR);
+    shush += fscanf(f, END_HEADER);
 
     if(size == sizeof(weight_t) &&
        net->depth == i //&& so on and so forth
@@ -324,7 +328,6 @@ nn_load_weights(nn_Network_t *net, char *filename){
 	a = fread(net->weights, sizeof(weight_t), count, f);
 	if (a != count){
 	    _warn("error reading file '%s'\n", filename);
-	    fclose(f);
 	    goto hell;
 	}
     }
@@ -348,11 +351,11 @@ nn_dump_weights_formatted(nn_Network_t *net, char *filename){
         return -1;
     }
     /*descriptive headers at start */
-    fprintf(f, nn_net_header_readable, net->bias);
+    fprintf(f, NET_HEADER_READABLE, net->bias);
     for (i = 0; i < NN_MAX_LAYERS; i++){
 	if (! net->layers[i].insize)
 	    break;
-	fprintf(f, nn_layer_header, net->layers[i].insize);
+	fprintf(f, LAYER_HEADER, net->layers[i].insize);
     }
     fprintf(f, "  ____inputs____\n  |\n  |\noutputs\n  |\n  |\n");
 
