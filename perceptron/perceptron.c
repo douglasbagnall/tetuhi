@@ -20,14 +20,7 @@
  * about possible future licensing.
  */
 #include <string.h>
-#include <limits.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
-#include <time.h>
-
-
 #include "libperceptron.h"
 
 /*include the innermost loop from inline assembly */
@@ -37,32 +30,6 @@
 #include "opinion_c.c"
 #endif
 
-static gsl_rng *
-nn_gsl_rand_state(int create){
-    static gsl_rng * r;
-    static int refcount = 0;
-    if (create){
-	if(!refcount){
-	    r = gsl_rng_alloc(gsl_rng_gfsr4); /* alternatives: .._taus2, _mt19937 */
-#if DETERMINISTIC
-	    gsl_rng_set(r, DETERMINISTIC);
-#endif
-	}
-	refcount++;
-    }
-    else{
-	refcount--;
-	if (!refcount){
-	    gsl_rng_free (r);
-	}
-    }
-    return r;
-}
-
-void
-nn_random_reset(nn_Network_t *net, unsigned int seed){
-    gsl_rng_set(net->rng, seed);
-}
 
 
 /************************* Constructor ****************************/
@@ -112,7 +79,6 @@ nn_new_network( unsigned int layer_sizes[], int bias){
     net->total_alloc_bytes = total_bytes;
     net->node_alloc_size = node_alloc;
     net->weight_alloc_size = weight_alloc;
-    net->rng = nn_gsl_rand_state(1);
 
     //debug("net %u  nodes %u   weights %u  total %u\n", net_alloc, node_alloc, weight_alloc, total_bytes);
 
@@ -151,7 +117,6 @@ nn_new_network( unsigned int layer_sizes[], int bias){
 
 void
 nn_delete_network(nn_Network_t *net){
-    nn_gsl_rand_state(0);
     if (net->deltas){
 	free(net->deltas);
 	net->deltas = NULL;
@@ -210,7 +175,6 @@ nn_duplicate_network(nn_Network_t *orig){
 	return NULL;
     }
     copy_net_core(orig, copy);
-    copy->rng = nn_gsl_rand_state(1); //to inc ref count (XXX refcount is pointless)
     return copy;
 }
 
@@ -229,7 +193,7 @@ nn_randomise_weights(nn_Network_t *net, double min_val, double max_val){
     int i, j;
     for (i = 0; i < net->depth - 1; i++){
 	for (j = 0; j < net->interlayers[i].size; j++){
-	    net->interlayers[i].weights[j] = min_val + scale * gsl_rng_uniform(net->rng);
+	    net->interlayers[i].weights[j] = min_val + nn_rng_uniform_double(scale);
 	}
     }
 }

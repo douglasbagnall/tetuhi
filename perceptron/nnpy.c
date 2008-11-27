@@ -133,17 +133,22 @@ Network___del__ (PyObject *self)
     self->ob_type->tp_free((PyObject*)self);
 }
 
-/* reseeds the random generator.*/
+/* reseed the random generator.
+   This is accessible both as a module level function and a method.
+*/
 
 static PyObject *
 Network_seed_random(PyObject *self, PyObject *args)
 {
     int seed;
-    nn_Network_t *net = ((Network_object *)self)->net;
-    if (!PyArg_ParseTuple(args, "i", &seed)){
+    PyObject *maybe = NULL;
+    if (!PyArg_ParseTuple(args, "i|O", &seed, &maybe)){
         return NULL;
     }
-    nn_random_reset(net, seed);
+    if (maybe && PyObject_IsTrue(maybe))
+	nn_rng_maybe_init(seed);
+    else
+	nn_rng_init(seed);
     return Py_BuildValue("");
 }
 
@@ -164,7 +169,7 @@ Network_randomise (PyObject *self, PyObject *args)
         return NULL;
     }
     if(reset){
-	nn_random_reset(net, reset - 1);
+	nn_rng_init(reset);
     }
     if(min_val != 0 && max_val != 0)
 	nn_randomise_weights(net, min_val, max_val);
@@ -731,6 +736,8 @@ Network_random_mutations (PyObject *self, PyObject *args)
 static PyMethodDef top_level_functions[] = {
     {"test_buffer", (PyCFunction)test_buffer, METH_VARARGS,
      "tries turning a buffer into a list"},
+    {"seed_random", (PyCFunction)Network_seed_random, METH_VARARGS,
+     "Seed the random number generator"},
     {NULL}
 };
 
@@ -851,5 +858,6 @@ initnnpy(void)
 
     Py_INCREF(&Network_type);
     PyModule_AddObject(m, "Network", (PyObject *)&Network_type);
-
+    /* initialise the RNG */
+    nn_rng_init(-1);
 }

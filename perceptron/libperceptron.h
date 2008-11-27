@@ -22,9 +22,11 @@
 #ifndef _GOT_LIBPERCEPTRON_H
 #define _GOT_LIBPERCEPTRON_H 1
 
+#include <stddef.h>
+#include <limits.h>
+#include <stdio.h>
 #include <stdint.h>
 #include <math.h>
-#include <gsl/gsl_rng.h>
 
 
 /*constants */
@@ -123,7 +125,6 @@ typedef struct nn_Network_s{
     size_t total_alloc_bytes;
     unsigned int bias;
     weight_t *real_inputs;
-    const gsl_rng *rng;
 } nn_Network_t;
 
 typedef struct nn_Network_pool_s{
@@ -135,9 +136,6 @@ typedef struct nn_Network_pool_s{
 
 
 /*************** functionlike macros ****************/
-
-//#define RAND(net) rand()
-#define RAND(net) gsl_rng_get(net->rng)
 
 
 #define debug(format, ...) fprintf (stderr, (format),## __VA_ARGS__); fflush(stderr);
@@ -200,6 +198,11 @@ void nn_zero_weights(nn_Network_t *net);
 
 
 /* training.c */
+void nn_rng_init(unsigned int seed);
+void nn_rng_maybe_init(unsigned int seed);
+int nn_rng_uniform_int(int limit);
+double nn_rng_uniform_double(double limit);
+
 inline double nn_mean_weights_squared(nn_Network_t *);
 double nn_train_set(nn_Network_t *, weight_t *, weight_t *, int, int, double, double, double, int);
 double nn_anneal_set(nn_Network_t *, weight_t *, weight_t *, int, int, weight_t, int, double, double, double);

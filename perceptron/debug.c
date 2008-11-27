@@ -56,10 +56,10 @@ void
 debug_network(nn_Network_t *net){
     debug("network: %p {\n weights: %p\n nodes:%p\n deltas: %p\n momentums %p\n "
 	  "depth: %d\n input_size: %u\n output_size: %u\n weight_alloc_size: %zu\n "
-	  " node_alloc_size: %zu\n rng: %p\n}\n",
+	  " node_alloc_size: %zu\n}\n",
 	  net, net->weights, net->nodes, net->deltas, net->momentums,
 	  net->depth, net->layers->insize, net->output->insize,
-	  net->weight_alloc_size, net->node_alloc_size, net->rng);
+	  net->weight_alloc_size, net->node_alloc_size);
 #if 1
     int i;
     for(i = 0; i < min(NN_MAX_LAYERS, net->depth - 1); i++){

@@ -20,14 +20,11 @@
  * about possible future licensing.
  */
 
-#include <limits.h>
-#include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
-
 #include "libperceptron.h"
+#include "../dSFMT/dSFMT.h"
+
 
 /* static functions */
 
@@ -46,6 +43,35 @@ static inline double nn_mean_squared_error(nn_Network_t *, weight_t *, weight_t 
 #else
 #include "opinion_c.c"
 #endif
+
+
+
+/* Random numbers. */
+
+static dsfmt_t dsfmt;
+static int rng_is_init = 0;
+
+void nn_rng_init(unsigned int seed){
+    if (seed == -1)
+	seed = (unsigned int) rand();
+    if (seed == 0)
+	seed = 12345;
+    dsfmt_init_gen_rand(&dsfmt, seed);
+    rng_is_init = 1;
+}
+
+void nn_rng_maybe_init(unsigned int seed){
+    if (! rng_is_init)
+	nn_rng_init(seed);
+}
+
+inline int nn_rng_uniform_int(int limit){
+    return (int) dsfmt_genrand_close_open(&dsfmt) * limit;
+}
+
+inline double nn_rng_uniform_double(double limit){
+    return (double) dsfmt_genrand_close_open(&dsfmt) * limit;
+}
 
 
 
@@ -326,12 +352,9 @@ static inline void
 nn_mutate(nn_Network_t *net,
 	  weight_t ** location,
 	  weight_t *value){
-    static weight_t add_lut[256] = {MUTATE_LUT_ADD};
-    static weight_t mul_lut[256] = {MUTATE_LUT_MUL};
-    int wo = gsl_rng_uniform_int(net->rng, net->weight_lut_size);
-    int rnd = gsl_rng_get(net->rng);
-    int mo = (rnd >> 8) & 255;//individual bits are supposed to be good.
-    int ao = (rnd >> 16) & 255;
+    //static weight_t add_lut[256] = {MUTATE_LUT_ADD};
+    //static weight_t mul_lut[256] = {MUTATE_LUT_MUL};
+    int wo = nn_rng_uniform_int(net->weight_lut_size);
     weight_t *x = net->weights + net->weight_lut[wo];
     *location = x;
     *value = *x;
@@ -340,9 +363,17 @@ nn_mutate(nn_Network_t *net,
 	//soft ceiling -- mutation is prevented from growing too much
 	*x *= NN_OVERWEIGHT_REDUCTION;
     }
+
+    /* multiplying by random number from [-e, e] retains scale;
+     * addition tends to preserve sign. */
+    *x += *x * (nn_rng_uniform_double(2.7182818284590451 * 2) - 2.7182818284590451);
+
+    //XXXX this needs reworking.
+    //int mo = nn_rng_uniform_int(256);
+    //int ao = nn_rng_uniform_int(256);
     //*x += *x * mul_lut[mo] + add_lut[ao];
-    *x *= mul_lut[mo];
-    *x += add_lut[ao];
+    //*x *= mul_lut[mo];
+    //*x += add_lut[ao];
 }
 
 static inline void
@@ -407,7 +438,7 @@ nn_anneal_set (nn_Network_t *net, weight_t *inputs, weight_t *targets,
 	new_state = nn_mean_squared_error(net, inputs, targets, pairs);
 
 	if (new_state < current_state ||
-	    (gsl_rng_uniform(net->rng) < exp((current_state - new_state)/ temperature))){
+	    (nn_rng_uniform_double(1.0) < exp((current_state - new_state) / temperature))){
 	    current_state = new_state;
 	}
 	else{
@@ -480,17 +511,17 @@ nn_best_of_set_error(nn_Network_t *net,
 
 #if BEST_OF_SET_SQUARE_ERROR
 #define UPDRIFT_CHANCE(net, size, sets, old, new)\
-    (gsl_rng_uniform_int(net->rng,  ((size) * (sets) *(size) * (sets) *	\
-				     (size) * (sets) * ((new) - (old)))) < (old))
+    (nn_rng_uniform_int(((size) * (sets) *(size) * (sets) *	\
+			 (size) * (sets) * ((new) - (old)))) < (old))
 #else
 #define UPDRIFT_CHANCE(net, size, sets, old, new)\
-    (gsl_rng_uniform_int(net->rng,  ((size) * (sets) *(size) * (sets)	\
-				     * ((new) - (old)))) < (old))
+    (nn_rng_uniform_int(((size) * (sets) *(size) * (sets)	\
+			 * ((new) - (old)))) < (old))
 #endif
 
 #define UPDRIFT_CHANCE2(net, size, sets, old, new)	\
-    (gsl_rng_uniform_int(net->rng,  ((sets)  * (4 + (new) - (old)))) < (old) \
-      )
+    (nn_rng_uniform_int(((sets)  * (4 + (new) - (old)))) < (old) \
+	)
 
 
 unsigned int
@@ -619,7 +650,7 @@ nn_learn_best_of_sets_genetic (nn_Network_t *net,
 	}
 	/* 2: shoot bad ones */
 	for(h = 0; h < population / 2; h++){
-	    unsigned int r = gsl_rng_uniform_int(net->rng, error_sum);
+	    unsigned int r = nn_rng_uniform_int(error_sum);
 	    j = (r > pool[population / 2].error_sum) * (population / 2); /* simple bisecting */
 	    for (; j < population; j++){
 		if (r < pool[j].error_sum){
@@ -734,7 +765,7 @@ nn_learn_generic_genetic (nn_Network_t *net,
 	    nn_mutate(p, &location, &value);
 	    new_state = evaluator(p);
 	    if (new_state <= pool[j].state ||
-		gsl_rng_uniform(net->rng) * new_state < max(pool[j].state, new_state / 2)
+		nn_rng_uniform_int(new_state) < max(pool[j].state, new_state / 2)
 		){
 		pool[j].state = new_state;
 		if (pool[j].state <= 0){
@@ -751,7 +782,7 @@ nn_learn_generic_genetic (nn_Network_t *net,
 	/* 2: shoot bad ones */
 	for(h = 0; h < population / 2; h++){
 	    //debug("error sum: %d\n", error_sum);
-	    unsigned int r = gsl_rng_uniform_int(net->rng, error_sum);
+	    unsigned int r = nn_rng_uniform_int(error_sum);
 	    j = (r > pool[population / 2].error_sum) * (population / 2); /* simple bisecting */
 	    for (; j < population; j++){
 		if (r < pool[j].error_sum){
