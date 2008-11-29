@@ -41,7 +41,7 @@ include ./local.mak
 
 PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
-SRCS	=  perceptron.c training.c debug.c
+SRCS	=  perceptron.c training.c debug.c  dSFMT/dSFMT.c
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS	=  $(COMMON_OPTS) $(MACHINE_OPTS) -DDSFMT_MEXP=19937
