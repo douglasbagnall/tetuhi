@@ -24,7 +24,7 @@
 #include <string.h>
 #include <time.h>
 #include "libperceptron.h"
-#include "dSFMT/dSFMT.h"
+//#include "dSFMT/dSFMT.h"
 
 
 /* static functions */
@@ -46,10 +46,45 @@ static inline double nn_mean_squared_error(nn_Network_t *, weight_t *, weight_t 
 #endif
 
 
-
 /* Random numbers. */
+#ifdef USE_INT_RAND
 
-static dsfmt_t dsfmt;
+#include "SFMT/SFMT.h"
+static int rng_is_init = 0;
+
+void nn_rng_init(unsigned int seed){
+    if (seed == -1)
+	seed = (unsigned int) time(0) + (unsigned int) clock();
+    if (seed == 0)
+	seed = 12345;
+    init_gen_rand(seed);
+    rng_is_init = 1;
+}
+
+void nn_rng_maybe_init(unsigned int seed){
+    if (! rng_is_init)
+	nn_rng_init(seed);
+}
+
+inline int nn_rng_uniform_int(int limit){
+    uint32_t scale = UINT_MAX / limit;
+    uint32_t answer;
+    do{
+	answer = gen_rand32() / scale;
+    }
+    while (answer >= limit);
+    return answer;
+}
+
+inline double nn_rng_uniform_double(double limit){
+    return genrand_real2() * limit;
+}
+
+#else
+
+#include "dSFMT/dSFMT.h"
+
+static dsfmt_t dsfmt __attribute__ ((aligned));
 static int rng_is_init = 0;
 
 void nn_rng_init(unsigned int seed){
@@ -73,6 +108,8 @@ inline int nn_rng_uniform_int(int limit){
 inline double nn_rng_uniform_double(double limit){
     return dsfmt_genrand_close_open(&dsfmt) * limit;
 }
+
+#endif
 
 
 
