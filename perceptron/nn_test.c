@@ -19,21 +19,12 @@
  * see the README file in the perceptron directory for information
  * about possible future licensing.
  */
-#include <stdio.h>
+
 #include <time.h>
-#include <math.h>
 #include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
-//#include <string.h>
-/*
-#include <limits.h>
-
-*/
-
 
 #include "libperceptron.h"
-//#include "perceptron.c"
 
 
 #define XOR_TEST   1
@@ -90,6 +81,7 @@
 
 
 #define TEST_ACCEPTABILITY 0.05
+
 
 
 nn_Network_t *
@@ -237,7 +229,7 @@ test_best_of_set(){
     double t = clock();
     unsigned int diff;
     unsigned int misorders = 0, error = 0;
-
+    printf("best of set");
     for (j = 0; j < cycles; j++){
 	nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
 	diff = nn_learn_best_of_sets(net, inputs, SET_N, sets, count);
@@ -345,8 +337,8 @@ int test_anneal(){
 	diff = nn_anneal_set(net, inputs, targets,
 			     len, count, target_diff,
 			     print_every, temperature, sustain, min_temp);
-	//printf("diff was %.5f, RMS weights were %.6f\n", diff,
-	//       sqrt(nn_mean_weights_squared(net)));
+	printf("diff was %.5f, RMS weights were %.6f\n", diff,
+	       sqrt(nn_mean_weights_squared(net)));
 	diff_sum += diff *diff;
     }
     printf("took %f seconds to do %d cycles\n", (clock() - t)/CLOCKS_PER_SEC, cycles);
@@ -393,16 +385,17 @@ test_duplicate(nn_Network_t *net){
 
 
 int main(){
-
     debug("hello\n");
-    test_opinion_speed();
-#if 0
+    nn_rng_init(1);
+    //test_opinion_speed();
+#if 1
     nn_Network_t *net = test_backprop();
-    test_save(net);
-    test_duplicate(net);
+    //test_save(net);
+    //test_duplicate(net);
     test_anneal();
 #endif
-    test_best_of_set();
-    test_best_of_set_genetic();
+    //printf("best of set now\n");
+    //test_best_of_set();
+    //test_best_of_set_genetic();
     return 0;
 }
