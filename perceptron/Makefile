@@ -92,7 +92,7 @@ cpp:
 	$(CC)  $(CFLAGS) -E nn_test.c -o $(ASM_DIR)/nn_test.i
 	$(CC)  $(CFLAGS) -E training.c -o $(ASM_DIR)/training.i
 
-test:	clean install
+test:	install
 	$(CC)  $(CFLAGS)   nn_test.c -o /tmp/nn_test.o -l$(BASENAME) -lmcheck $(INCLUDES)
 	/tmp/nn_test.o
 
