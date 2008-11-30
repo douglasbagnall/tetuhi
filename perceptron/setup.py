@@ -24,4 +24,4 @@ from distutils.core import setup, Extension
 
 setup(name="nnpy",
       version="1.0",
-      ext_modules=[Extension("nnpy", ["nnpy.c"], libraries=["perceptron", "gsl", "gslcblas"])])
+      ext_modules=[Extension("nnpy", ["nnpy.c"], libraries=["perceptron"])])

@@ -26,7 +26,7 @@ PYTHON = python$(PY_VERSION)
 LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
-#include /config.mak
+
 #OPTFLAGS =  -O4 -march=athlon -pipe -ffast-math -pg
 GCC_VERSION_OPTS = $(shell $(CC) --help -v 2>/dev/null |grep -o -m 1 "\-fgnu89-inline")
 INCLUDES =  -lm
@@ -37,14 +37,14 @@ COMMON_OPTS =  -O3 -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -D_GN
 
 RANLIB	= true
 
-include ./local.mak
+include ../config.mak
 
 PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
-SRCS	=  perceptron.c training.c debug.c  dSFMT/dSFMT.c
+SRCS	=  perceptron.c training.c debug.c  $(RAND_SOURCE)
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	=  $(COMMON_OPTS) $(MACHINE_OPTS) -DDSFMT_MEXP=19937
+CFLAGS	=  $(COMMON_OPTS) $(LOCAL_OPTS) -DDSFMT_MEXP=19937
 
 ########## making asm versions for debug ########
 ASM_DIR = ./asm
@@ -66,7 +66,6 @@ ASM_OPTS = -S -fverbose-asm
 $(LIBNAME):	$(OBJS)
 	$(AR) r $(LIBNAME) $(OBJS)
 	$(RANLIB) $(LIBNAME)
-
 
 all:	$(LIBNAME)
 
