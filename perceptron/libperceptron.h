@@ -60,7 +60,7 @@ enum NN_TRAIN_METHOD{
 /**************simulated annealing *****************/
 
 // weights higher than this are likely to be offered downscaling jumps
-#define NN_WEIGHT_CEILING 2000
+#define NN_WEIGHT_CEILING 1000
 #define NN_OVERWEIGHT_REDUCTION 0.95
 
 #define ANNEAL_MUTATE_LUT_SIZE 256

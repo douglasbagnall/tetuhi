@@ -22,8 +22,9 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "libperceptron.h"
-#include "../dSFMT/dSFMT.h"
+#include "dSFMT/dSFMT.h"
 
 
 /* static functions */
@@ -53,7 +54,7 @@ static int rng_is_init = 0;
 
 void nn_rng_init(unsigned int seed){
     if (seed == -1)
-	seed = (unsigned int) rand();
+	seed = (unsigned int) time(0) + (unsigned int) clock();
     if (seed == 0)
 	seed = 12345;
     dsfmt_init_gen_rand(&dsfmt, seed);
@@ -66,11 +67,11 @@ void nn_rng_maybe_init(unsigned int seed){
 }
 
 inline int nn_rng_uniform_int(int limit){
-    return (int) dsfmt_genrand_close_open(&dsfmt) * limit;
+    return (int) (dsfmt_genrand_close_open(&dsfmt) * limit);
 }
 
 inline double nn_rng_uniform_double(double limit){
-    return (double) dsfmt_genrand_close_open(&dsfmt) * limit;
+    return dsfmt_genrand_close_open(&dsfmt) * limit;
 }
 
 
@@ -352,28 +353,21 @@ static inline void
 nn_mutate(nn_Network_t *net,
 	  weight_t ** location,
 	  weight_t *value){
-    //static weight_t add_lut[256] = {MUTATE_LUT_ADD};
-    //static weight_t mul_lut[256] = {MUTATE_LUT_MUL};
     int wo = nn_rng_uniform_int(net->weight_lut_size);
     weight_t *x = net->weights + net->weight_lut[wo];
     *location = x;
     *value = *x;
-    if (*x > NN_WEIGHT_CEILING ||
-	*x < -NN_WEIGHT_CEILING){
-	//soft ceiling -- mutation is prevented from growing too much
-	*x *= NN_OVERWEIGHT_REDUCTION;
+    /* multiplying by a uniformly random number between -e and e retains
+       scale, but values get stuck near zero, whereas large values can fly
+       away.  So: add a constant, and choose from a slightly smaller range.
+    */
+    double absx = fabs(*x) + 10.0;
+    if (absx > NN_WEIGHT_CEILING){
+	*x = absx * (nn_rng_uniform_double(4.2) - 2.1);
     }
-
-    /* multiplying by random number from [-e, e] retains scale;
-     * addition tends to preserve sign. */
-    *x += *x * (nn_rng_uniform_double(2.7182818284590451 * 2) - 2.7182818284590451);
-
-    //XXXX this needs reworking.
-    //int mo = nn_rng_uniform_int(256);
-    //int ao = nn_rng_uniform_int(256);
-    //*x += *x * mul_lut[mo] + add_lut[ao];
-    //*x *= mul_lut[mo];
-    //*x += add_lut[ao];
+    else {
+	*x = absx * (nn_rng_uniform_double(5.4) - 2.7);
+    }
 }
 
 static inline void
