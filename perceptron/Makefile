@@ -96,6 +96,10 @@ test:	clean install
 	$(CC)  $(CFLAGS)   nn_test.c -o /tmp/nn_test.o -l$(BASENAME) -lmcheck $(INCLUDES)
 	/tmp/nn_test.o
 
+random-test:	install
+	$(CC)  $(CFLAGS)   random-test.c -o /tmp/random-test.o -l$(BASENAME) -lmcheck $(INCLUDES)
+	/tmp/random-test.o
+
 python:	all install
 	$(PYTHON) setup.py clean
 	$(PYTHON) setup.py build_ext -lperceptron $(INCLUDES)  -f
