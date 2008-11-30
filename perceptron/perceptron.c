@@ -273,14 +273,17 @@ nn_save_weights(nn_Network_t *net, char *filename){
 	fprintf(f, LAYER_HEADER, net->layers[i].insize);
     }
     fprintf(f, DATA_HEADER, net->weight_alloc_size, sizeof(weight_t));
-    fputs(END_HEADER, f);
+    fprintf(f, END_HEADER);
     //write the net itself
     if (fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f)){
-        _warn("could'nt write to '%s'", filename);
-        return -1;
+        _warn("couldn't write to '%s'", filename);
+	goto fail;
     }
     fclose(f);
     return 0;
+  fail:
+    fclose(f);
+    return -1;
 }
 
 int
@@ -319,7 +322,6 @@ nn_load_weights(nn_Network_t *net, char *filename){
         goto hell;
     }
 
-    //shush += fseek(f, strlen(END_HEADER), SEEK_CUR);
     shush += fscanf(f, END_HEADER);
 
     if(size == sizeof(weight_t) &&
