@@ -1,13 +1,7 @@
 
 The files in this directory form a small neural network library
 (libperceptron) that I have used in a few projects.  It contains
-features not used by the wider Te Tuhi system.  
+features not used by the wider Te Tuhi system.
 
 If there is demand, libperceptron could be separated out from the
-tetuhi package, and additionally licensed as LGPL. That would require
-the removal of the GSL dependency, as GSL is GPL only.
-
-(removing the GSL dependency might be a good idea anyway, given that
-it is only used for random numbers).
-
-
+tetuhi package, and additionally licensed as LGPL.
