@@ -21,21 +21,17 @@ LIBNAME = lib$(BASENAME).a
 HEADERNAME = lib$(BASENAME).h
 
 
-#INCLUDES = -lm
-#LOCAL_OPTS	= -march=native
-
 #DEBUG_FLAGS = -g -O0
 DEBUG_FLAGS = -O3
 
 
 COMMON_OPTS =  $(DEBUG_FLAGS) -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer  -D_GNU_SOURCE
 
-#CC	= gcc-4.2
-#CC	= cgcc
 RANLIB	= true
-PYTHON	= python2.5
+PY_VERSION = $(shell python -c 'import sys; print sys.version[:3]')
+PYTHON = python$(PY_VERSION)
 
-include ./local.mak
+include ../config.mak
 
 PY_CFLAGS =    -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 

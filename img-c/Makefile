@@ -25,11 +25,12 @@ DEBUG_FLAGS = -O3
 COMMON_OPTS =   -pipe -ffast-math -std=gnu99 -Wall -fomit-frame-pointer -fno-PIC  -D_GNU_SOURCE
 
 
-#CC	= cgcc
 RANLIB	= true
-PYTHON	= python
+PY_VERSION = $(shell python -c 'import sys; print sys.version[:3]')
+PYTHON = python$(PY_VERSION)
 
-include ./local.mak
+
+include ../config.mak
 
 PY_CFLAGS =   $(DEBUG_FLAGS)  -Wall -pthread -fno-strict-aliasing -DNDEBUG -Wstrict-prototypes -fPIC -I/usr/include/$(PYTHON)
 
