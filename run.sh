@@ -23,5 +23,5 @@ LOG=./log/$(date +%F).log
 while true; do
     sleep 1
     echo "restarting at $(date +%T)" >> $LOG 2>&1
-    ./go.py -es >> $LOG 2>&1
+    ./tetuhi -es >> $LOG 2>&1
 done
