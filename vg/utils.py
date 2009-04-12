@@ -22,6 +22,11 @@ import time
 
 from vg import config
 
+def log(*messages):
+    for m in messages:
+        print >>sys.stdout, m
+    sys.stdout.flush()
+
 
 def id_generator(start=1, wrap=2000000000, prefix='', suffix='', pattern ='%s%s%s'):
     """Generator that can count. By default returns stringified
@@ -42,7 +47,7 @@ def make_dir(*args):
 def pickle(obj, fn=None):
     #for x in dir(obj):
     #    print "%20s:  %50s" % (x, getattr(obj, x))
-
+    print "pickling %s" % obj
     if fn is None:
         fn = tempfile.mkstemp('.pickle')[1]
     f = open(fn, 'w')
@@ -70,16 +75,39 @@ def fork_safely(logfile=config.CHILD_LOG, mode='a',logmode='PID'):
     if logmode == 'PID':
         logfile = config.LOG_FORMAT % os.getpid()
 
-    fdnull = open(os.devnull)
-    fdlog = open(logfile, mode)
-    os.dup2(fdnull.fileno(), sys.stdin.fileno())
-    os.dup2(fdlog.fileno(), sys.stdout.fileno())
-    os.dup2(fdlog.fileno(), sys.stderr.fileno())
     if not config.ALLOW_ERRORS_TO_KILL_X:
+        fextra = open(logfile + '.x_rubbish', 'a+')
+        fdextra = fextra.fileno()
         #shut out a whole lot of files in the (reasonable) hope that
         #one of them is X
-        for x in range(3, 10):
-            os.dup2(fdlog.fileno(), x)
+        #import fcntl
+
+        #XXX try shutting down input? sound?
+        for x in range(3, 19):
+            #XXX use os.fpathconf or statvfs to find out about the thing and replicate it better.
+            #v = fcntl.fcntl(x, fcntl.F_GETFL)
+            os.dup2(fdextra, x)
+            pass
+        log("dup2'd fds")
+        #os.system('lsof > /tmp/files.txt')
+        #import pygame
+        #pygame.quit()
+        #log("quit!")
+    #os._exit(0)
+
+
+    fnull = open(os.devnull, 'r')
+    flog = open(logfile, mode)
+    fdno = flog.fileno()
+    #print fdno, sys.stdin.fileno(), sys.stdout.fileno(), sys.stderr.fileno()
+    os.dup2(fnull.fileno(), sys.stdin.fileno())
+    os.dup2(fdno, sys.stdout.fileno())
+    os.dup2(fdno, sys.stderr.fileno())
+    # redirect at python level (also keeps file objects from garbage collection)
+    #sys.stdout = flog
+    #sys.stderr = flog
+    #sys.stdin = fnull
+
 
     return 0
 
@@ -88,18 +116,24 @@ def process_in_fork(function, display, processes, timeout):
     """make rules, in background processes"""
     children = []
     for i in range(processes):
+        print "handling child %s" %i
         child = fork_safely()
         #without this jump all the processes will give the same answer
         random.jumpahead(11)
         if not child:
             #in child
             try:
+                print "in child %s, to run %s" % (i, function)
+                #os._exit(0)
                 function()
-            except Exception, e:
+                print "in child %s, after %s" % (i, function)
+            except:
+                print "in child %s, with exception" % (i)
                 #exception will kill X window (and thus main process),
                 #so catch everything
                 traceback.print_exc()
                 sys.stderr.flush()
+            print "in child %s, wleaving" % (i,)
             os._exit(0)
         children.append(child)
 

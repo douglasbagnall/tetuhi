@@ -42,7 +42,7 @@ class GameMaker:
         self.background = bg
 
 
-    def find_game(self, fork=True):
+    def find_game(self):
         """return a game, presumably the best one possible.  If none
         can be found, a SriteError might be raised."""
         g = Game(self.background, self.sprites, self.window, entropy=self.entropy)

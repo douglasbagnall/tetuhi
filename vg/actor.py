@@ -24,7 +24,7 @@ from vg import config, utils, weights
 from vg.misc import GameOver
 from vg.rules import TYPE_MAP
 from vg import magic
-
+from vg.utils import log
 
 from config import DEAD, PLAYING, DYING
 
@@ -580,12 +580,12 @@ class Team:
 
         self.block_bits = 0xff
         self.die_bits = 0
-
+        log("applied rules to %s" % self)
 
     def grow_mind(self):
         """turn the rules' aims into a mind."""
         r = self.rules
-
+        print "growing mind"
         #work out whether this thing can fire bullets.
         # it has to be a) meant to and b) have bullets available
         fire_at = []
@@ -598,9 +598,10 @@ class Team:
             print r, r.__dict__
 
         self.net = weights.get_net(self)
-
+        print "setting weights"
 
         weights.get_weights(self.net, bit_pattern, self.rules.character, self.inputs_per_type, fire_at)
+        print "leaving grow_mind"
 
 
     def finalise(self):
@@ -617,6 +618,7 @@ class Team:
         print "rules.bullet is %s" % fired
 
         for i, x in enumerate(self.game.types):
+            print "dealing with type %s (%s) out of %s" % (i, x, self.game.types)
             if x in unblocks:
                 self.block_bits &= ~(2 ** i)
             if x in dies:
@@ -631,18 +633,19 @@ class Team:
                     f.team.start_playing = False
                 self.fires = True
                 self.firing_threshold = 0.66
-
+        print "about to grow mind"
         if self.inputs_per_type:
             self.grow_mind()
         else:
             self.net = None
+        print "about to reset sprites"
         for a in self.sprites:
             a.reset()
-
+        print "about to do magic"
         if self.rules.magic:
             self.magic_effect = random.choice(magic.effects)
         self.score = self.rules.score
-
+        print "leaving finalise"
 
     def do_magic(self):
         self.game.apply_magic(self.magic_effect)

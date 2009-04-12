@@ -21,6 +21,7 @@
  */
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "libperceptron.h"
 
 /*include the innermost loop from inline assembly */
@@ -262,7 +263,7 @@ nn_save_weights(nn_Network_t *net, char *filename){
     unsigned int i;
     FILE *f = fopen(filename, "wb");
     if (! f){
-        _warn("couldn't open file '%s'", filename);
+        _warn("couldn't open file '%s' (errno %d)\n", filename, errno);
         return -1;
     }
     /*descriptive headers at start */
@@ -276,7 +277,9 @@ nn_save_weights(nn_Network_t *net, char *filename){
     fprintf(f, END_HEADER);
     //write the net itself
     if (fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f)){
-        _warn("couldn't write to '%s'", filename);
+        _warn("couldn't write to '%s', errno %d\n", filename, errno);
+	int err = ferror(f);
+	_warn("got file error %d\n", err);
 	goto fail;
     }
     fclose(f);

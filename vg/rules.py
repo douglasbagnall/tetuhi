@@ -34,6 +34,8 @@ from vg import utils
 import random
 from bisect import bisect
 
+from vg.utils import log
+
 class TeamRules:
     def __init__(self, data):
         #XXX use cleverer defaults.
@@ -125,12 +127,12 @@ def add_rules(player, others):
     unassigned = others[:]
     for x in types:
         s, team = max((t.suitabilities[x.name], t) for t in unassigned)
-        print "picked %s for %s (suitability %s) out of %s" % (team, x, s, unassigned)
+        log("picked %s for %s (suitability %s) out of %s" % (team, x, s, unassigned))
         team.apply_rules(x)
         unassigned.remove(team)
-
+    log("now the player")
     player.apply_rules(random.choice(PLAYER_TYPES))
-
+    log("returning")
 
 
 def mutate_rules(teams, direction):

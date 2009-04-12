@@ -85,6 +85,9 @@ class Window:
             flags |= pygame.FULLSCREEN
             pygame.mouse.set_visible(False)
         self.screen = pygame.display.set_mode(size, flags)
+        #for k, v in pygame.display.get_wm_info().items():
+        #    print "%25s %s" %(k, v)
+
         self.clock =  pygame.time.Clock()
         if capture is not None:
             self.capturing = True

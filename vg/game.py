@@ -32,6 +32,7 @@ from vg import rules
 from vg import magic
 from vg.misc import GameEscape, GameOver, SpriteError, GameStop, ParseError
 
+from vg.utils import log
 
 class Game:
     """Represents a game.  The game forks into two processes, and
@@ -125,12 +126,14 @@ class Game:
         #can be made invincible to suitability imbalance?
 
         rules.add_rules(self.player_team, self.other_teams)
+        log("added rules")
 
         for i in range(config.RULE_GROWING_ATTEMPTS):
+            log("attempt %s" % i)
             self.types = ['wall'] + [x.rules.name for x in self.teams]
             r, score = self.trial(config.CUTOFF_LENGTH + 2)
             score = score // 8
-            print "trial with %s lasted %s" % (self.types, r)
+            log("trial with %s lasted %s" % (self.types, r))
             # diff from ideal matters, but overshooting is penalised
             if r > config.CUTOFF_LENGTH:
                 error = config.OVERSHOOT_PENALTY
@@ -145,12 +148,11 @@ class Game:
                 self.mutate_rules_meta()
 
             if time.time() > stop:
-                print "stopping due to timeout"
+                log("stopping due to timeout")
                 break
 
 
-        for x in reversed(sorted(results)):
-            print x
+        log(*reversed(sorted(results)))
         return min(results)
 
 
@@ -159,9 +161,13 @@ class Game:
         #utils.make_dir(config.DATA_ROOT)
 
         def grow():
+            log("hello")
             best = self._grow_rules()
+            log("got rules")
             fn = os.path.join(config.DATA_ROOT, "rules-%s.pickle" % os.getpid())
             utils.pickle(best, fn)
+            log("pickled rules")
+            os.exit()
 
         def display():
             self.window.twiddle(0.5, self)
@@ -175,8 +181,7 @@ class Game:
                 if config.TIDY_FILES:
                     os.remove(fn)
             except IOError, e:
-                print "missing out on pid %s"
-                print e
+                log("missing out on pid %s", e)
         if not results:
             # the game is crashing
             raise ParseError("Sorry. The artist was lazy and stupid, and the machine can't handle your picture.")
@@ -189,9 +194,9 @@ class Game:
 
         rules.apply_rules(self.teams, self.types[1:])
 
-        print "%s teams:" % len(self.teams)
+        log("%s teams:" % len(self.teams))
         for t in self.teams:
-            print t.size, t, t.rules
+            log(t.size, t, t.rules)
 
 
     def reset(self):
@@ -205,13 +210,16 @@ class Game:
         """Play automatically, without display.  Return the number of
         rounds played (before GameOver raised).  If there is no
         GameOver before cutoff is reached, stop anyway."""
+        log("trial with cutoff %s" % cutoff)
         self.finalise_rules()
+        log("finalised")
         self.reset()
+        log("reset")
         self.play_state = config.STATE_TRIAL
         self.player_score = 0
         PLAYING = config.PLAYING
         DYING = config.DYING
-        print "trial with types %s" % self.types
+        log("trial with types %s" % self.types)
         self.game_over = False
         for r in range(cutoff):
             for s in self.sprites:
@@ -237,13 +245,14 @@ class Game:
 
     def end(self):
         self.game_over = True
-        print "player is down!"
+        log("player is down!")
 
     def finalise_rules(self):
         self.food_sprites = []
         self.enemy_sprites = []
         self.ally_sprites = []
         for t in self.teams:
+            log('about to finalise %s' %t)
             t.finalise()
             if t.rules.sprite_group == 'monster':
                 self.enemy_sprites.extend(t.sprites)
@@ -339,7 +348,7 @@ class Game:
         except Exception, e:
             self.playing = False
             t = time.time() - start
-            print "%s ticks in %s seconds: %s per sec" % (r, t, r/t)
+            log("%s ticks in %s seconds: %s per sec" % (r, t, r/t))
             self.save_map(r)
             if not isinstance(e, (GameEscape, GameOver, GameStop)):
                 raise

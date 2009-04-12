@@ -108,23 +108,28 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
     """
     #XXX not pretty
     #XXX later, look in database of previously used nets.
+    print "in get weights"
     bits = len(bit_pattern)
     if len(net.shape) == 3:
+        print "getting net.shape"
         n_inputs, n_hidden, n_outputs = net.shape
     else:
         n_inputs, n_outputs = net.shape
         n_hidden = n_outputs
     if config.RANDOMISE_WEIGHTS:
+        print "randomising"
         net.randomise((-0.01, 0.01))
+        print "randomised"
     else:
+        print "zeroing"
         net.zero_weights()
-
+    print "still in get weights"
     # nodes relating to directions
     for i, b in enumerate(bit_pattern):
         intention, attention = b
         if intention is not None:
             _set_weights(net, i, inputs_per_type, attention, *weight_sets[intention])
-
+    print "still in get weights"
     #directionless nodes
     for c, b, weights in extra_weights:
         if c in character:
@@ -137,17 +142,17 @@ def get_weights(net, bit_pattern, character, inputs_per_type, fire_at):
         for i in range(inputs_per_type):
             net.set_single_weight(0, s + i, fire_output, fire_weights[i])
 
-
+    print "still in get weights"
     if len(net.shape) == 3:
         #feed straight through from hidden to output.
         #XXX should put other nodes to use.
         for o in range(n_outputs):
             net.set_single_weight(1, o, o, 1)
-
+    print "still in get weights"
     name = '-'.join(str(x) for x in bit_pattern)
     #net.save_weights('/tmp/%s.weights' % name)
     #net.dump_weights('/tmp/%s.dump' % name)
-
+    print "still in get weights"
 
 
 

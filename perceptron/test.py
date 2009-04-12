@@ -355,7 +355,9 @@ if __name__ == '__main__':
 
         
     #test_pickle()
-    if 0:
+    if 1:
+        learn_count()
+        test_save(learn_count)
         learn_xor_neg('anneal')
         learn_xor_neg('backprop')
         learn_xor('anneal')
@@ -365,7 +367,5 @@ if __name__ == '__main__':
         print len(n.weights)
         learn_symmetry('anneal')
         learn_symmetry('both')
-        learn_count()
-        test_save(learn_count)
         test_weight_strings(learn_count)
     print "ending!"
