@@ -545,9 +545,10 @@ Network_save_weights (PyObject *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "s", &filename))
         return NULL;
 
-    if (nn_save_weights(((Network_object *)self)->net, filename) < 0){
-	return PyErr_Format(PyExc_IOError, "error saving network to %s",
-			    filename);
+    int err = nn_save_weights(((Network_object *)self)->net, filename);
+    if (err < 0){
+	return PyErr_Format(PyExc_IOError, "error saving network to %s (errror %d)",
+			    filename, err);
     }
     return Py_BuildValue("");
 }
