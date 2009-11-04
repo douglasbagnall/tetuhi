@@ -34,7 +34,7 @@ class SoundManager:
 
     def load(self, filename):
         """Load up the class copies of yaml data"""
-        self.sounds[:] = yaml_load(filename)
+        self.sounds[:] = utils.yaml_load(filename)
         for x in self.sounds:
             for s in x['suitability']:
                 sounds = self.sets.setdefault(s, [])
