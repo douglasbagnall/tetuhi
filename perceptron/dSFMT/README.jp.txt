@@ -1,6 +1,6 @@
  =================================================================
- dSFMT ver. 2.0
- 2008.08.27
+ dSFMT ver. 2.1
+ 2009.04.18
 
  double precision SIMD oriented Fast Mersenne Twister(dSFMT)
  based on IEEE 754 floating point format.
@@ -8,8 +8,8 @@
  Mutsuo Saito (Hiroshima University) and
  Makoto Matsumoto (Hiroshima University)
 
- Copyright (C) 2007, 2008 Mutsuo Saito, Makoto Matsumoto and Hiroshima
- University. All rights reserved.
+ Copyright (C) 2007, 2008, 2009 Mutsuo Saito, Makoto Matsumoto and
+ Hiroshima University. All rights reserved.
 
  The (modified) BSD License is applied to this software, see
  LICENSE.txt
@@ -18,7 +18,7 @@
  ドキュメントは、たとえ英語が文法的に正しくない場合でも、英語版が正式な
  ものです。
 
- dSFMT2.0 はdSFMT1.x とは擬似乱数生成の漸化式が違います。つまり、
+ dSFMT2.0 および 2.1 はdSFMT1.x とは擬似乱数生成の漸化式が違います。つまり、
  dSFMT1.xと同じ初期値を与えても異なる擬似欄数列を生成します。
 
  doxygen によって生成されたドキュメント（英語）が、html ディレクトリの

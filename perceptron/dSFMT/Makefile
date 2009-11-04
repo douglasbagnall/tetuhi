@@ -33,13 +33,16 @@ OSXALTIFLAGS = -faltivec -maltivec -DHAVE_ALTIVEC
 SSE2FLAGS = -msse2 -DHAVE_SSE2
 STD_TARGET = test-std-M19937
 ALL_STD_TARGET = test-std-M521 test-std-M1279 test-std-M2203 test-std-M4253 \
-test-std-M11213 test-std-M19937
+test-std-M11213 test-std-M19937 test-std-M44497 test-std-M86243 \
+test-std-M132049 test-std-M216091
 ALTI_TARGET = $(STD_TARGET) test-alti-M19937
 ALL_ALTI_TARGET = test-alti-M521 test-alti-M1279 test-alti-M2203 \
-test-alti-M4253 test-alti-M11213 test-alti-M19937
+test-alti-M4253 test-alti-M11213 test-alti-M19937 test-alti-M44497 \
+test-alti-M86243 test-alti-M132049 test-alti-M216091
 SSE2_TARGET = $(STD_TARGET) test-sse2-M19937
 ALL_SSE2_TARGET = test-sse2-M521 test-sse2-M1279 test-sse2-M2203 \
-test-sse2-M4253 test-sse2-M11213 test-sse2-M19937
+test-sse2-M4253 test-sse2-M11213 test-sse2-M19937 test-sse2-M44497 \
+test-sse2-M86243 test-sse2-M132049 test-sse2-M216091
 # ==========================================================
 # comment out or EDIT following lines to get max performance
 # ==========================================================
@@ -148,6 +151,42 @@ test-alti-M19937: test.c dSFMT.c dSFMT.h
 
 test-sse2-M19937: test.c dSFMT.c dSFMT.h
 	${CC} ${CCFLAGS} ${SSE2FLAGS} -DDSFMT_MEXP=19937 -o $@ dSFMT.c test.c
+
+test-std-M44497: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} -DDSFMT_MEXP=44497 -o $@ dSFMT.c test.c
+
+test-alti-M44497: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${ALTIFLAGS} -DDSFMT_MEXP=44497 -o $@ dSFMT.c test.c
+
+test-sse2-M44497: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${SSE2FLAGS} -DDSFMT_MEXP=44497 -o $@ dSFMT.c test.c
+
+test-std-M86243: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} -DDSFMT_MEXP=86243 -o $@ dSFMT.c test.c
+
+test-alti-M86243: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${ALTIFLAGS} -DDSFMT_MEXP=86243 -o $@ dSFMT.c test.c
+
+test-sse2-M86243: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${SSE2FLAGS} -DDSFMT_MEXP=86243 -o $@ dSFMT.c test.c
+
+test-std-M132049: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} -DDSFMT_MEXP=132049 -o $@ dSFMT.c test.c
+
+test-alti-M132049: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${ALTIFLAGS} -DDSFMT_MEXP=132049 -o $@ dSFMT.c test.c
+
+test-sse2-M132049: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${SSE2FLAGS} -DDSFMT_MEXP=132049 -o $@ dSFMT.c test.c
+
+test-std-M216091: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} -DDSFMT_MEXP=216091 -o $@ dSFMT.c test.c
+
+test-alti-M216091: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${ALTIFLAGS} -DDSFMT_MEXP=216091 -o $@ dSFMT.c test.c
+
+test-sse2-M216091: test.c dSFMT.c dSFMT.h
+	${CC} ${CCFLAGS} ${SSE2FLAGS} -DDSFMT_MEXP=216091 -o $@ dSFMT.c test.c
 
 .c.o:
 	${CC} ${CCFLAGS} -c $<

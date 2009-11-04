@@ -43,7 +43,7 @@
 /*-----------------
   BASIC DEFINITIONS
   -----------------*/
-/** Mersenne Exponent. The period of the sequence 
+/* Mersenne Exponent. The period of the sequence 
  *  is a multiple of 2^DSFMT_MEXP-1.
  * #define DSFMT_MEXP 19937 */
 /** DSFMT generator has an internal state array of 128-bit integers,
@@ -88,7 +88,8 @@
 #elif defined(_MSC_VER) || defined(__BORLANDC__)
 #  if !defined(DSFMT_UINT32_DEFINED) && !defined(SFMT_UINT32_DEFINED)
 typedef unsigned int uint32_t;
-typedef unsigned long long uint64_t;
+typedef unsigned __int64 uint64_t;
+#    define UINT64_C(v) (v ## ui64)
 #    define DSFMT_UINT32_DEFINED
 #    if !defined(inline)
 #      define inline __inline
@@ -184,12 +185,13 @@ int dsfmt_get_min_array_size(void);
 #  define DSFMT_PRE_INLINE inline static
 #  define DSFMT_PST_INLINE __attribute__((always_inline))
 #elif defined(_MSC_VER) && _MSC_VER >= 1200
-#  define DSFMT_PRE_INLINE __forceinline
+#  define DSFMT_PRE_INLINE __forceinline static
 #  define DSFMT_PST_INLINE
 #else
 #  define DSFMT_PRE_INLINE inline static
 #  define DSFMT_PST_INLINE
 #endif
+DSFMT_PRE_INLINE uint32_t dsfmt_genrand_uint32(dsfmt_t *dsfmt) DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_genrand_close1_open2(dsfmt_t *dsfmt)
     DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_genrand_close_open(dsfmt_t *dsfmt)
@@ -198,6 +200,7 @@ DSFMT_PRE_INLINE double dsfmt_genrand_open_close(dsfmt_t *dsfmt)
     DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_genrand_open_open(dsfmt_t *dsfmt)
     DSFMT_PST_INLINE;
+DSFMT_PRE_INLINE uint32_t dsfmt_gv_genrand_uint32(void) DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_gv_genrand_close1_open2(void) DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_gv_genrand_close_open(void) DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE double dsfmt_gv_genrand_open_close(void) DSFMT_PST_INLINE;
@@ -217,6 +220,26 @@ DSFMT_PRE_INLINE void dsfmt_init_gen_rand(dsfmt_t *dsfmt, uint32_t seed)
     DSFMT_PST_INLINE;
 DSFMT_PRE_INLINE void dsfmt_init_by_array(dsfmt_t *dsfmt, uint32_t init_key[],
 					  int key_length) DSFMT_PST_INLINE;
+
+/**
+ * This function generates and returns unsigned 32-bit integer.
+ * This is slower than SFMT, only for convenience usage.
+ * dsfmt_init_gen_rand() or dsfmt_init_by_array() must be called
+ * before this function.
+ * @param dsfmt dsfmt internal state date
+ * @return double precision floating point pseudorandom number
+ */
+inline static uint32_t dsfmt_genrand_uint32(dsfmt_t *dsfmt) {
+    uint32_t r;
+    uint64_t *psfmt64 = &dsfmt->status[0].u[0];
+
+    if (dsfmt->idx >= DSFMT_N64) {
+	dsfmt_gen_rand_all(dsfmt);
+	dsfmt->idx = 0;
+    }
+    r = psfmt64[dsfmt->idx++] & 0xffffffffU;
+    return r;
+}
 
 /**
  * This function generates and returns double precision pseudorandom
@@ -240,9 +263,19 @@ inline static double dsfmt_genrand_close1_open2(dsfmt_t *dsfmt) {
 }
 
 /**
+ * This function generates and returns unsigned 32-bit integer.
+ * This is slower than SFMT, only for convenience usage.
+ * dsfmt_gv_init_gen_rand() or dsfmt_gv_init_by_array() must be called
+ * before this function.  This function uses \b global variables.
+ * @return double precision floating point pseudorandom number
+ */
+inline static uint32_t dsfmt_gv_genrand_uint32(void) {
+    return dsfmt_genrand_uint32(&dsfmt_global_data);
+}
+
+/**
  * This function generates and returns double precision pseudorandom
- * number which distributes uniformly in the range [1, 2).  This is
- * the primitive and faster than generating numbers in other ranges.
+ * number which distributes uniformly in the range [1, 2).
  * dsfmt_gv_init_gen_rand() or dsfmt_gv_init_by_array() must be called
  * before this function. This function uses \b global variables.
  * @return double precision floating point pseudorandom number

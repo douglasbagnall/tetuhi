@@ -26,13 +26,13 @@ static const int dsfmt_mexp = DSFMT_MEXP;
   ----------------*/
 inline static uint32_t ini_func1(uint32_t x);
 inline static uint32_t ini_func2(uint32_t x);
-inline static void gen_rand_array_c1o2(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_c1o2(dsfmt_t *dsfmt, w128_t *array,
 				       int size);
-inline static void gen_rand_array_c0o1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_c0o1(dsfmt_t *dsfmt, w128_t *array,
 				       int size);
-inline static void gen_rand_array_o0c1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_o0c1(dsfmt_t *dsfmt, w128_t *array,
 				       int size);
-inline static void gen_rand_array_o0o1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_o0o1(dsfmt_t *dsfmt, w128_t *array,
 				       int size);
 inline static int idxof(int i);
 static void initial_mask(dsfmt_t *dsfmt);
@@ -240,7 +240,7 @@ inline static void convert_o0o1(w128_t *w) {
  * @param array an 128-bit array to be filled by pseudorandom numbers.  
  * @param size number of 128-bit pseudorandom numbers to be generated.
  */
-inline static void gen_rand_array_c1o2(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_c1o2(dsfmt_t *dsfmt, w128_t *array,
 				       int size) {
     int i, j;
     w128_t lung;
@@ -278,7 +278,7 @@ inline static void gen_rand_array_c1o2(dsfmt_t *dsfmt, w128_t array[],
  * @param array an 128-bit array to be filled by pseudorandom numbers.  
  * @param size number of 128-bit pseudorandom numbers to be generated.
  */
-inline static void gen_rand_array_c0o1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_c0o1(dsfmt_t *dsfmt, w128_t *array,
 				       int size) {
     int i, j;
     w128_t lung;
@@ -321,7 +321,7 @@ inline static void gen_rand_array_c0o1(dsfmt_t *dsfmt, w128_t array[],
  * @param array an 128-bit array to be filled by pseudorandom numbers.  
  * @param size number of 128-bit pseudorandom numbers to be generated.
  */
-inline static void gen_rand_array_o0o1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_o0o1(dsfmt_t *dsfmt, w128_t *array,
 				       int size) {
     int i, j;
     w128_t lung;
@@ -364,7 +364,7 @@ inline static void gen_rand_array_o0o1(dsfmt_t *dsfmt, w128_t array[],
  * @param array an 128-bit array to be filled by pseudorandom numbers.  
  * @param size number of 128-bit pseudorandom numbers to be generated.
  */
-inline static void gen_rand_array_o0c1(dsfmt_t *dsfmt, w128_t array[],
+inline static void gen_rand_array_o0c1(dsfmt_t *dsfmt, w128_t *array,
 				       int size) {
     int i, j;
     w128_t lung;
@@ -443,13 +443,18 @@ static void period_certification(dsfmt_t *dsfmt) {
     uint64_t pcv[2] = {DSFMT_PCV1, DSFMT_PCV2};
     uint64_t tmp[2];
     uint64_t inner;
+    int i;
+#if (DSFMT_PCV2 & 1) != 1
+    int j;
+    uint64_t work;
+#endif
 
     tmp[0] = (dsfmt->status[DSFMT_N].u[0] ^ DSFMT_FIX1);
     tmp[1] = (dsfmt->status[DSFMT_N].u[1] ^ DSFMT_FIX2);
 
     inner = tmp[0] & pcv[0];
     inner ^= tmp[1] & pcv[1];
-    for (int i = 32; i > 0; i >>= 1) {
+    for (i = 32; i > 0; i >>= 1) {
         inner ^= inner >> i;
     }
     inner &= 1;
@@ -461,10 +466,9 @@ static void period_certification(dsfmt_t *dsfmt) {
 #if (DSFMT_PCV2 & 1) == 1
     dsfmt->status[DSFMT_N].u[1] ^= 1;
 #else
-    uint64_t work;
-    for (int i = 1; i >= 0; i--) {
+    for (i = 1; i >= 0; i--) {
 	work = 1;
-	for (int j = 0; j < 64; j++) {
+	for (j = 0; j < 64; j++) {
 	    if ((work & pcv[i]) != 0) {
 		dsfmt->status[DSFMT_N].u[i] ^= work;
 		return;
@@ -687,7 +691,6 @@ void dsfmt_chk_init_by_array(dsfmt_t *dsfmt, uint32_t init_key[],
     r += key_length;
     psfmt32[idxof((mid + lag) % size)] += r;
     psfmt32[idxof(0)] = r;
-    i = 1;
     count--;
     for (i = 1, j = 0; (j < count) && (j < key_length); j++) {
 	r = ini_func1(psfmt32[idxof(i)] 

@@ -1,6 +1,6 @@
  =================================================================
- dSFMT ver. 2.0
- 2008.08.27
+ dSFMT ver. 2.1
+ 2009.04.18
 
  double precision SIMD oriented Fast Mersenne Twister(dSFMT)
  based on IEEE 754 floating point format.
@@ -8,15 +8,15 @@
  Mutsuo Saito (Hiroshima University) and
  Makoto Matsumoto (Hiroshima University)
 
- Copyright (C) 2007, 2008 Mutsuo Saito, Makoto Matsumoto and Hiroshima
- University. All rights reserved.
+ Copyright (C) 2007, 2008, 2009 Mutsuo Saito, Makoto Matsumoto and
+ Hiroshima University. All rights reserved.
 
  The (modified) BSD License is applied to this software, see
  LICENSE.txt
  =================================================================
  The documents written in English is the official one.
 
- dSFMT ver 2.0 is completely different from dSFMT ver 1.xx.
+ dSFMT ver. 2.0 and ver. 2.1 are completely different from dSFMT ver 1.xx.
  The algorithm is changed.
 
  This program only works on systems which have IEEE754 floating point
