@@ -276,8 +276,10 @@ nn_save_weights(nn_Network_t *net, char *filename){
     fprintf(f, DATA_HEADER, net->weight_alloc_size, sizeof(weight_t));
     fprintf(f, END_HEADER);
     //write the net itself
-    if (fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f)){
-        _warn("couldn't write to '%s', errno %d\n", filename, errno);
+    size_t written = fwrite(net->weights, sizeof(weight_t), net->weight_alloc_size, f);
+    if (written != net->weight_alloc_size){
+        _warn("error writing to '%s', short by %d items out of %d\n",
+	      filename, written, net->weight_alloc_size);
 	int err = ferror(f);
 	_warn("got file error %d\n", err);
 	goto fail;
