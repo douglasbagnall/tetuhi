@@ -20,6 +20,7 @@
 import cPickle, os, sys
 import time
 import random
+import traceback
 
 from semanticCore import Gamemap
 
@@ -161,13 +162,17 @@ class Game:
         #utils.make_dir(config.DATA_ROOT)
 
         def grow():
-            log("hello")
-            best = self._grow_rules()
-            log("got rules")
-            fn = os.path.join(config.DATA_ROOT, "rules-%s.pickle" % os.getpid())
-            utils.pickle(best, fn)
-            log("pickled rules")
-            os.exit()
+            try:
+                log("hello")
+                best = self._grow_rules()
+                log("got rules")
+                fn = os.path.join(config.DATA_ROOT, "rules-%s.pickle" % os.getpid())
+                utils.pickle(best, fn)
+                log("pickled rules")
+            except Exception, e:
+                traceback.print_exc()
+                os._exit(os.EX_SOFTWARE)
+            os._exit(0)
 
         def display():
             self.window.twiddle(0.5, self)
