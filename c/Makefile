@@ -95,7 +95,8 @@ python: all install
 	$(CC) -pthread -shared -Wl,-O1 semantic.o -lgamemap -o semanticCore.so
 
 python-install: python
-	mv semanticCore.so /usr/local/lib/$(PYTHON)/site-packages/
+	cp semanticCore.so /usr/local/lib/$(PYTHON)/site-packages/ || echo 'no site-packages'
+	mv semanticCore.so /usr/local/lib/$(PYTHON)/dist-packages/ || echo 'no dist-packages'
 #	$(PYTHON) setup.py install_lib --install-dir /usr/local/lib/$(PYTHON)/site-packages  -f
 #	$(PYTHON) -c 'import nnpy;print dir(nnpy)'
 

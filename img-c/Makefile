@@ -72,7 +72,8 @@ python:
 	$(CC) -pthread -shared -Wl,-O1 $(BASENAME).o  -o $(PYNAME)
 
 python-install: python
-	mv $(PYNAME) /usr/local/lib/$(PYTHON)/site-packages/
+	cp $(PYNAME) /usr/local/lib/$(PYTHON)/site-packages/ || echo 'no site-packages'
+	mv $(PYNAME) /usr/local/lib/$(PYTHON)/dist-packages/ || echo 'no dist-packages'
 
 python-test: python-install
 	$(PYTHON) test.py

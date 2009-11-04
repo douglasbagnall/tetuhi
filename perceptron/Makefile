@@ -104,7 +104,8 @@ python:	all install
 	$(PYTHON) setup.py build_ext -lperceptron $(INCLUDES)  -f
 
 python-install:	python
-	$(PYTHON) setup.py install --install-lib /usr/local/lib/$(PYTHON)/site-packages  -f
+	$(PYTHON) setup.py install  -f
+#	$(PYTHON) setup.py install --install-lib /usr/local/lib/$(PYTHON)/site-packages  -f
 	$(PYTHON) -c 'import nnpy;print dir(nnpy)'
 
 python-test: python-install
