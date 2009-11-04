@@ -47,7 +47,7 @@ def make_dir(*args):
 def pickle(obj, fn=None):
     #for x in dir(obj):
     #    print "%20s:  %50s" % (x, getattr(obj, x))
-    print "pickling %s" % obj
+    print "pickling %s" % (obj,)
     if fn is None:
         fn = tempfile.mkstemp('.pickle')[1]
     f = open(fn, 'w')
