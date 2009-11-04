@@ -4,3 +4,6 @@
 *.o
 *.a
 *.so
+log/*
+data/rules*
+.emacs*
