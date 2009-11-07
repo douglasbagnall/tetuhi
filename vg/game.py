@@ -353,7 +353,7 @@ class Game:
         except Exception, e:
             self.playing = False
             t = time.time() - start
-            log("%s ticks in %s seconds: %s per sec" % (r, t, r/t))
+            log("%s ticks in %s seconds: ~ %s per sec" % (r, t, (r + 0.5)/t))
             self.save_map(r)
             if not isinstance(e, (GameEscape, GameOver, GameStop)):
                 raise
