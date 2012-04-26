@@ -33,7 +33,7 @@
 
 #define ITERATIONS 100000000
 
-int test_doubles(){
+int test_doubles(void){
     nn_rng_init(3);
     int i, j;
     double total, t;
@@ -54,7 +54,7 @@ int test_doubles(){
     return 0;
 }
 
-int test_ints(){
+int test_ints(void){
     nn_rng_init(3);
     unsigned int i, j, total;
     double t;

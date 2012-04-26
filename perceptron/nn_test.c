@@ -85,7 +85,7 @@
 
 
 nn_Network_t *
-get_test_net(){
+get_test_net(void){
     unsigned int sizes[NN_MAX_LAYERS] = TEST_SHAPE;
     nn_Network_t *net = nn_new_network(sizes, TEST_BIAS);
     nn_randomise_weights(net, -TEST_RAND_EXTREMA, TEST_RAND_EXTREMA);
@@ -132,7 +132,7 @@ show_opinions(nn_Network_t *net, weight_t *inputs, int len,
 /* opinion speed test */
 
 void
-test_opinion_speed(){
+test_opinion_speed(void){
     int i;
     int N = 1000000;
     unsigned int shape[6] = {57, 15, 1, 0};
@@ -159,7 +159,7 @@ test_opinion_speed(){
 
 
 nn_Network_t *
-test_backprop(){
+test_backprop(void){
     nn_Network_t *net = get_test_net();
     weight_t inputs[] = TEST_INPUTS;
     weight_t targets[] = TEST_OUTPUTS;
@@ -217,7 +217,7 @@ print_vectors_of_length(nn_Network_t *net, int n){
 
 
 int
-test_best_of_set(){
+test_best_of_set(void){
     unsigned int sizes[NN_MAX_LAYERS] = SET_SHAPE;
     nn_Network_t *net = nn_new_network(sizes, SET_BIAS);
     weight_t inputs[] = SET_INPUTS;
@@ -261,7 +261,7 @@ test_best_of_set(){
 }
 
 int
-test_best_of_set_genetic(){
+test_best_of_set_genetic(void){
     unsigned int sizes[NN_MAX_LAYERS] = SET_SHAPE;
     nn_Network_t *net = nn_new_network(sizes, SET_BIAS);
     weight_t inputs[] = SET_INPUTS;
@@ -312,7 +312,7 @@ test_best_of_set_genetic(){
 
 
 
-int test_anneal(){
+int test_anneal(void){
     nn_Network_t *net = get_test_net();
     weight_t inputs[] = TEST_INPUTS;
     weight_t targets[] = TEST_OUTPUTS;
